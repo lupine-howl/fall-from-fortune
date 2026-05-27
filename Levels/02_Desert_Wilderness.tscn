@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4whl47b2444s"]
 
 [ext_resource type="Texture2D" uid="uid://c8twhf7kem7sx" path="res://Blue.png" id="1_6dht6"]
+[ext_resource type="Texture2D" uid="uid://col1pvpcqoyy6" path="res://Assets/Tilesets/desert-2d-tileset-pixel-art/2 Background/Background.png" id="1_12plo"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_m4l5w"]
 [ext_resource type="Texture2D" uid="uid://su8vfadl85mm" path="res://Assets/Tilesets/desert-2d-tileset-pixel-art/1 Tiles/Tileset.png" id="3_3rtua"]
 [ext_resource type="PackedScene" uid="uid://bflqvsxduexq6" path="res://main_character.tscn" id="3_ngfbm"]
@@ -566,21 +567,21 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tda05")
 sources/1 = SubResource("TileSetAtlasSource_12plo")
 
-[node name="Game" type="Node" unique_id=1519557901]
+[node name="Game2" type="Node" unique_id=1519557901]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1084161392]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 45.0
-offset_top = -1103.0
-offset_right = 5236.0
-offset_bottom = 1527.0
+offset_left = -304.0
+offset_top = -1208.6875
+offset_right = 5306.0
+offset_bottom = 1554.3125
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_6dht6")
-stretch_mode = 1
+texture = ExtResource("1_12plo")
+expand_mode = 5
 
 [node name="Blue" type="Sprite2D" parent="." unique_id=2115005758]
 position = Vector2(-349, 660)
