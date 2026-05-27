@@ -34,3 +34,4 @@ player=""
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.10980392, 0.07058824, 0.105882354, 1)

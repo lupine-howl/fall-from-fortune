@@ -187,8 +187,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmkwl"]
-size = Vector2(43, 47)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2q423"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1112045624 groups=["player"]]
 script = ExtResource("1_2q423")
@@ -203,4 +202,4 @@ autoplay = "3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1672941943]
 position = Vector2(59.5, 91.5)
-shape = SubResource("RectangleShape2D_wmkwl")
+shape = SubResource("CapsuleShape2D_2q423")
