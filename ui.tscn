@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bly6jwe7hmnto"]
+
+[ext_resource type="Texture2D" uid="uid://b5wmcsthhui46" path="res://Assets/Pixel Heart/Pixel Heart Sprite 16x16.png" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://dxy0h6x6bnes2" path="res://ui.gd" id="1_m6e0p"]
+
+[node name="UI" type="CanvasLayer" unique_id=1193584622]
+script = ExtResource("1_m6e0p")
+
+[node name="Panel" type="Panel" parent="." unique_id=865592473]
+offset_right = 107.0
+offset_bottom = 46.0
+
+[node name="PointsLabel" type="Label" parent="Panel" unique_id=446827231]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -11.5
+offset_right = 33.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Points: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hearts" type="Panel" parent="." unique_id=1313793561]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -120.0
+offset_bottom = 46.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="HeartsBackground" type="TextureRect" parent="Hearts" unique_id=438824352]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 90.0
+offset_bottom = 31.0
+texture = ExtResource("1_fyqef")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="HeartsForeground" type="TextureRect" parent="Hearts" unique_id=1662622253]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 90.0
+offset_bottom = 31.0
+texture = ExtResource("1_fyqef")
+expand_mode = 2
+stretch_mode = 1

@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_h6r3p"]
 [ext_resource type="PackedScene" uid="uid://bflqvsxduexq6" path="res://main_character.tscn" id="3_8ngk4"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://collectible.tscn" id="4_5dikx"]
-[ext_resource type="Script" uid="uid://kqo8fquq1ru6" path="res://game_manager.gd" id="5_1m30y"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_0g3g8"]
 [ext_resource type="PackedScene" uid="uid://c4whl47b2444s" path="res://Levels/02_Desert_Wilderness.tscn" id="7_rkykt"]
-[ext_resource type="Texture2D" uid="uid://b5wmcsthhui46" path="res://Assets/Pixel Heart/Pixel Heart Sprite 16x16.png" id="8_h6r3p"]
+[ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="8_h6r3p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tda05"]
 texture = ExtResource("2_h6r3p")
@@ -345,71 +344,9 @@ rotation_smoothing_speed = 7.0
 position = Vector2(234, 413)
 metadata/_edit_group_ = true
 
-[node name="GameManager" type="Node" parent="." unique_id=1633255067]
-unique_name_in_owner = true
-script = ExtResource("5_1m30y")
-
 [node name="Exit" parent="." unique_id=1922568324 instance=ExtResource("6_0g3g8")]
 position = Vector2(373, 305)
 target_level = ExtResource("7_rkykt")
 metadata/_edit_group_ = true
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=209148547]
-
-[node name="Panel" type="Panel" parent="UI" unique_id=394077643]
-offset_right = 107.0
-offset_bottom = 46.0
-
-[node name="PointsLabel" type="Label" parent="UI/Panel" unique_id=1665438021]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.5
-offset_top = -11.5
-offset_right = 33.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Points: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Hearts" type="Panel" parent="UI" unique_id=1848582628]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -120.0
-offset_bottom = 46.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearts" unique_id=1874218131]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 112.0
-offset_bottom = 40.0
-metadata/_edit_group_ = true
-
-[node name="Heart" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1104854916]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_h6r3p")
-expand_mode = 2
-
-[node name="Heart2" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=713814567]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_h6r3p")
-expand_mode = 2
-
-[node name="Heart3" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1038109756]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_h6r3p")
-expand_mode = 2
+[node name="UI" parent="." unique_id=1193584622 instance=ExtResource("8_h6r3p")]
