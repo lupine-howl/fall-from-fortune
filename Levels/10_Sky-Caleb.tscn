@@ -383,7 +383,7 @@ size = Vector2(140, 51)
 
 [sub_resource type="Curve2D" id="Curve2D_tuh8u"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1000, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, -361, -15, 0, 0, 0, 0, -366, -450, 0, 0, 0, 0, 0, 0)
 }
 point_count = 3
 
@@ -463,6 +463,7 @@ position = Vector2(-400, 300)
 curve = SubResource("Curve2D_tuh8u")
 
 [node name="CloudPathFollow" type="PathFollow2D" parent="CloudPath" unique_id=1367086565]
+position = Vector2(-361, -15)
 rotates = false
 script = ExtResource("9_68iev")
 
@@ -478,6 +479,31 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-1, 1, 3, -65536, 65537, 3, -65535, 131073, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CloudPath/CloudPathFollow/MovingPlatform" unique_id=1069446993]
+position = Vector2(26, -4)
+shape = SubResource("RectangleShape2D_o5obx")
+one_way_collision = true
+
+[node name="CloudPath2" type="Path2D" parent="." unique_id=878607757]
+position = Vector2(2200, 300)
+curve = SubResource("Curve2D_tuh8u")
+
+[node name="CloudPathFollow" type="PathFollow2D" parent="CloudPath2" unique_id=352143124]
+position = Vector2(-361, -15)
+rotates = false
+script = ExtResource("9_68iev")
+
+[node name="MovingPlatform" type="AnimatableBody2D" parent="CloudPath2/CloudPathFollow" unique_id=1212967711]
+sync_to_physics = false
+
+[node name="TileMap2" type="TileMap" parent="CloudPath2/CloudPathFollow/MovingPlatform" unique_id=600940194]
+texture_filter = 1
+position = Vector2(1, 0)
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_qn3nj")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 65537, 4, -65536, 131073, 4, -65535, 196609, 4, -2, 1, 4, 65534, 1, 5, 131070, 1, 6, 196606, 1, 7, 65535, 65537, 5, 131071, 65537, 6, 196607, 65537, 7, 0, 131073, 5, 65536, 131073, 6, 131072, 131073, 7, 1, 196609, 5, 65537, 196609, 6, 131073, 196609, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloudPath2/CloudPathFollow/MovingPlatform" unique_id=503718333]
 position = Vector2(26, -4)
 shape = SubResource("RectangleShape2D_o5obx")
 one_way_collision = true
