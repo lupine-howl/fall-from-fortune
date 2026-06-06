@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://dpj2ed23nxprf" path="res://player/player.gd" id="1_rgyib"]
 [ext_resource type="Texture2D" uid="uid://d3n4c8xhllus4" path="res://player/assets/player_katana_attack_running.png" id="2_8t03j"]
 [ext_resource type="Texture2D" uid="uid://ptluifgdfdmk" path="res://player/assets/player_death.png" id="2_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://dwnqard13oh8q" path="res://Assets/Main Characters/adventurer.png" id="2_s7qer"]
 [ext_resource type="Texture2D" uid="uid://csq0e7yhsnt7o" path="res://player/assets/player_run_lower.png" id="3_2ieo8"]
 [ext_resource type="Texture2D" uid="uid://veqlxaur37gr" path="res://player/assets/player_idle.png" id="3_8t03j"]
 [ext_resource type="Texture2D" uid="uid://nmappwt80016" path="res://player/assets/player_idle_lower.png" id="3_ebec5"]
+[ext_resource type="Texture2D" uid="uid://darka4282w4r0" path="res://Assets/Main Characters/skeleton-run.png" id="3_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://b7w72uxl81vw7" path="res://player/assets/player_jump.png" id="4_2ieo8"]
+[ext_resource type="Texture2D" uid="uid://bqibxykal6slj" path="res://Assets/Main Characters/adventurer-sword-slash.png" id="4_knn7v"]
 [ext_resource type="Texture2D" uid="uid://c3hfivdymskqe" path="res://player/assets/player_jump_lower.png" id="4_wodsf"]
 [ext_resource type="Texture2D" uid="uid://5ufwiyg4ckhy" path="res://player/assets/player_katana_attack_continuous.png" id="5_ebec5"]
 [ext_resource type="Texture2D" uid="uid://cb58owiciao6a" path="res://player/assets/player_standing_attack_lower.png" id="5_yllr7"]
@@ -20,6 +23,178 @@
 [ext_resource type="Texture2D" uid="uid://ca2qqre3tokq4" path="res://player/assets/player_dash.png" id="11_x7c3f"]
 [ext_resource type="Texture2D" uid="uid://cx5p17jiya4m4" path="res://player/assets/player_roll.png" id="14_x7c3f"]
 [ext_resource type="Texture2D" uid="uid://ccbgd6prvn8x" path="res://player/assets/player_walk_upper.png" id="16_c35mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5mnx"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(0, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt0ky"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(271, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhw2q"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(542, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvji8"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(813, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgxvu"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(1084, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdnyr"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(1355, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ehw"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(1626, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vegf"]
+atlas = ExtResource("2_s7qer")
+region = Rect2(1897, 230, 271, 494)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvnmh"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(0, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v6lc"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(271, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ws1b"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(542, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua2f6"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(813, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mikk3"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(1084, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glkag"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(1355, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgwk2"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(1626, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8h4n"]
+atlas = ExtResource("3_g4c7l")
+region = Rect2(1897, 0, 271, 724)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvxeb"]
+atlas = ExtResource("4_knn7v")
+region = Rect2(59, 0, 273, 887)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ub"]
+atlas = ExtResource("4_knn7v")
+region = Rect2(347, 0, 273, 887)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3gkr"]
+atlas = ExtResource("4_knn7v")
+region = Rect2(635, 0, 273, 887)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebdw7"]
+atlas = ExtResource("4_knn7v")
+region = Rect2(923, 0, 273, 887)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc7t5"]
+atlas = ExtResource("4_knn7v")
+region = Rect2(1211, 0, 273, 887)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mteo0"]
+atlas = ExtResource("4_knn7v")
+region = Rect2(1499, 0, 273, 887)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b3dbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5mnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt0ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhw2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvji8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgxvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdnyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26ehw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vegf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvnmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v6lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ws1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua2f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mikk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glkag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgwk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8h4n")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvxeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3gkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebdw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc7t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mteo0")
+}],
+"loop": true,
+"name": &"sword_slash",
+"speed": 12.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
 atlas = ExtResource("2_hg6s5")
@@ -1449,6 +1624,9 @@ animation = &"air_spin"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mhw2q"]
 animation = &"dash"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r7pn3"]
+animation = &"upper_jump"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s7qer"]
 animation = &"full_death"
 
@@ -1466,9 +1644,6 @@ animation = &"upper_crouch_walk"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yllr7"]
 animation = &"upper_idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r7pn3"]
-animation = &"upper_jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qavcc"]
 animation = &"upper_jump"
@@ -1647,11 +1822,17 @@ advance_condition = &"is_double_jumping"
 advance_mode = 2
 advance_condition = &"is_falling"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_35wys"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_55jnj"]
 states/air_spin/node = SubResource("AnimationNodeAnimation_w7j2h")
 states/air_spin/position = Vector2(322.31097, 498.23358)
 states/dash/node = SubResource("AnimationNodeAnimation_mhw2q")
 states/dash/position = Vector2(247.31097, -70.162674)
+states/falling/node = SubResource("AnimationNodeAnimation_r7pn3")
+states/falling/position = Vector2(38.599976, 587.2104)
 states/full_death/node = SubResource("AnimationNodeAnimation_kb6p2")
 states/full_death/position = Vector2(674, 321)
 "states/full_death 2/node" = SubResource("AnimationNodeAnimation_s7qer")
@@ -1666,8 +1847,6 @@ states/upper_idle/node = SubResource("AnimationNodeAnimation_yllr7")
 states/upper_idle/position = Vector2(107.6, 287)
 states/upper_jump/node = SubResource("AnimationNodeAnimation_qavcc")
 states/upper_jump/position = Vector2(214, 426)
-"states/upper_jump 2/node" = SubResource("AnimationNodeAnimation_r7pn3")
-"states/upper_jump 2/position" = Vector2(570.6, 479.21036)
 states/upper_katana_attack_end/node = SubResource("AnimationNodeAnimation_x7c3f")
 states/upper_katana_attack_end/position = Vector2(703, 126)
 states/upper_katana_attack_start/node = SubResource("AnimationNodeAnimation_bjvpn")
@@ -1678,11 +1857,11 @@ states/upper_run/node = SubResource("AnimationNodeAnimation_c35mf")
 states/upper_run/position = Vector2(504, 333)
 states/upper_walk/node = SubResource("AnimationNodeAnimation_fjxoa")
 states/upper_walk/position = Vector2(-74, 366.20782)
-transitions = ["upper_katana_attack_start", "upper_katana_attack_end", SubResource("AnimationNodeStateMachineTransition_knn7v"), "upper_run", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Start", "upper_idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "upper_idle", "upper_run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "upper_idle", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_32hag"), "upper_run", "upper_idle", SubResource("AnimationNodeStateMachineTransition_65viv"), "upper_run", "upper_jump", SubResource("AnimationNodeStateMachineTransition_bd26m"), "upper_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_lufic"), "upper_jump", "upper_idle", SubResource("AnimationNodeStateMachineTransition_nxclr"), "upper_jump", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_onxu2"), "upper_idle", "full_death 2", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "upper_jump", "upper_jump 2", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "upper_jump 2", "upper_idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "upper_katana_attack_end", "upper_idle", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "upper_katana_attack_end", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_uw77l"), "upper_idle", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_7xdiq"), "upper_crouch_idle", "upper_idle", SubResource("AnimationNodeStateMachineTransition_d0gtc"), "upper_crouch_idle", "upper_crouch_walk", SubResource("AnimationNodeStateMachineTransition_ge24q"), "upper_crouch_walk", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "upper_crouch_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "upper_katana_attack_start", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_55jnj"), "upper_katana_attack_end", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_dx5ib"), "upper_idle", "upper_walk", SubResource("AnimationNodeStateMachineTransition_gswnw"), "upper_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xcnuv"), "upper_walk", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_fjxoa"), "upper_crouch_walk", "upper_roll", SubResource("AnimationNodeStateMachineTransition_dbpvf"), "upper_crouch_idle", "upper_roll", SubResource("AnimationNodeStateMachineTransition_68g1w"), "upper_roll", "upper_idle", SubResource("AnimationNodeStateMachineTransition_hjies"), "upper_jump", "air_spin", SubResource("AnimationNodeStateMachineTransition_n0b8q"), "air_spin", "upper_jump 2", SubResource("AnimationNodeStateMachineTransition_jfgyi"), "air_spin", "upper_jump", SubResource("AnimationNodeStateMachineTransition_237xx"), "upper_jump 2", "air_spin", SubResource("AnimationNodeStateMachineTransition_7crtr"), "upper_crouch_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_a1u5o"), "upper_crouch_walk", "upper_jump", SubResource("AnimationNodeStateMachineTransition_3dxkp"), "upper_idle", "dash", SubResource("AnimationNodeStateMachineTransition_vvji8"), "dash", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xgxvu"), "upper_run", "dash", SubResource("AnimationNodeStateMachineTransition_pdnyr"), "upper_katana_attack_start", "air_spin", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "upper_run", "upper_jump 2", SubResource("AnimationNodeStateMachineTransition_s3g0c")]
-graph_offset = Vector2(-97.38936, 319.33408)
+transitions = ["upper_katana_attack_start", "upper_katana_attack_end", SubResource("AnimationNodeStateMachineTransition_knn7v"), "upper_run", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Start", "upper_idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "upper_idle", "upper_run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "upper_idle", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_32hag"), "upper_run", "upper_idle", SubResource("AnimationNodeStateMachineTransition_65viv"), "upper_run", "upper_jump", SubResource("AnimationNodeStateMachineTransition_bd26m"), "upper_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_lufic"), "upper_jump", "upper_idle", SubResource("AnimationNodeStateMachineTransition_nxclr"), "upper_jump", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_onxu2"), "upper_idle", "full_death 2", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "upper_jump", "falling", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "falling", "upper_idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "upper_katana_attack_end", "upper_idle", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "upper_katana_attack_end", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_uw77l"), "upper_idle", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_7xdiq"), "upper_crouch_idle", "upper_idle", SubResource("AnimationNodeStateMachineTransition_d0gtc"), "upper_crouch_idle", "upper_crouch_walk", SubResource("AnimationNodeStateMachineTransition_ge24q"), "upper_crouch_walk", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "upper_crouch_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "upper_katana_attack_start", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_55jnj"), "upper_katana_attack_end", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_dx5ib"), "upper_idle", "upper_walk", SubResource("AnimationNodeStateMachineTransition_gswnw"), "upper_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xcnuv"), "upper_walk", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_fjxoa"), "upper_crouch_walk", "upper_roll", SubResource("AnimationNodeStateMachineTransition_dbpvf"), "upper_crouch_idle", "upper_roll", SubResource("AnimationNodeStateMachineTransition_68g1w"), "upper_roll", "upper_idle", SubResource("AnimationNodeStateMachineTransition_hjies"), "upper_jump", "air_spin", SubResource("AnimationNodeStateMachineTransition_n0b8q"), "air_spin", "falling", SubResource("AnimationNodeStateMachineTransition_jfgyi"), "air_spin", "upper_jump", SubResource("AnimationNodeStateMachineTransition_237xx"), "falling", "air_spin", SubResource("AnimationNodeStateMachineTransition_7crtr"), "upper_crouch_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_a1u5o"), "upper_crouch_walk", "upper_jump", SubResource("AnimationNodeStateMachineTransition_3dxkp"), "upper_idle", "dash", SubResource("AnimationNodeStateMachineTransition_vvji8"), "dash", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xgxvu"), "upper_run", "dash", SubResource("AnimationNodeStateMachineTransition_pdnyr"), "upper_katana_attack_start", "air_spin", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "upper_run", "falling", SubResource("AnimationNodeStateMachineTransition_s3g0c"), "upper_idle", "falling", SubResource("AnimationNodeStateMachineTransition_35wys")]
+graph_offset = Vector2(-97.38936, 279.35513)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dx5ib"]
-graph_offset = Vector2(-134.86235, 81.44139)
+graph_offset = Vector2(-261.75482, 404)
 nodes/output/position = Vector2(656, 192)
 nodes/UpperState/node = SubResource("AnimationNodeStateMachine_55jnj")
 nodes/UpperState/position = Vector2(-128, 160)
@@ -2601,13 +2780,26 @@ _data = {
 [node name="Player" type="Node2D" unique_id=1696343506]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=411922790 groups=["player"]]
-floor_max_angle = 0.87266463
-floor_snap_length = 5.0
-platform_on_leave = 2
+modulate = Color(0.19607843, 0.19607843, 0.9529412, 1)
+floor_snap_length = 8.0
 script = ExtResource("1_rgyib")
+SPEED = 180.0
+JUMP_VELOCITY = -640.0
+DOUBLE_JUMP_VELOCITY = -640.0
+ROLL_BOOST = 240.0
+DASH_BOOST = 240.0
 metadata/_edit_group_ = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerBody" unique_id=391305194]
+visible = false
+position = Vector2(-1.9999999, 11.999999)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_b3dbx")
+autoplay = "default"
+frame_progress = 0.44632962
+
 [node name="Camera2D" type="Camera2D" parent="PlayerBody" unique_id=158208042]
+zoom = Vector2(2, 2)
 
 [node name="SpriteLower" type="AnimatedSprite2D" parent="PlayerBody" unique_id=165991947]
 sprite_frames = SubResource("SpriteFrames_r7pn3")

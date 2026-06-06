@@ -6,7 +6,7 @@ func _ready():
 	sprite.play("default")
 	
 func _on_body_entered(body):
-	print(body)
+	#print(body)
 	if body.is_in_group("player"):
 		GameManager.add_point()
 		queue_free()

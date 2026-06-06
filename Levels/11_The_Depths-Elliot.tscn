@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cr7pvult5d7vq" path="res://Assets/Tilesets/hell-tileset/Background/Background.png" id="1_bwrvc"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_8124q"]
 [ext_resource type="PackedScene" uid="uid://bflqvsxduexq6" path="res://main_character.tscn" id="3_1vurm"]
-[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://collectible.tscn" id="4_07spt"]
+[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_07spt"]
 [ext_resource type="Texture2D" uid="uid://r1g5ugy3d4w0" path="res://Assets/Tilesets/hell-tileset/Tiles/Tileset.png" id="4_cowt8"]
 [ext_resource type="Script" uid="uid://kqo8fquq1ru6" path="res://game_manager.gd" id="5_v50ki"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_triub"]

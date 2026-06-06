@@ -7,26 +7,10 @@
 script = ExtResource("1_m6e0p")
 
 [node name="Panel" type="Panel" parent="." unique_id=865592473]
-offset_right = 107.0
-offset_bottom = 46.0
-
-[node name="PointsLabel" type="Label" parent="Panel" unique_id=446827231]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -33.5
-offset_top = -11.5
-offset_right = 33.5
-offset_bottom = 11.5
+custom_minimum_size = Vector2(0, 50)
+anchors_preset = 10
+anchor_right = 1.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Points: 0"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Hearts" type="Panel" parent="." unique_id=1313793561]
 anchors_preset = 1
@@ -61,3 +45,37 @@ offset_bottom = 31.0
 texture = ExtResource("1_fyqef")
 expand_mode = 2
 stretch_mode = 1
+
+[node name="PointsLabel" type="Label" parent="." unique_id=446827231]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -556.0
+offset_top = -312.5
+offset_right = -489.0
+offset_bottom = -289.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Points: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeysLabel" type="Label" parent="." unique_id=1549666379]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -460.0
+offset_top = -312.5
+offset_right = -393.0
+offset_bottom = -289.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Keys: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

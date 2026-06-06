@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://c8twhf7kem7sx" path="res://Blue.png" id="1_vmwsg"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_rhlci"]
 [ext_resource type="PackedScene" uid="uid://bflqvsxduexq6" path="res://main_character.tscn" id="3_lfa10"]
-[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://collectible.tscn" id="4_gi8ob"]
+[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_gi8ob"]
 [ext_resource type="Script" uid="uid://kqo8fquq1ru6" path="res://game_manager.gd" id="5_ml4nt"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_vp0tx"]
+[ext_resource type="PackedScene" uid="uid://cbudvli070qxg" path="res://Levels/10_Sky-Caleb.tscn" id="7_f813m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tda05"]
 texture = ExtResource("2_rhlci")
@@ -371,4 +372,6 @@ vertical_alignment = 1
 
 [node name="Exit" parent="." unique_id=1922568324 instance=ExtResource("6_vp0tx")]
 position = Vector2(373, 305)
+target_level = ExtResource("7_f813m")
+keys_needed = 0
 metadata/_edit_group_ = true

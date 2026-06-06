@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bk5ifr50okclv" path="res://Assets/Enemies/Mushroom/Idle (32x32).png" id="2_vef74"]
 [ext_resource type="PackedScene" uid="uid://bflqvsxduexq6" path="res://main_character.tscn" id="3_eow3j"]
-[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://collectible.tscn" id="5_vef74"]
+[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="5_vef74"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_eow3j"]
 [ext_resource type="Script" uid="uid://kqo8fquq1ru6" path="res://game_manager.gd" id="6_ryrav"]
 [ext_resource type="Texture2D" uid="uid://b5wmcsthhui46" path="res://Assets/Pixel Heart/Pixel Heart Sprite 16x16.png" id="7_hve3p"]

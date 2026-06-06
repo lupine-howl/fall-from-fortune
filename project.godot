@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="game 3"
-run/main_scene="uid://c4whl47b2444s"
+config/name="Fall From Fortune"
+run/main_scene="uid://bn45xqkl3yx4k"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

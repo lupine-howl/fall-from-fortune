@@ -111,6 +111,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlhvs"]
 radius = 13.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlpyj"]
+
 [node name="BlueBirdEnemy" type="CharacterBody2D" unique_id=2119525411]
 script = ExtResource("1_xlpyj")
 metadata/_edit_group_ = true
@@ -130,3 +132,8 @@ shape = SubResource("CircleShape2D_qlhvs")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=597334883]
 target_position = Vector2(-15, 20)
+
+[node name="NavigationDetector" type="Area2D" parent="." unique_id=1789571665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationDetector" unique_id=1652224010]
+shape = SubResource("CircleShape2D_xlpyj")
