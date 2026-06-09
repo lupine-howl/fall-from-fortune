@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_tevfp"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="5_db4qj"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_mqgbl"]
-[ext_resource type="Shader" uid="uid://b3k5ktcgerf3u" path="res://Levels/04_Underwater_Caves-Josh.gdshader" id="7_db4qj"]
+[ext_resource type="Shader" uid="uid://b3k5ktcgerf3u" path="res://Levels/ShaderWater.gdshader" id="7_db4qj"]
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="9_db4qj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tda05"]

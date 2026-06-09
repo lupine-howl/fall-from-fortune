@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ipvw8vbp6540" path="res://Assets/Tilesets/sunken-city-tileset-pixel-art/2 Tileset/Tileset.png" id="5_8qyq8"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_jnccm"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="6_kyoyt"]
-[ext_resource type="Shader" uid="uid://b3k5ktcgerf3u" path="res://Levels/04_Underwater_Caves-Josh.gdshader" id="9_kyoyt"]
+[ext_resource type="Shader" uid="uid://b3k5ktcgerf3u" path="res://Levels/ShaderWater.gdshader" id="9_kyoyt"]
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="10_kyoyt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kyoyt"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="1_6mqqc"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_7o8ry"]
-[ext_resource type="PackedScene" uid="uid://c2qofd31qjgrt" path="res://Levels/11_The_Depths-Elliot.tscn" id="4_3yl74"]
+[ext_resource type="PackedScene" uid="uid://bn45xqkl3yx4k" path="res://Levels/01_Green_Village-Karl.tscn" id="4_3yl74"]
 [ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/Cloud_Tileset.png" id="4_68iev"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_x60te"]
 [ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="5_6d7gu"]
