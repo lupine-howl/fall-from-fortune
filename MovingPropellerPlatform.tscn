@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dup1cuh7n5fso"]
 
 [ext_resource type="Script" uid="uid://ca50r6xk6mbbp" path="res://SteerableAnimatableBody2D.gd" id="1_pb58a"]
-[ext_resource type="Texture2D" uid="uid://df5uwskhpg2nj" path="res://Assets/Traps/Falling Platforms/On (32x10).png" id="2_g213i"]
+[ext_resource type="Texture2D" uid="uid://df5uwskhpg2nj" path="res://Assets/Items/Traps/Falling Platforms/On (32x10).png" id="2_g213i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pb58a"]
 atlas = ExtResource("2_g213i")

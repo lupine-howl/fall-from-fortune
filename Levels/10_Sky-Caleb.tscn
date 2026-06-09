@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cbudvli070qxg"]
 
-[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Sky.jpg" id="1_6mqqc"]
+[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="1_6mqqc"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_7o8ry"]
 [ext_resource type="PackedScene" uid="uid://c2qofd31qjgrt" path="res://Levels/11_The_Depths-Elliot.tscn" id="4_3yl74"]
 [ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/Cloud_Tileset.png" id="4_68iev"]
@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://csnd8jaickqr" path="res://MovingCloudPlatform.tscn" id="5_umpyj"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_am72q"]
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="10_tuh8u"]
-[ext_resource type="PackedScene" uid="uid://bmn2n6uxcbgad" path="res://Levels/blue_bird_enemy.tscn" id="11_8e3y1"]
+[ext_resource type="PackedScene" uid="uid://bmn2n6uxcbgad" path="res://Enemy.tscn" id="11_8e3y1"]
 [ext_resource type="Texture2D" uid="uid://crg3ik1knb5ae" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="11_kavyn"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="11_o5obx"]
-[ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://Levels/hazards.gd" id="13_6d7gu"]
+[ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="13_6d7gu"]
 [ext_resource type="Script" uid="uid://bwt2fjnea1fqp" path="res://DirectionArrow.gd" id="16_umpyj"]
 [ext_resource type="Texture2D" uid="uid://bdcql3fs7mupk" path="res://up-arrow-pixel-art-isolated-on-a-white-background-8-bit-illustration-vector.jpg" id="17_umpyj"]
 [ext_resource type="Texture2D" uid="uid://cdko7arfmrxqe" path="res://Assets/Backgrounds/foreground-clouds.png" id="19_qil6m"]
@@ -539,7 +539,7 @@ texture = ExtResource("1_6mqqc")
 metadata/_edit_use_anchors_ = true
 
 [node name="Exit" parent="." unique_id=1133760600 instance=ExtResource("6_am72q")]
-position = Vector2(704, 183)
+position = Vector2(2052, 260)
 target_level = ExtResource("4_3yl74")
 keys_needed = 5
 
@@ -717,11 +717,13 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("17_umpyj")
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=22492422]
+visible = false
 scroll_scale = Vector2(1.2, 1.2)
 repeat_size = Vector2(1280, 960)
 repeat_times = 3
 
 [node name="ForegroundClouds" type="Sprite2D" parent="Parallax2D2" unique_id=371097551]
+visible = false
 modulate = Color(1, 1, 1, 0.5019608)
 scale = Vector2(2, 2)
 texture = ExtResource("19_qil6m")

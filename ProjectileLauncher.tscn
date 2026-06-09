@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bjiloil24uy5x"]
+
+[ext_resource type="Script" uid="uid://bpoc0xjairwyp" path="res://ProjectileLauncher.gd" id="1_hsjm7"]
+
+[node name="ProjectileLauncher" type="Node2D" unique_id=121258302]
+script = ExtResource("1_hsjm7")
+
+[node name="Timer" type="Timer" parent="." unique_id=15759514]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=832338249]

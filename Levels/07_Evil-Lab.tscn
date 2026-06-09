@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://b6f3kk3x4muia"]
 
-[ext_resource type="Texture2D" uid="uid://c8twhf7kem7sx" path="res://Blue.png" id="1_fyyc6"]
-[ext_resource type="Texture2D" uid="uid://qtlwppjbm7xh" path="res://Black.png" id="2_34poq"]
+[ext_resource type="Texture2D" uid="uid://qtlwppjbm7xh" path="res://Assets/Backgrounds/Black.png" id="2_34poq"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_mjgux"]
 [ext_resource type="Texture2D" uid="uid://su8vfadl85mm" path="res://Assets/Tilesets/desert-2d-tileset-pixel-art/1 Tiles/Tileset.png" id="3_2u6by"]
-[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Sky.jpg" id="3_6xpn6"]
+[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="3_6xpn6"]
 [ext_resource type="Texture2D" uid="uid://wdbb25pk3303" path="res://Assets/Tilesets/lab-game-tileset-pixel-art/1 Tiles/lab-tileset.png" id="4_6xpn6"]
 [ext_resource type="Texture2D" uid="uid://crx4rc6i3b52t" path="res://Assets/Tilesets/business-center-tileset-pixel-art/1 Tiles/Tileset.png" id="4_34poq"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="5_34poq"]
@@ -12,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="7_6b81d"]
 [ext_resource type="Texture2D" uid="uid://doxq81tvdojuk" path="res://Assets/Tilesets/water-pack-tileset-for-platformer-pixel-art/2 Tileset/Tileset.png" id="7_34poq"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="9_6xpn6"]
-[ext_resource type="PackedScene" uid="uid://bt62hk1iom3s" path="res://Levels/08_Business_Disctrict-Chase.tscn" id="13_6b81d"]
+[ext_resource type="PackedScene" uid="uid://cbudvli070qxg" path="res://Levels/10_Sky-Caleb.tscn" id="12_6xpn6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6xpn6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tda05"]
 texture = ExtResource("2_mjgux")
@@ -1841,7 +1842,7 @@ offset_right = 3396.0
 offset_bottom = -301.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_fyyc6")
+texture = SubResource("CompressedTexture2D_6xpn6")
 stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1353225652]
@@ -1874,7 +1875,7 @@ stretch_mode = 1
 
 [node name="Blue" type="Sprite2D" parent="." unique_id=2115005758]
 position = Vector2(-349, 660)
-texture = ExtResource("1_fyyc6")
+texture = SubResource("CompressedTexture2D_6xpn6")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1563067934]
 texture_filter = 1
@@ -1923,7 +1924,7 @@ vertical_alignment = 1
 
 [node name="Exit" parent="." unique_id=1922568324 instance=ExtResource("7_6b81d")]
 position = Vector2(5024, -192)
-target_level = ExtResource("13_6b81d")
+target_level = ExtResource("12_6xpn6")
 keys_needed = 0
 metadata/_edit_group_ = true
 

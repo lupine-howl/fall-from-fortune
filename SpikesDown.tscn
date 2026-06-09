@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cnoty04s1h0wo"]
+
+[ext_resource type="Script" uid="uid://btw6igqmjgujb" path="res://Spikes.gd" id="1_decc8"]
+[ext_resource type="Texture2D" uid="uid://cr0f76qna3kl7" path="res://Assets/Tilesets/hell-tileset/Objects/Spikes/2.png" id="2_decc8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uvme"]
+size = Vector2(26, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwck6"]
+size = Vector2(32, 23)
+
+[node name="Spikes" type="CharacterBody2D" unique_id=1465809852]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_decc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=244201367]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_8uvme")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1150374714]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox" unique_id=1158484221]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_gwck6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1459775193]
+position = Vector2(0, 11)
+texture = ExtResource("2_decc8")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

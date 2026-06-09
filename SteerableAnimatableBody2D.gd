@@ -7,6 +7,7 @@ var current_state: PlatformState = PlatformState.NORMAL
 @export_category("Steering Settings")
 @export var speed := 150.0
 @export var current_direction := Vector2.RIGHT
+@export var starting_state: PlatformState = PlatformState.NORMAL
 @export var start_waiting_for_player := false 
 
 @export_category("Easing Settings")
@@ -15,6 +16,8 @@ var current_state: PlatformState = PlatformState.NORMAL
 
 @export_category("Physics Properties")
 @export var fall_gravity := 800.0
+
+@onready var sprite = $AnimatedSprite2D
 
 # Internal physics tracking
 var target_velocity := Vector2.ZERO
@@ -31,9 +34,13 @@ func _ready() -> void:
 	sync_to_physics = true
 	default_base_speed = speed # Store default speed set in inspector
 	
+# Set the initial state based on the export
+	current_state = starting_state
+	
+	# Override if the legacy "waiting" flag is set to true
 	if start_waiting_for_player:
 		current_state = PlatformState.WAITING
-		
+				
 	target_velocity = current_direction * speed
 	current_velocity = target_velocity
 	
@@ -150,3 +157,6 @@ func LaunchPlayerRider() -> void:
 				body.velocity.y = -1100.0 
 				if "state" in body:
 					body.state = 1
+					
+					if sprite and sprite.sprite_frames.has_animation("bounce"):
+						sprite.play("bounce")

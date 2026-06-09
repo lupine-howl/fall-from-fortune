@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://di63xb5g0t3sm"]
+
+[ext_resource type="Script" uid="uid://cr28irpvcophc" path="res://Enemy.gd" id="1_a33on"]
+[ext_resource type="SpriteFrames" uid="uid://dvttd1mdicwuh" path="res://SpriteFramesAngryPig.tres" id="2_roewl"]
+[ext_resource type="PackedScene" uid="uid://bjiloil24uy5x" path="res://ProjectileLauncher.tscn" id="3_jsrn5"]
+[ext_resource type="PackedScene" uid="uid://drnpe03i7el81" path="res://Projectile.tscn" id="4_kit6f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6d7gu"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlhvs"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlpyj"]
+radius = 16.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6do27"]
+radius = 128.0
+
+[node name="EnemyAngryPig" type="CharacterBody2D" unique_id=2119525411]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_a33on")
+sprite_frames = ExtResource("2_roewl")
+default_animation = "walk"
+starting_mode = 4
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1400791390]
+sprite_frames = ExtResource("2_roewl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842966326]
+shape = SubResource("CircleShape2D_6d7gu")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=563072602]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2103472399]
+shape = SubResource("CircleShape2D_qlhvs")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=597334883]
+target_position = Vector2(-15, 20)
+
+[node name="NavigationDetector" type="Area2D" parent="." unique_id=1789571665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationDetector" unique_id=1652224010]
+shape = SubResource("CircleShape2D_xlpyj")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=623067218]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=285309457]
+shape = SubResource("CircleShape2D_6do27")
+
+[node name="ProjectileLauncher" parent="." unique_id=121258302 instance=ExtResource("3_jsrn5")]
+projectile_scene = ExtResource("4_kit6f")
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

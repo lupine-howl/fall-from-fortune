@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://c7mpurnfv1i77"]
 
-[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Sky.jpg" id="1_874v1"]
-[ext_resource type="Texture2D" uid="uid://c8twhf7kem7sx" path="res://Blue.png" id="1_gaglh"]
+[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="1_874v1"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_gbntx"]
 [ext_resource type="Texture2D" uid="uid://doxq81tvdojuk" path="res://Assets/Tilesets/water-pack-tileset-for-platformer-pixel-art/2 Tileset/Tileset.png" id="3_83y84"]
+[ext_resource type="PackedScene" uid="uid://b6f3kk3x4muia" path="res://Levels/07_Evil-Lab.tscn" id="3_db4qj"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_tevfp"]
-[ext_resource type="PackedScene" uid="uid://cvvqatmdov2tq" path="res://Levels/06_Toxic_Beach.tscn" id="4_vcno1"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="5_db4qj"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_mqgbl"]
 [ext_resource type="Shader" uid="uid://b3k5ktcgerf3u" path="res://Levels/04_Underwater_Caves-Josh.gdshader" id="7_db4qj"]
@@ -794,14 +793,9 @@ grow_vertical = 2
 texture = ExtResource("1_874v1")
 stretch_mode = 1
 
-[node name="Blue" type="Sprite2D" parent="." unique_id=2115005758]
-position = Vector2(-357.5, 692.5)
-scale = Vector2(0.734375, -0.015625)
-texture = ExtResource("1_gaglh")
-
 [node name="Exit" parent="." unique_id=1922568324 instance=ExtResource("6_mqgbl")]
 position = Vector2(1435, 641)
-target_level = ExtResource("4_vcno1")
+target_level = ExtResource("3_db4qj")
 keys_needed = 0
 metadata/_edit_group_ = true
 

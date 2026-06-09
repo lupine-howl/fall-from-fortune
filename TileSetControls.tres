@@ -1,0 +1,45 @@
+[gd_resource type="TileSet" format=3 uid="uid://cqi34h10fqer3"]
+
+[ext_resource type="PackedScene" uid="uid://cegg4tcr3ehqg" path="res://EnvironmentalTriggers/TriggerRightFast.tscn" id="1_ohm03"]
+[ext_resource type="PackedScene" uid="uid://dtnrc143565h2" path="res://EnvironmentalTriggers/TriggerRightSlow.tscn" id="2_2fwhy"]
+[ext_resource type="PackedScene" uid="uid://o7y0xdhb08sj" path="res://EnvironmentalTriggers/TriggerRightWait.tscn" id="3_7xkjc"]
+[ext_resource type="PackedScene" uid="uid://cq0k2ixmhm06a" path="res://EnvironmentalTriggers/TriggerTrampoline.tscn" id="4_67d38"]
+[ext_resource type="PackedScene" uid="uid://ds66o8nc4r2n4" path="res://EnvironmentalTriggers/TriggerLeftFast.tscn" id="5_t7mco"]
+[ext_resource type="PackedScene" uid="uid://bv7u5b45wup4h" path="res://EnvironmentalTriggers/TriggerLeftSlow.tscn" id="6_o8jm0"]
+[ext_resource type="PackedScene" uid="uid://bf48nkj0qsmvc" path="res://EnvironmentalTriggers/TriggerFalling.tscn" id="7_gs5wd"]
+[ext_resource type="PackedScene" uid="uid://c7plsp5tpnpgx" path="res://EnvironmentalTriggers/TriggerUpWait.tscn" id="8_kt1yk"]
+[ext_resource type="Texture2D" uid="uid://dfl2ok0ljw0mh" path="res://Assets/Tilesets/tileset-environmental-triggers.png" id="9_xu8b1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3se3r"]
+texture = ExtResource("9_xu8b1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = ExtResource("1_ohm03")
+1:0/0 = 0
+1:0/0/custom_data_0 = ExtResource("5_t7mco")
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/custom_data_0 = ExtResource("2_2fwhy")
+1:1/0 = 0
+1:1/0/custom_data_0 = ExtResource("6_o8jm0")
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+0:2/0/custom_data_0 = ExtResource("3_7xkjc")
+1:2/0 = 0
+2:2/0 = 0
+2:2/0/custom_data_0 = ExtResource("8_kt1yk")
+3:2/0 = 0
+0:3/0 = 0
+0:3/0/custom_data_0 = ExtResource("4_67d38")
+1:3/0 = 0
+1:3/0/custom_data_0 = ExtResource("7_gs5wd")
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "spawn_scene"
+custom_data_layer_0/type = 24
+sources/0 = SubResource("TileSetAtlasSource_3se3r")

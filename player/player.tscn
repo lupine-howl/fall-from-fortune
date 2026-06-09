@@ -2781,6 +2781,8 @@ _data = {
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=411922790 groups=["player"]]
 modulate = Color(0.19607843, 0.19607843, 0.9529412, 1)
+collision_layer = 7
+collision_mask = 3
 floor_snap_length = 8.0
 script = ExtResource("1_rgyib")
 SPEED = 180.0
@@ -2796,9 +2798,10 @@ position = Vector2(-1.9999999, 11.999999)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_b3dbx")
 autoplay = "default"
-frame_progress = 0.44632962
+frame_progress = 0.13245647
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody" unique_id=158208042]
+offset = Vector2(0, -90)
 zoom = Vector2(2, 2)
 
 [node name="SpriteLower" type="AnimatedSprite2D" parent="PlayerBody" unique_id=165991947]

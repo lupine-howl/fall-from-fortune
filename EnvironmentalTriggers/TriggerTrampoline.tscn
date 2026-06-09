@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cq0k2ixmhm06a"]
+
+[ext_resource type="Script" uid="uid://bwt2fjnea1fqp" path="res://DirectionArrow.gd" id="1_i8t3w"]
+[ext_resource type="Texture2D" uid="uid://dfl2ok0ljw0mh" path="res://Assets/Tilesets/tileset-environmental-triggers.png" id="2_p3tdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb8bj"]
+size = Vector2(32, 32)
+
+[node name="TriggerTrampoline" type="Area2D" unique_id=774531030]
+script = ExtResource("1_i8t3w")
+trigger_type = 2
+override_speed = 200.0
+arrow_direction = "Up"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=277433221]
+shape = SubResource("RectangleShape2D_pb8bj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=761666994]
+texture = ExtResource("2_p3tdw")
+hframes = 4
+vframes = 4
+frame = 12

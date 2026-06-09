@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://blvyk40krhy5f"]
 
-[ext_resource type="Texture2D" uid="uid://c8twhf7kem7sx" path="res://Blue.png" id="1_x3txm"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_ngi6l"]
 [ext_resource type="Texture2D" uid="uid://bgixbl2ge5thk" path="res://Assets/Tilesets/platformer-pixel-art-cave-2d-tileset/Tiles/TileSet.png" id="3_adg8x"]
 [ext_resource type="PackedScene" uid="uid://c7mpurnfv1i77" path="res://Levels/05_Ocean-Max.tscn" id="4_8qyq8"]
@@ -1332,20 +1331,6 @@ sources/4 = SubResource("TileSetAtlasSource_adg8x")
 scroll_scale = Vector2(0.8, 0.8)
 repeat_size = Vector2(64, 64)
 repeat_times = 50
-
-[node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1084161392]
-visible = false
-texture_filter = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -89.0
-offset_right = 64.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_x3txm")
-stretch_mode = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Parallax2D" unique_id=1062050897]
 modulate = Color(0.18359044, 0.18359044, 0.18359044, 1)

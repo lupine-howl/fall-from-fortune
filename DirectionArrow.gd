@@ -38,9 +38,9 @@ func _update_direction_properties() -> void:
 	
 	if trigger_type == TriggerType.DIRECTION:
 		match arrow_direction:
-			"Right": target_direction = Vector2.RIGHT; rotation_degrees = 0
-			"Left": target_direction = Vector2.LEFT; rotation_degrees = 180
-			"Up": target_direction = Vector2.UP; rotation_degrees = -90
-			"Down": target_direction = Vector2.DOWN; rotation_degrees = 90
+			"Right": target_direction = Vector2.RIGHT; #rotation_degrees = 0
+			"Left": target_direction = Vector2.LEFT; #rotation_degrees = 180
+			"Up": target_direction = Vector2.UP; #rotation_degrees = -90
+			"Down": target_direction = Vector2.DOWN; #rotation_degrees = 90
 	else:
 		rotation_degrees = 0
