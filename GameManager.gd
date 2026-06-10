@@ -31,10 +31,14 @@ func take_damage(amount: float) -> void:
 		print("Player has run out of health!")
 		# Trigger death/respawn logic here
 
+func add_health(amount: float) -> void:
+	current_hp = current_hp + amount
+	hp_changed.emit(current_hp)
+
 # Call this from the player when restarting the level
 func reset_health() -> void:
 	current_hp = max_hp
 	hp_changed.emit(current_hp)
 	keys = 0
-	keys_changed(0)
+	keys_changed.emit(0)
 	

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cq0k2ixmhm06a" path="res://EnvironmentalTriggers/TriggerTrampoline.tscn" id="4_67d38"]
 [ext_resource type="PackedScene" uid="uid://ds66o8nc4r2n4" path="res://EnvironmentalTriggers/TriggerLeftFast.tscn" id="5_t7mco"]
 [ext_resource type="PackedScene" uid="uid://bv7u5b45wup4h" path="res://EnvironmentalTriggers/TriggerLeftSlow.tscn" id="6_o8jm0"]
+[ext_resource type="PackedScene" uid="uid://f5s2ukms017q" path="res://EnvironmentalTriggers/TriggerLeftWait.tscn" id="7_2fwhy"]
 [ext_resource type="PackedScene" uid="uid://bf48nkj0qsmvc" path="res://EnvironmentalTriggers/TriggerFalling.tscn" id="7_gs5wd"]
 [ext_resource type="PackedScene" uid="uid://c7plsp5tpnpgx" path="res://EnvironmentalTriggers/TriggerUpWait.tscn" id="8_kt1yk"]
 [ext_resource type="Texture2D" uid="uid://dfl2ok0ljw0mh" path="res://Assets/Tilesets/tileset-environmental-triggers.png" id="9_xu8b1"]
@@ -28,6 +29,7 @@ texture_region_size = Vector2i(32, 32)
 0:2/0 = 0
 0:2/0/custom_data_0 = ExtResource("3_7xkjc")
 1:2/0 = 0
+1:2/0/custom_data_0 = ExtResource("7_2fwhy")
 2:2/0 = 0
 2:2/0/custom_data_0 = ExtResource("8_kt1yk")
 3:2/0 = 0

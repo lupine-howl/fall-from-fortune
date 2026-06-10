@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://f5s2ukms017q"]
+
+[ext_resource type="Script" uid="uid://bwt2fjnea1fqp" path="res://DirectionArrow.gd" id="1_5acho"]
+[ext_resource type="Texture2D" uid="uid://dfl2ok0ljw0mh" path="res://Assets/Tilesets/tileset-environmental-triggers.png" id="2_wgxuu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb8bj"]
+size = Vector2(32, 32)
+
+[node name="TriggerUpWait" type="Area2D" unique_id=774531030]
+script = ExtResource("1_5acho")
+wait_for_player = true
+override_speed = 200.0
+arrow_direction = "Left"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=277433221]
+shape = SubResource("RectangleShape2D_pb8bj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=761666994]
+texture = ExtResource("2_wgxuu")
+hframes = 4
+vframes = 4
+frame = 8

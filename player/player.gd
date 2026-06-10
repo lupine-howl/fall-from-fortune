@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var DOUBLE_JUMP_VELOCITY := -800.0
 @export var ROLL_BOOST := 400.0
 @export var DASH_BOOST := 400.0
+@export var attack_damage := 25.0
 
 const COYOTE_TIME := 0.12
 const JUMP_BUFFER_TIME := 0.12
@@ -38,6 +39,7 @@ var spawn_point
 @onready var anim_tree := $AnimationTree
 @onready var sprite_upper := $SpriteUpper
 @onready var sprite_lower := $SpriteLower
+@onready var attack_area := $AttackArea
 
 func _ready() -> void:
 	spawn_point = global_position # Save the starting spot
@@ -64,14 +66,20 @@ func take_damage(knockback_dir: Vector2, force: float):
 	is_invincible = false
 
 func _physics_process(delta: float) -> void:
+	if velocity.y > 10000:
+		die()
+	
 	if is_dead:
-		_apply_gravity(delta); _move(); return
+		_apply_gravity(delta); 
+		velocity.x *= 0.9
+		_move(); return
 
 	# Handle Knockback state
 	if state == MoveState.KNOCKBACK:
 		knockback_timer -= delta
 		if knockback_timer <= 0: state = MoveState.GROUNDED
-		_apply_gravity(delta); move_and_slide(); return
+		_apply_gravity(delta); 
+		move_and_slide(); return
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var y_dir := Input.get_axis("ui_up", "ui_down")
@@ -156,6 +164,15 @@ func _reset_animation_states() -> void:
 
 func _move() -> void:
 	move_and_slide(); check_slide_hazards(); check_area_hazards()
+
+func _process_attack():
+	var bodies = attack_area.get_overlapping_bodies()
+	for body in bodies:
+		if body == self:
+			continue
+		if body.has_method("take_damage"):
+			print(body)
+			body.take_damage(attack_damage,(body.global_position - global_position).normalized() * 300)
 
 func check_slide_hazards() -> void:
 	for i in get_slide_collision_count():

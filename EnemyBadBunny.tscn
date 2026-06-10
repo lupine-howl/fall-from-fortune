@@ -18,8 +18,8 @@ radius = 16.0
 radius = 128.0
 
 [node name="EnemyBadBunny" type="CharacterBody2D" unique_id=2119525411]
-collision_layer = 4
-collision_mask = 5
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_18ut2")
 sprite_frames = ExtResource("3_dk636")
 default_animation = "walk"

@@ -30,6 +30,8 @@ func _physics_process(delta):
 				has_hit_floor = true
 	
 	if has_hit_floor:
+		set_collision_layer_value(1, false)
+		set_collision_mask_value(1, false)
 		despawn_timer += delta
 		modulate.a = lerp(1.0, 0.0, despawn_timer / lifetime_after_bounce)
 		if despawn_timer >= lifetime_after_bounce:

@@ -12,6 +12,7 @@ enum FlightMode { HORIZONTAL_FLY, FALLING, CLIMBING, BOUNCING, GROUND_WALK }
 @export var speed := 100.0
 @export var damage_amount := 16.0
 @export var horizontal_dir := -1 
+@export var max_hp := 50.0
 
 @export_category("Easing Settings")
 @export var use_easing := true
@@ -27,6 +28,7 @@ enum FlightMode { HORIZONTAL_FLY, FALLING, CLIMBING, BOUNCING, GROUND_WALK }
 @onready var launcher = $ProjectileLauncher
 
 # Physics and Internal State
+var current_hp: float
 var current_mode: FlightMode = FlightMode.HORIZONTAL_FLY
 var base_gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var target_velocity := Vector2.ZERO
@@ -34,9 +36,12 @@ var current_velocity := Vector2.ZERO
 var target_y_altitude := 0.0
 var flap_timer := 0.0
 var turn_timer := 0.0
+var knockback_velocity := Vector2.ZERO
+var knockback_timer := 0.0
 const TURN_COOLDOWN := 0.5 
 
 func _ready() -> void:
+	current_hp = max_hp
 	current_mode = starting_mode
 	if sprite_frames:
 		sprite.sprite_frames = sprite_frames
@@ -56,6 +61,14 @@ func _ready() -> void:
 	target_velocity = Vector2(horizontal_dir * speed, 0); current_velocity = target_velocity
 
 func _physics_process(delta: float) -> void:
+	
+	# --- KNOCKBACK HANDLING ---
+	if knockback_timer > 0:
+		knockback_timer -= delta
+		velocity = knockback_velocity
+		move_and_slide()
+		return # Skip standard movement logic while being knocked back
+	
 	if turn_timer > 0: turn_timer -= delta
 
 	if horizontal_dir != 0:
@@ -103,6 +116,52 @@ func _physics_process(delta: float) -> void:
 	else: velocity = target_velocity
 	move_and_slide()
 
+
+# --- HEALTH LOGIC ---
+
+func take_damage(amount: float, knockback_force: Vector2 = Vector2.ZERO) -> void:
+	current_hp -= amount
+	
+	# --- FLASH EFFECT ---
+	var original_modulate = modulate
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color(10, 10, 10), 0.1)
+	tween.tween_property(self, "modulate", original_modulate, 0.1)
+	
+	if knockback_force != Vector2.ZERO:
+		apply_knockback(knockback_force)
+		
+	if current_hp <= 0:
+		die()
+
+func apply_knockback(force: Vector2, duration: float = 0.2) -> void:
+	knockback_velocity = force
+	knockback_timer = duration
+
+func die() -> void:
+	# 1. If we are currently being knocked back, wait for it to finish
+	if knockback_timer > 0:
+		await get_tree().create_timer(knockback_timer).timeout
+	
+	# 2. Disable movement and interactions immediately
+	set_physics_process(false)
+	set_process(false)
+	
+	# Disable collisions safely
+	for child in get_children():
+		if child is CollisionShape2D or child is Area2D:
+			child.set_deferred("disabled", true)
+			child.set_deferred("monitorable", false)
+	
+	# 3. Fade-out animation
+	var tween = create_tween()
+	# Fades the enemy node out
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	
+	# 4. Cleanup
+	await tween.finished
+	queue_free()
+	
 # --- PROJECTILE & TRIGGER LOGIC ---
 
 func update_launcher_velocity():

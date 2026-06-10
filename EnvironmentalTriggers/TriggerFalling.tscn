@@ -9,6 +9,7 @@ size = Vector2(32, 32)
 [node name="TriggerTrampoline" type="Area2D" unique_id=774531030]
 script = ExtResource("1_cafj1")
 trigger_type = 1
+wait_for_player = true
 override_speed = 200.0
 arrow_direction = "Down"
 metadata/_edit_group_ = true

@@ -43,6 +43,8 @@ radius = 13.0
 radius = 128.0
 
 [node name="EnemyFish" type="CharacterBody2D" unique_id=2119525411]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_r3u4c")
 speed = 10.0
 metadata/_edit_group_ = true
@@ -69,8 +71,6 @@ target_position = Vector2(-15, 20)
 shape = SubResource("CircleShape2D_xlpyj")
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=273485376]
-collision_layer = 4
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=746887702]
 shape = SubResource("CircleShape2D_n0vj3")

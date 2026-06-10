@@ -14,8 +14,8 @@ corner_radius_bottom_left = 3
 anti_aliasing = false
 
 [node name="Projectile" type="CharacterBody2D" unique_id=1465809852]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 9
+collision_mask = 9
 script = ExtResource("1_e7peq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=244201367]

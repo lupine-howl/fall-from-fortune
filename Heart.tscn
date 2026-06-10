@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbufpfnhj4eot"]
+
+[ext_resource type="Script" uid="uid://s7bpfq60d63n" path="res://Heart.gd" id="1_fhu63"]
+[ext_resource type="Texture2D" uid="uid://b5wmcsthhui46" path="res://Assets/Items/Pixel Heart/Pixel Heart Sprite 16x16.png" id="2_fhu63"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yuntp"]
+radius = 20.0
+
+[node name="Heart" type="Area2D" unique_id=783523946]
+script = ExtResource("1_fhu63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2005410690]
+shape = SubResource("CircleShape2D_yuntp")
+
+[node name="PixelHeartSprite16x16" type="Sprite2D" parent="." unique_id=1065315639]
+texture = ExtResource("2_fhu63")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
