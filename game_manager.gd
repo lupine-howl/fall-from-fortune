@@ -35,3 +35,6 @@ func take_damage(amount: float) -> void:
 func reset_health() -> void:
 	current_hp = max_hp
 	hp_changed.emit(current_hp)
+	keys = 0
+	keys_changed(0)
+	
