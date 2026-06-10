@@ -32,6 +32,7 @@ var coyote_timer := 0.0
 var jump_buffer_timer := 0.0
 var roll_timer := 0.0
 var dash_timer := 0.0
+var spawn_point
 
 @onready var hazard_detector := $HazardDetector
 @onready var anim_tree := $AnimationTree
@@ -39,10 +40,11 @@ var dash_timer := 0.0
 @onready var sprite_lower := $SpriteLower
 
 func _ready() -> void:
+	spawn_point = global_position # Save the starting spot
 	anim_tree.active = true
 	_reset_animation_states()
 	GameManager.hp_changed.connect(_on_hp_changed)
-
+	
 func take_damage(knockback_dir: Vector2, force: float):
 	if is_invincible: return
 	
@@ -167,9 +169,28 @@ func check_area_hazards() -> void:
 
 func die() -> void:
 	if is_dead: return
-	is_dead = true; _reset_animation_states(); _set_state("dead", true); velocity = Vector2.ZERO
-	await get_tree().create_timer(1.2).timeout
-	GameManager.reset_health(); get_tree().reload_current_scene()
 
+	is_dead = true
+	_reset_animation_states()
+	_set_state("dead", true)
+	velocity = Vector2.ZERO
+
+	await get_tree().create_timer(1.2).timeout
+	
+	# RESET LOGIC
+	is_dead = false
+	_reset_animation_states()
+	
+	# Force the state machine back to the entry point
+	#var playback = anim_tree["parameters/playback"]
+	#playback.travel("Start") 
+	
+	global_position = spawn_point
+	state = MoveState.GROUNDED
+	
+	GameManager.reset_health()
+	get_tree().reload_current_scene()
+
+		
 func _on_hp_changed(new_hp: float) -> void:
 	if new_hp <= 0 and not is_dead: die()

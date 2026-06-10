@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="1_6mqqc"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_7o8ry"]
-[ext_resource type="PackedScene" uid="uid://bn45xqkl3yx4k" path="res://Levels/01_Green_Village-Karl.tscn" id="4_3yl74"]
-[ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/Cloud_Tileset.png" id="4_68iev"]
+[ext_resource type="PackedScene" uid="uid://bn45xqkl3yx4k" path="res://Levels/01_Green_Village.tscn" id="3_6mqqc"]
+[ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/tileset-clouds.png" id="4_68iev"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_x60te"]
 [ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="5_6d7gu"]
 [ext_resource type="PackedScene" uid="uid://dup1cuh7n5fso" path="res://MovingPropellerPlatform.tscn" id="5_6mqqc"]
@@ -540,7 +540,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Exit" parent="." unique_id=1133760600 instance=ExtResource("6_am72q")]
 position = Vector2(2052, 260)
-target_level = ExtResource("4_3yl74")
+target_level = ExtResource("3_6mqqc")
 keys_needed = 5
 
 [node name="Player" parent="." unique_id=1696343506 instance=ExtResource("11_o5obx")]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tu7hakxo1ots"]
 
 [ext_resource type="Script" uid="uid://btw6igqmjgujb" path="res://Spikes.gd" id="1_05qlb"]
-[ext_resource type="Texture2D" uid="uid://cahl1tymp8gtw" path="res://Assets/Tilesets/hell-tileset/Objects/Spikes/1.png" id="2_bkr06"]
+[ext_resource type="Texture2D" uid="uid://cahl1tymp8gtw" path="res://Assets/Items/Traps/Spikes/1.png" id="2_bkr06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uvme"]
 size = Vector2(26, 7)

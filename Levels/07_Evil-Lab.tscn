@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://qtlwppjbm7xh" path="res://Assets/Backgrounds/Black.png" id="2_34poq"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_mjgux"]
-[ext_resource type="Texture2D" uid="uid://su8vfadl85mm" path="res://Assets/Tilesets/desert-2d-tileset-pixel-art/1 Tiles/Tileset.png" id="3_2u6by"]
+[ext_resource type="Texture2D" uid="uid://su8vfadl85mm" path="res://Assets/Tilesets/old-tileset-desert.png" id="3_2u6by"]
 [ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="3_6xpn6"]
-[ext_resource type="Texture2D" uid="uid://wdbb25pk3303" path="res://Assets/Tilesets/lab-game-tileset-pixel-art/1 Tiles/lab-tileset.png" id="4_6xpn6"]
-[ext_resource type="Texture2D" uid="uid://crx4rc6i3b52t" path="res://Assets/Tilesets/business-center-tileset-pixel-art/1 Tiles/Tileset.png" id="4_34poq"]
+[ext_resource type="Texture2D" uid="uid://wdbb25pk3303" path="res://Assets/Tilesets/old-tileset-lab.png" id="4_6xpn6"]
+[ext_resource type="Texture2D" uid="uid://crx4rc6i3b52t" path="res://Assets/Tilesets/old-tileset-business-district.png" id="4_34poq"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="5_34poq"]
 [ext_resource type="Script" uid="uid://kqo8fquq1ru6" path="res://game_manager.gd" id="6_6xpn6"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="7_6b81d"]
-[ext_resource type="Texture2D" uid="uid://doxq81tvdojuk" path="res://Assets/Tilesets/water-pack-tileset-for-platformer-pixel-art/2 Tileset/Tileset.png" id="7_34poq"]
+[ext_resource type="Texture2D" uid="uid://doxq81tvdojuk" path="res://Assets/Tilesets/old-tileset-water.png" id="7_34poq"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="9_6xpn6"]
 [ext_resource type="PackedScene" uid="uid://cbudvli070qxg" path="res://Levels/10_Sky-Caleb.tscn" id="12_6xpn6"]
 

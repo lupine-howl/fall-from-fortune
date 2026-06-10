@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csdgkxmkn26ey"]
 
 [ext_resource type="Script" uid="uid://dq2a4atu835gd" path="res://coin.gd" id="1_0t63x"]
-[ext_resource type="Texture2D" uid="uid://ctm7dj70jf4jp" path="res://Assets/Tilesets/hell-tileset/Objects_Animated/Coin.png" id="2_0t63x"]
+[ext_resource type="Texture2D" uid="uid://c6007urs5pun3" path="res://Assets/Items/Coins/Hell-Coin.png" id="2_0t63x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7riw"]
 atlas = ExtResource("2_0t63x")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca50r6xk6mbbp" path="res://SteerableAnimatableBody2D.gd" id="1_81sm8"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_e2bi8"]
-[ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/Cloud_Tileset.png" id="3_ukxem"]
+[ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/tileset-clouds.png" id="3_ukxem"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qil6m"]
 texture = ExtResource("2_e2bi8")

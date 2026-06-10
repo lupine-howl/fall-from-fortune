@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://blvyk40krhy5f"]
 
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_ngi6l"]
-[ext_resource type="Texture2D" uid="uid://bgixbl2ge5thk" path="res://Assets/Tilesets/platformer-pixel-art-cave-2d-tileset/Tiles/TileSet.png" id="3_adg8x"]
+[ext_resource type="Texture2D" uid="uid://bgixbl2ge5thk" path="res://Assets/Tilesets/old-tileset-cave.png" id="3_adg8x"]
 [ext_resource type="PackedScene" uid="uid://c7mpurnfv1i77" path="res://Levels/05_Ocean-Max.tscn" id="4_8qyq8"]
-[ext_resource type="Texture2D" uid="uid://divyewso14p6u" path="res://Assets/Tilesets/ruins-game-tileset-pixel-art/1 Tiles/Tileset.png" id="4_kyoyt"]
-[ext_resource type="Texture2D" uid="uid://ipvw8vbp6540" path="res://Assets/Tilesets/sunken-city-tileset-pixel-art/2 Tileset/Tileset.png" id="5_8qyq8"]
+[ext_resource type="Texture2D" uid="uid://divyewso14p6u" path="res://Assets/Tilesets/old-tileset-ruins.png" id="4_kyoyt"]
+[ext_resource type="Texture2D" uid="uid://ipvw8vbp6540" path="res://Assets/Tilesets/old-tileset-sunken-city.png" id="5_8qyq8"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_jnccm"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="6_kyoyt"]
 [ext_resource type="Shader" uid="uid://b3k5ktcgerf3u" path="res://Levels/ShaderWater.gdshader" id="9_kyoyt"]

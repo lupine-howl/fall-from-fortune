@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="1_874v1"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_gbntx"]
-[ext_resource type="Texture2D" uid="uid://doxq81tvdojuk" path="res://Assets/Tilesets/water-pack-tileset-for-platformer-pixel-art/2 Tileset/Tileset.png" id="3_83y84"]
+[ext_resource type="Texture2D" uid="uid://doxq81tvdojuk" path="res://Assets/Tilesets/old-tileset-water.png" id="3_83y84"]
 [ext_resource type="PackedScene" uid="uid://b6f3kk3x4muia" path="res://Levels/07_Evil-Lab.tscn" id="3_db4qj"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_tevfp"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="5_db4qj"]

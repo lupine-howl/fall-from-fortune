@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cu4bj76bmtklo"]
 
 [ext_resource type="Script" uid="uid://b5c5f5ab2oarq" path="res://key.gd" id="1_p0yg6"]
-[ext_resource type="Texture2D" uid="uid://d3c8hwspho6eu" path="res://Assets/Tilesets/hell-tileset/Objects_Animated/White_Key.png" id="2_8orai"]
+[ext_resource type="Texture2D" uid="uid://bevclrlnxmmbf" path="res://Assets/Items/Keys/White_Key.png" id="2_8orai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p0yg6"]
 atlas = ExtResource("2_8orai")
