@@ -1,23 +1,22 @@
 [gd_scene format=4 uid="uid://cbudvli070qxg"]
 
-[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="1_6mqqc"]
+[ext_resource type="Texture2D" uid="uid://wb30ewj3ytb6" path="res://Assets/Backgrounds/Sky.jpg" id="1_6mqqc"]
 [ext_resource type="Texture2D" uid="uid://cghjb07womfds" path="res://Terrain (16x16).png" id="2_7o8ry"]
-[ext_resource type="PackedScene" uid="uid://bn45xqkl3yx4k" path="res://Levels/01_Green_Village.tscn" id="3_6mqqc"]
-[ext_resource type="Texture2D" uid="uid://85l0kmyjfdbl" path="res://Assets/Tilesets/tileset-clouds.png" id="4_68iev"]
+[ext_resource type="Texture2D" uid="uid://crx4rc6i3b52t" path="res://Assets/Tilesets/old-tileset-business-district.png" id="4_68iev"]
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_x60te"]
 [ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="5_6d7gu"]
 [ext_resource type="PackedScene" uid="uid://dup1cuh7n5fso" path="res://MovingPropellerPlatform.tscn" id="5_6mqqc"]
-[ext_resource type="Texture2D" uid="uid://c57fiu3h326p0" path="res://Assets/Enemies/EnemiesTileset.png" id="5_8e3y1"]
+[ext_resource type="Texture2D" uid="uid://c76baw8gokklq" path="res://Assets/Enemies/EnemiesTileset.png" id="5_8e3y1"]
 [ext_resource type="PackedScene" uid="uid://csnd8jaickqr" path="res://MovingCloudPlatform.tscn" id="5_umpyj"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_am72q"]
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="10_tuh8u"]
 [ext_resource type="PackedScene" uid="uid://bmn2n6uxcbgad" path="res://Enemy.tscn" id="11_8e3y1"]
-[ext_resource type="Texture2D" uid="uid://crg3ik1knb5ae" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="11_kavyn"]
+[ext_resource type="Texture2D" uid="uid://csig3m4aar2hl" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="11_kavyn"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="11_o5obx"]
 [ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="13_6d7gu"]
 [ext_resource type="Script" uid="uid://bwt2fjnea1fqp" path="res://DirectionArrow.gd" id="16_umpyj"]
 [ext_resource type="Texture2D" uid="uid://bdcql3fs7mupk" path="res://up-arrow-pixel-art-isolated-on-a-white-background-8-bit-illustration-vector.jpg" id="17_umpyj"]
-[ext_resource type="Texture2D" uid="uid://cdko7arfmrxqe" path="res://Assets/Backgrounds/foreground-clouds.png" id="19_qil6m"]
+[ext_resource type="Texture2D" uid="uid://dd4tpdini5k44" path="res://Assets/Backgrounds/foreground-clouds.png" id="19_qil6m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d7gu"]
 texture = ExtResource("5_8e3y1")
@@ -540,7 +539,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Exit" parent="." unique_id=1133760600 instance=ExtResource("6_am72q")]
 position = Vector2(2052, 260)
-target_level = ExtResource("3_6mqqc")
 keys_needed = 5
 
 [node name="Player" parent="." unique_id=1696343506 instance=ExtResource("11_o5obx")]
