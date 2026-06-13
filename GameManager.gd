@@ -9,8 +9,8 @@ var points := 0
 var keys := 0
 
 # 1 heart = 16 pixels wide. 3 hearts = 48 pixels total max health.
-var max_hp := 48.0
-var current_hp := 48.0
+var max_hp := 80.0
+var current_hp := 80.0
 
 func add_point() -> void:
 	points += 1

@@ -27,6 +27,7 @@ starting_mode = 4
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1400791390]
+position = Vector2(0, -7)
 sprite_frames = ExtResource("3_dk636")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842966326]

@@ -1,0 +1,408 @@
+{
+	"textures": [
+		{
+			"image": "tileset-large-plants.png",
+			"size": {
+				"w": 576,
+				"h": 576
+			},
+			"sprites": [
+				{
+					"filename": "Giant_Mushrooms/1.png",
+					"region": {
+						"x": 193,
+						"y": 353,
+						"w": 94,
+						"h": 126
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Giant_Mushrooms/2.png",
+					"region": {
+						"x": 449,
+						"y": 1,
+						"w": 62,
+						"h": 126
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Giant_Mushrooms/3.png",
+					"region": {
+						"x": 353,
+						"y": 1,
+						"w": 94,
+						"h": 126
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Giant_Mushrooms/4.png",
+					"region": {
+						"x": 1,
+						"y": 481,
+						"w": 94,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Giant_Mushrooms/5.png",
+					"region": {
+						"x": 65,
+						"y": 385,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Giant_Mushrooms/6.png",
+					"region": {
+						"x": 97,
+						"y": 481,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pine-trees/1.png",
+					"region": {
+						"x": 1,
+						"y": 257,
+						"w": 62,
+						"h": 222
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pine-trees/2.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 62,
+						"h": 254
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pine-trees/3.png",
+					"region": {
+						"x": 545,
+						"y": 129,
+						"w": 30,
+						"h": 126
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pine-trees/4.png",
+					"region": {
+						"x": 513,
+						"y": 1,
+						"w": 62,
+						"h": 126
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pine-trees/5.png",
+					"region": {
+						"x": 129,
+						"y": 385,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Pine-trees/6.png",
+					"region": {
+						"x": 545,
+						"y": 257,
+						"w": 30,
+						"h": 126
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/1.png",
+					"region": {
+						"x": 161,
+						"y": 481,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/2.png",
+					"region": {
+						"x": 225,
+						"y": 481,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/3.png",
+					"region": {
+						"x": 417,
+						"y": 129,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/4.png",
+					"region": {
+						"x": 481,
+						"y": 129,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/5.png",
+					"region": {
+						"x": 417,
+						"y": 225,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/6.png",
+					"region": {
+						"x": 481,
+						"y": 225,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/7.png",
+					"region": {
+						"x": 417,
+						"y": 321,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Skeletal Trees/8.png",
+					"region": {
+						"x": 481,
+						"y": 321,
+						"w": 62,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Trees/1.png",
+					"region": {
+						"x": 65,
+						"y": 193,
+						"w": 126,
+						"h": 190
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Trees/2.png",
+					"region": {
+						"x": 193,
+						"y": 193,
+						"w": 126,
+						"h": 158
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Trees/3.png",
+					"region": {
+						"x": 225,
+						"y": 1,
+						"w": 126,
+						"h": 158
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Trees/4.png",
+					"region": {
+						"x": 65,
+						"y": 1,
+						"w": 158,
+						"h": 190
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Trees/5.png",
+					"region": {
+						"x": 289,
+						"y": 353,
+						"w": 126,
+						"h": 158
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Trees/6.png",
+					"region": {
+						"x": 321,
+						"y": 161,
+						"w": 94,
+						"h": 158
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:f34a9147daf3c3ab75567f3967d138ad:0e697297a3a1127ff267a7df6d4aa952:cde7a2d7506ac70cd74336471c8d14b0$"
+	}
+}

@@ -1,0 +1,588 @@
+{
+	"textures": [
+		{
+			"image": "tileset-stones.png",
+			"size": {
+				"w": 416,
+				"h": 416
+			},
+			"sprites": [
+				{
+					"filename": "Stalegtites/1.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stalegtites/2.png",
+					"region": {
+						"x": 65,
+						"y": 1,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stalegtites/3.png",
+					"region": {
+						"x": 129,
+						"y": 1,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stalegtites/4.png",
+					"region": {
+						"x": 161,
+						"y": 1,
+						"w": 30,
+						"h": 30
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 2
+					}
+				},
+				{
+					"filename": "Stones/1.png",
+					"region": {
+						"x": 193,
+						"y": 1,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-1.png",
+					"region": {
+						"x": 257,
+						"y": 1,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-2.png",
+					"region": {
+						"x": 289,
+						"y": 1,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-3.png",
+					"region": {
+						"x": 321,
+						"y": 1,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-4.png",
+					"region": {
+						"x": 353,
+						"y": 1,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-5.png",
+					"region": {
+						"x": 1,
+						"y": 65,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-6.png",
+					"region": {
+						"x": 65,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-7.png",
+					"region": {
+						"x": 97,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-8.png",
+					"region": {
+						"x": 129,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-9.png",
+					"region": {
+						"x": 161,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-10.png",
+					"region": {
+						"x": 193,
+						"y": 65,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-11.png",
+					"region": {
+						"x": 257,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2-12.png",
+					"region": {
+						"x": 289,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/2.png",
+					"region": {
+						"x": 321,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/3.png",
+					"region": {
+						"x": 353,
+						"y": 65,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/4.png",
+					"region": {
+						"x": 1,
+						"y": 129,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/5.png",
+					"region": {
+						"x": 65,
+						"y": 129,
+						"w": 94,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-1.png",
+					"region": {
+						"x": 161,
+						"y": 129,
+						"w": 94,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-2.png",
+					"region": {
+						"x": 257,
+						"y": 129,
+						"w": 126,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-3.png",
+					"region": {
+						"x": 1,
+						"y": 193,
+						"w": 94,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-4.png",
+					"region": {
+						"x": 97,
+						"y": 193,
+						"w": 126,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-5.png",
+					"region": {
+						"x": 225,
+						"y": 193,
+						"w": 94,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-6.png",
+					"region": {
+						"x": 321,
+						"y": 193,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-7.png",
+					"region": {
+						"x": 385,
+						"y": 193,
+						"w": 30,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6-8.png",
+					"region": {
+						"x": 1,
+						"y": 257,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/6.png",
+					"region": {
+						"x": 65,
+						"y": 257,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/7.png",
+					"region": {
+						"x": 129,
+						"y": 257,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/8.png",
+					"region": {
+						"x": 193,
+						"y": 257,
+						"w": 62,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/9.png",
+					"region": {
+						"x": 257,
+						"y": 257,
+						"w": 94,
+						"h": 94
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 2,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/Stone1.png",
+					"region": {
+						"x": 1,
+						"y": 353,
+						"w": 94,
+						"h": 62
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/Stone2.png",
+					"region": {
+						"x": 97,
+						"y": 353,
+						"w": 62,
+						"h": 30
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/Stone3.png",
+					"region": {
+						"x": 161,
+						"y": 353,
+						"w": 30,
+						"h": 30
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/Stone4.png",
+					"region": {
+						"x": 193,
+						"y": 353,
+						"w": 62,
+						"h": 30
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "Stones/Stone5.png",
+					"region": {
+						"x": 257,
+						"y": 353,
+						"w": 62,
+						"h": 30
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:c24913390ea8d8dff8580cacb9532317:6c39eedab7a8a2f8b9bbca7cc1c03c16:d6166e94b5df784244f3da6f5c1de523$"
+	}
+}

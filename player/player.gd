@@ -10,8 +10,14 @@ extends CharacterBody2D
 @export var DASH_BOOST := 400.0
 @export var attack_damage := 25.0
 
-const COYOTE_TIME := 0.12
-const JUMP_BUFFER_TIME := 0.12
+@export_category("Water Settings")
+@export var water_gravity_multiplier := 0.35  # 35% of normal gravity for floaty physics
+@export var water_swim_velocity := -350.0     # Upward force applied when swimming/tapping jump
+@export var water_terminal_velocity := 200.0   # Caps how fast the player can sink down
+@export var water_speed_multiplier := 0.60     # Moves at 60% normal speed when wading/swimming
+
+@export_category("Environmental Friction")
+@export var grounded_horizontal_current_dampening := 0.25 # Ground friction absorbs 75% of force when still
 
 # ---------------------------------------------------------
 # STATES
@@ -34,6 +40,10 @@ var jump_buffer_timer := 0.0
 var roll_timer := 0.0
 var dash_timer := 0.0
 var spawn_point
+var is_submerged := false # Tracks if the player is currently underwater
+
+const COYOTE_TIME := 0.12
+const JUMP_BUFFER_TIME := 0.12
 
 @onready var hazard_detector := $HazardDetector
 @onready var anim_tree := $AnimationTree
@@ -70,7 +80,7 @@ func _physics_process(delta: float) -> void:
 		die()
 	
 	if is_dead:
-		_apply_gravity(delta); 
+		_apply_gravity(delta) 
 		velocity.x *= 0.9
 		_move(); return
 
@@ -78,7 +88,7 @@ func _physics_process(delta: float) -> void:
 	if state == MoveState.KNOCKBACK:
 		knockback_timer -= delta
 		if knockback_timer <= 0: state = MoveState.GROUNDED
-		_apply_gravity(delta); 
+		_apply_gravity(delta) 
 		move_and_slide(); return
 
 	var direction := Input.get_axis("ui_left", "ui_right")
@@ -103,15 +113,39 @@ func _physics_process(delta: float) -> void:
 		can_double_jump = true
 	else: coyote_timer = max(coyote_timer - delta, 0.0)
 		
-	if Input.is_action_just_pressed("ui_dash"):
+	# Block ground-dashing while swimming through open water
+	if Input.is_action_just_pressed("ui_dash") and not is_submerged:
 		state = MoveState.DASHING
 		dash_timer = 0.20
 		velocity.x = facing * DASH_BOOST
 		_set_state("dashing", true)
 
+	# Calculate current movement velocity, scaling limits adaptively based on horizontal gravity
 	if state != MoveState.ROLLING and state != MoveState.DASHING:
-		if direction != 0: velocity.x = direction * SPEED
-		else: velocity.x = move_toward(velocity.x, 0, SPEED)
+		var current_target_speed := SPEED
+		if is_submerged:
+			current_target_speed *= water_speed_multiplier
+			
+		var horiz_gravity := get_gravity().x
+		
+		if direction != 0: 
+			var gravity_influence_dir: float = sign(horiz_gravity) * direction
+			var adaptive_target_speed: float = direction * current_target_speed
+			
+			# Running: Receive 100% full gravity impact on top-speed calculations
+			if gravity_influence_dir > 0:
+				adaptive_target_speed += horiz_gravity * 0.25
+			elif gravity_influence_dir < 0:
+				adaptive_target_speed += horiz_gravity * 0.25
+				
+			velocity.x = move_toward(velocity.x, adaptive_target_speed, SPEED * 8 * delta)
+		else: 
+			# Grounded & Bracing Still: Apply the friction dampener here to restrict sliding away
+			if is_on_floor():
+				horiz_gravity *= grounded_horizontal_current_dampening
+				
+			var gravity_push_drift := horiz_gravity * 0.5
+			velocity.x = move_toward(velocity.x, gravity_push_drift, current_target_speed * 8 * delta)
 
 	if not is_on_floor() and velocity.y >= 0: state = MoveState.FALLING
 
@@ -119,24 +153,43 @@ func _physics_process(delta: float) -> void:
 		MoveState.GROUNDED:
 			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
 			_set_state("crouching", y_dir > 0)
-			if attacking and y_dir > 0:
+			# Block rolling underwater
+			if attacking and y_dir > 0 and not is_submerged:
 				state = MoveState.ROLLING; roll_timer = 0.25; velocity.x = facing * ROLL_BOOST; _set_state("rolling", true); return
 			if jump_buffer_timer > 0:
-				jump_buffer_timer = 0; velocity.y = JUMP_VELOCITY; state = MoveState.JUMPING; _set_state("jumping", true); return
+				jump_buffer_timer = 0
+				velocity.y = water_swim_velocity if is_submerged else JUMP_VELOCITY
+				state = MoveState.JUMPING; _set_state("jumping", true); return
 			_set_state("running", direction != 0)
 		MoveState.JUMPING:
+			_set_state("falling", true)
 			_set_state("jumping", true)
+			_set_state("falling", false)
 			if velocity.y > 0: state = MoveState.FALLING
-			if jump_buffer_timer > 0 and can_double_jump:
-				jump_buffer_timer = 0; can_double_jump = false; velocity.y = DOUBLE_JUMP_VELOCITY; state = MoveState.DOUBLE_JUMPING; _set_state("double_jumping", true); return
+			if jump_buffer_timer > 0:
+				if is_submerged: # Allow continuous swimming inputs
+					jump_buffer_timer = 0
+					velocity.y = water_swim_velocity
+				elif can_double_jump:
+					jump_buffer_timer = 0; can_double_jump = false; velocity.y = DOUBLE_JUMP_VELOCITY; state = MoveState.DOUBLE_JUMPING; _set_state("double_jumping", true); return
 		MoveState.DOUBLE_JUMPING:
 			_set_state("double_jumping", true)
 			if velocity.y > 0: state = MoveState.FALLING
+			if jump_buffer_timer > 0 and is_submerged:
+				jump_buffer_timer = 0
+				velocity.y = water_swim_velocity
+				state = MoveState.JUMPING
 		MoveState.FALLING:
 			_set_state("falling", true)
+			_set_state("jumping", false)
 			if is_on_floor(): state = MoveState.GROUNDED; return
-			if jump_buffer_timer > 0 and can_double_jump:
-				jump_buffer_timer = 0; can_double_jump = false; velocity.y = DOUBLE_JUMP_VELOCITY; state = MoveState.DOUBLE_JUMPING; _set_state("double_jumping", true); return
+			if jump_buffer_timer > 0:
+				if is_submerged:
+					jump_buffer_timer = 0
+					velocity.y = water_swim_velocity
+					state = MoveState.JUMPING; return
+				elif can_double_jump:
+					jump_buffer_timer = 0; can_double_jump = false; velocity.y = DOUBLE_JUMP_VELOCITY; state = MoveState.DOUBLE_JUMPING; _set_state("double_jumping", true); return
 		MoveState.ROLLING:
 			roll_timer -= delta; _set_state("rolling", true)
 			if roll_timer <= 0: _set_state("rolling", false); state = MoveState.GROUNDED; return
@@ -148,7 +201,34 @@ func _physics_process(delta: float) -> void:
 	_move()
 
 func _apply_gravity(delta: float) -> void:
-	if not is_on_floor(): velocity += get_gravity() * delta
+	var current_gravity := get_gravity()
+	var default_gravity_y: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+	
+	# 1. Handle horizontal currents/forces
+	if current_gravity.x != 0:
+		var applied_horiz_force = current_gravity.x
+		var direction := Input.get_axis("ui_left", "ui_right")
+		if is_on_floor() and direction == 0:
+			applied_horiz_force *= grounded_horizontal_current_dampening
+			
+		velocity.x += applied_horiz_force * delta
+
+	# 2. Handle vertical currents/gravity split
+	var has_vertical_current := current_gravity.y != default_gravity_y
+	
+	# If an Area2D is actively pulling or blasting us UPWARDS, apply it unconditionally!
+	if has_vertical_current and current_gravity.y < 0:
+		velocity.y += current_gravity.y * delta
+	# Otherwise, run normal downward gravity configurations only when airborne
+	elif not is_on_floor():
+		if has_vertical_current:
+			velocity.y += current_gravity.y * delta
+		elif is_submerged:
+			velocity.y += current_gravity.y * water_gravity_multiplier * delta
+			if velocity.y > water_terminal_velocity:
+				velocity.y = water_terminal_velocity
+		else:
+			velocity.y += current_gravity.y * delta
 
 func _set_state(name: String, value: bool) -> void:
 	var pos := "is_" + name; var neg := "is_not_" + name
@@ -182,25 +262,35 @@ func check_slide_hazards() -> void:
 func check_area_hazards() -> void:
 	if hazard_detector:
 		for area in hazard_detector.get_overlapping_areas():
-			if area.is_in_group("hazards"): die()
+			if area.is_in_group("hazards"): die(); return
+			
+		var bodies = hazard_detector.get_overlapping_bodies()
+		var currently_in_water := false
+		
+		for body in bodies:
+			if body is TileMapLayer:
+				currently_in_water = true
+				break
+		
+		if currently_in_water and not is_submerged:
+			if velocity.y > 0:
+				velocity.y *= 0.2
+				
+		is_submerged = currently_in_water
 
 func die() -> void:
 	if is_dead: return
 
 	is_dead = true
+	is_submerged = false 
 	_reset_animation_states()
 	_set_state("dead", true)
 	velocity = Vector2.ZERO
 
 	await get_tree().create_timer(1.2).timeout
 	
-	# RESET LOGIC
 	is_dead = false
 	_reset_animation_states()
-	
-	# Force the state machine back to the entry point
-	#var playback = anim_tree["parameters/playback"]
-	#playback.travel("Start") 
 	
 	global_position = spawn_point
 	state = MoveState.GROUNDED
@@ -208,6 +298,5 @@ func die() -> void:
 	GameManager.reset_health()
 	get_tree().reload_current_scene()
 
-		
 func _on_hp_changed(new_hp: float) -> void:
 	if new_hp <= 0 and not is_dead: die()

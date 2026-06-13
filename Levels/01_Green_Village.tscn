@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bn45xqkl3yx4k"]
 
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="1_m1c7u"]
-[ext_resource type="Texture2D" uid="uid://cpigv2ukcnq4c" path="res://Assets/Backgrounds/Sky.jpg" id="2_u0ase"]
-[ext_resource type="Texture2D" uid="uid://cjych6abp5p6k" path="res://Assets/Backgrounds/parallax-rolling-hills.png" id="3_auyav"]
+[ext_resource type="Texture2D" uid="uid://wb30ewj3ytb6" path="res://Assets/Backgrounds/Sky.jpg" id="2_u0ase"]
+[ext_resource type="Texture2D" uid="uid://b2ole7g8hv204" path="res://Assets/Backgrounds/parallax-rolling-hills.png" id="3_auyav"]
 [ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="4_l7d1g"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="5_cl8ql"]
 [ext_resource type="PackedScene" uid="uid://c4whl47b2444s" path="res://Levels/02_Desert_Wilderness.tscn" id="6_sbepc"]
@@ -995,7 +995,7 @@ tile_set = ExtResource("4_l7d1g")
 [node name="Enemies" type="Node" parent="." unique_id=2117073014]
 
 [node name="Player" parent="." unique_id=1696343506 instance=ExtResource("7_x1504")]
-position = Vector2(-707, 240)
+position = Vector2(-696, 239)
 
 [node name="Water Tiles" type="TileMap" parent="." unique_id=1490872822]
 modulate = Color(1, 1, 1, 0.48235294)

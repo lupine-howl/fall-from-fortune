@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://csnd8jaickqr" path="res://MovingCloudPlatform.tscn" id="6_8mv3k"]
 [ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="7_f68be"]
 [ext_resource type="PackedScene" uid="uid://be4lx4exnj0um" path="res://EnemyFish.tscn" id="7_m6sam"]
-[ext_resource type="Texture2D" uid="uid://c57fiu3h326p0" path="res://Assets/Enemies/EnemiesTileset.png" id="8_db75o"]
-[ext_resource type="Texture2D" uid="uid://crg3ik1knb5ae" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="9_crqq5"]
+[ext_resource type="Texture2D" uid="uid://c76baw8gokklq" path="res://Assets/Enemies/EnemiesTileset.png" id="8_db75o"]
+[ext_resource type="Texture2D" uid="uid://csig3m4aar2hl" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="9_crqq5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d7gu"]
 texture = ExtResource("8_db75o")

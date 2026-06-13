@@ -83,20 +83,30 @@ func _physics_process(delta: float) -> void:
 			if not use_easing: current_velocity.x = horizontal_dir * speed
 			update_launcher_velocity() # Update projectile direction when turning
 				
+	# Apply progressive down-force gravity to structural airborne modes
+	if current_mode == FlightMode.GROUND_WALK or current_mode == FlightMode.FALLING or current_mode == FlightMode.BOUNCING:
+		if is_on_floor():
+			target_velocity.y = 0 # Zero out downward force when standing on solid ground
+		else:
+			target_velocity.y += base_gravity * delta # Accumulate fall acceleration natively over frames
+
 	match current_mode:
 		FlightMode.HORIZONTAL_FLY:
-			target_velocity.x = horizontal_dir * speed; target_velocity.y = 0
+			target_velocity.x = horizontal_dir * speed
+			target_velocity.y = 0
 		FlightMode.FALLING:
-			target_velocity.x = horizontal_dir * speed; target_velocity.y += base_gravity * delta
+			target_velocity.x = horizontal_dir * speed
 			if is_on_floor(): 
-				target_velocity.y = 0
 				current_mode = FlightMode.GROUND_WALK if starting_mode == FlightMode.GROUND_WALK else FlightMode.HORIZONTAL_FLY
 		FlightMode.CLIMBING:
-			target_velocity.x = horizontal_dir * speed; target_velocity.y = -speed
+			target_velocity.x = horizontal_dir * speed
+			target_velocity.y = -speed
 			if global_position.y <= target_y_altitude: 
-				global_position.y = target_y_altitude; target_velocity.y = 0; current_mode = FlightMode.HORIZONTAL_FLY
+				global_position.y = target_y_altitude
+				target_velocity.y = 0
+				current_mode = FlightMode.HORIZONTAL_FLY
 		FlightMode.BOUNCING:
-			target_velocity.x = horizontal_dir * speed; target_velocity.y += base_gravity * delta
+			target_velocity.x = horizontal_dir * speed
 			flap_timer -= delta
 			if flap_timer <= 0.0:
 				if use_easing: current_velocity.y = flap_force
@@ -104,16 +114,18 @@ func _physics_process(delta: float) -> void:
 				flap_timer = flap_cooldown 
 		FlightMode.GROUND_WALK:
 			target_velocity.x = horizontal_dir * speed
-			target_velocity.y = base_gravity * delta if not is_on_floor() else 0
 
 	if use_easing:
 		current_velocity.x = lerp(current_velocity.x, target_velocity.x, acceleration * delta)
-		if current_mode == FlightMode.GROUND_WALK or current_mode == FlightMode.FALLING:
+		if current_mode == FlightMode.GROUND_WALK or current_mode == FlightMode.FALLING or current_mode == FlightMode.BOUNCING:
+			# Directly pass our accumulated downward frame gravity unconstrained by horizontal lerping
 			current_velocity.y = target_velocity.y
 		else:
 			current_velocity.y = lerp(current_velocity.y, target_velocity.y, acceleration * delta)
 		velocity = current_velocity
-	else: velocity = target_velocity
+	else: 
+		velocity = target_velocity
+		
 	move_and_slide()
 
 
@@ -155,7 +167,6 @@ func die() -> void:
 	
 	# 3. Fade-out animation
 	var tween = create_tween()
-	# Fades the enemy node out
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	
 	# 4. Cleanup
@@ -175,7 +186,6 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and launcher:
 		update_launcher_velocity()
 		launcher.call_deferred("shoot")
-		#launcher.shoot()
 		launcher.start_launching()
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
