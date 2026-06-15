@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cr28irpvcophc" path="res://Enemy.gd" id="1_a33on"]
 [ext_resource type="SpriteFrames" uid="uid://dvttd1mdicwuh" path="res://SpriteFramesAngryPig.tres" id="2_roewl"]
-[ext_resource type="PackedScene" uid="uid://bjiloil24uy5x" path="res://ProjectileLauncher.tscn" id="3_jsrn5"]
-[ext_resource type="PackedScene" uid="uid://drnpe03i7el81" path="res://Projectile.tscn" id="4_kit6f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6d7gu"]
 radius = 14.0
@@ -28,6 +26,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1400791390]
 sprite_frames = ExtResource("2_roewl")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842966326]
 shape = SubResource("CircleShape2D_6d7gu")
@@ -53,9 +52,6 @@ collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=285309457]
 shape = SubResource("CircleShape2D_6do27")
-
-[node name="ProjectileLauncher" parent="." unique_id=121258302 instance=ExtResource("3_jsrn5")]
-projectile_scene = ExtResource("4_kit6f")
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
