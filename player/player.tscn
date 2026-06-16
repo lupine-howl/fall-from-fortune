@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c3hfivdymskqe" path="res://player/assets/player_jump_lower.png" id="4_wodsf"]
 [ext_resource type="Texture2D" uid="uid://5ufwiyg4ckhy" path="res://player/assets/player_katana_attack_continuous.png" id="5_ebec5"]
 [ext_resource type="Texture2D" uid="uid://cb58owiciao6a" path="res://player/assets/player_standing_attack_lower.png" id="5_yllr7"]
+[ext_resource type="Script" uid="uid://iy4r8g2k1kfb" path="res://player/PlayerCamera.gd" id="6_knn7v"]
 [ext_resource type="Texture2D" uid="uid://beklagajje7h7" path="res://player/assets/player_walk_lower.png" id="7_tqiix"]
 [ext_resource type="Texture2D" uid="uid://dtw3pc661dgv1" path="res://player/assets/player_air_spin.png" id="8_65viv"]
 [ext_resource type="Texture2D" uid="uid://dw4fgt761hkxs" path="res://player/assets/player_crouch_idle.png" id="8_e7oew"]
@@ -2819,7 +2820,7 @@ ROLL_BOOST = 240.0
 DASH_BOOST = 240.0
 metadata/_edit_group_ = true
 
-[node name="PlayerLantern" type="PointLight2D" parent="PlayerBody" unique_id=1230084726]
+[node name="Lantern" type="PointLight2D" parent="PlayerBody" unique_id=1230084726]
 energy = 0.5
 texture = ExtResource("24_g4c7l")
 texture_scale = 0.5
@@ -2835,6 +2836,7 @@ frame_progress = 0.13245647
 [node name="Camera2D" type="Camera2D" parent="PlayerBody" unique_id=158208042]
 offset = Vector2(0, -90)
 zoom = Vector2(2, 2)
+script = ExtResource("6_knn7v")
 
 [node name="SpriteLower" type="AnimatedSprite2D" parent="PlayerBody" unique_id=165991947]
 sprite_frames = SubResource("SpriteFrames_r7pn3")

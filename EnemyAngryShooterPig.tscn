@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dkxrooqsrhpsw"]
 
 [ext_resource type="Script" uid="uid://cr28irpvcophc" path="res://Enemy.gd" id="1_smavn"]
-[ext_resource type="SpriteFrames" uid="uid://dvttd1mdicwuh" path="res://SpriteFramesAngryPig.tres" id="2_5fvjr"]
 [ext_resource type="PackedScene" uid="uid://bjiloil24uy5x" path="res://ProjectileLauncher.tscn" id="3_dqfq1"]
 [ext_resource type="Texture2D" uid="uid://cq8q83qy66555" path="res://Assets/Enemies/AngryPig/Idle (36x30).png" id="3_my6st"]
 [ext_resource type="Texture2D" uid="uid://k8j7t2q4cl4a" path="res://Assets/Enemies/AngryPig/Run (36x30).png" id="4_mon12"]
@@ -183,7 +182,6 @@ radius = 128.0
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_smavn")
-sprite_frames = ExtResource("2_5fvjr")
 default_animation = "walk"
 starting_mode = 4
 metadata/_edit_group_ = true

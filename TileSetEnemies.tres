@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="3_1bqys"]
 [ext_resource type="PackedScene" uid="uid://cnoty04s1h0wo" path="res://SpikesDown.tscn" id="4_5x82b"]
 [ext_resource type="PackedScene" uid="uid://dbufpfnhj4eot" path="res://Heart.tscn" id="4_8mv3k"]
+[ext_resource type="PackedScene" uid="uid://cp03w0hiyypim" path="res://EnemySlime.tscn" id="4_d4c65"]
 [ext_resource type="PackedScene" uid="uid://dup1cuh7n5fso" path="res://MovingPropellerPlatform.tscn" id="4_p3fgp"]
 [ext_resource type="PackedScene" uid="uid://ckokasb2disne" path="res://EnemyBadBunny.tscn" id="5_5x82b"]
 [ext_resource type="PackedScene" uid="uid://tu7hakxo1ots" path="res://SpikesUp.tscn" id="5_8mv3k"]
@@ -14,6 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://be4lx4exnj0um" path="res://EnemyFish.tscn" id="7_m6sam"]
 [ext_resource type="Texture2D" uid="uid://c76baw8gokklq" path="res://Assets/Enemies/EnemiesTileset.png" id="8_db75o"]
 [ext_resource type="Texture2D" uid="uid://csig3m4aar2hl" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="9_crqq5"]
+[ext_resource type="PackedScene" uid="uid://c08h7yr4561l4" path="res://EnemyBat.tscn" id="10_crqq5"]
+[ext_resource type="PackedScene" uid="uid://r0sxmvy02aif" path="res://EnemyFishAngler1.tscn" id="10_f68be"]
+[ext_resource type="PackedScene" uid="uid://bm80s0nhrugrm" path="res://EnemyFishLittle.tscn" id="12_db75o"]
+[ext_resource type="PackedScene" uid="uid://dkxrooqsrhpsw" path="res://EnemyAngryShooterPig.tscn" id="13_2stt8"]
+[ext_resource type="PackedScene" uid="uid://b4womgen7tg3" path="res://EnemyBee.tscn" id="15_bst0o"]
+[ext_resource type="PackedScene" uid="uid://bvs10a6q88xe6" path="res://EnemyChicken.tscn" id="16_v2eao"]
+[ext_resource type="PackedScene" uid="uid://cnfvj3fnc4lwr" path="res://EnemyGhost.tscn" id="17_rs5p3"]
+[ext_resource type="PackedScene" uid="uid://h0ch21fdxgct" path="res://EnemyShark.tscn" id="19_2stt8"]
+[ext_resource type="PackedScene" uid="uid://ccoondx68g1ak" path="res://EnemyFishLittle2.tscn" id="20_cwggt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d7gu"]
 texture = ExtResource("8_db75o")
@@ -26,12 +36,15 @@ texture = ExtResource("8_db75o")
 2:0/0/custom_data_0 = ExtResource("5_5x82b")
 2:3/size_in_atlas = Vector2i(2, 2)
 2:3/0 = 0
+2:3/0/custom_data_0 = ExtResource("10_crqq5")
 4:3/size_in_atlas = Vector2i(2, 2)
 4:3/0 = 0
 4:3/0/texture_origin = Vector2i(0, 8)
+4:3/0/custom_data_0 = ExtResource("15_bst0o")
 6:3/size_in_atlas = Vector2i(2, 2)
 6:3/0 = 0
 6:3/0/texture_origin = Vector2i(0, 8)
+6:3/0/custom_data_0 = ExtResource("17_rs5p3")
 8:3/size_in_atlas = Vector2i(1, 2)
 8:3/0 = 0
 8:3/0/texture_origin = Vector2i(0, 8)
@@ -45,6 +58,7 @@ texture = ExtResource("8_db75o")
 0:5/size_in_atlas = Vector2i(3, 2)
 0:5/0 = 0
 0:5/0/texture_origin = Vector2i(0, 8)
+0:5/0/custom_data_0 = ExtResource("4_d4c65")
 0:13/size_in_atlas = Vector2i(12, 2)
 0:13/0 = 0
 0:13/0/texture_origin = Vector2i(0, 5)
@@ -76,6 +90,27 @@ texture = ExtResource("8_db75o")
 7:2/size_in_atlas = Vector2i(2, 1)
 7:2/0 = 0
 7:2/0/custom_data_0 = ExtResource("7_m6sam")
+3:5/size_in_atlas = Vector2i(3, 2)
+3:5/0 = 0
+3:5/0/custom_data_0 = ExtResource("10_f68be")
+6:5/0 = 0
+6:5/0/custom_data_0 = ExtResource("12_db75o")
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -9)
+4:0/0/custom_data_0 = ExtResource("13_2stt8")
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, -10)
+6:0/0/custom_data_0 = ExtResource("16_v2eao")
+6:6/size_in_atlas = Vector2i(9, 4)
+6:6/0 = 0
+6:6/0/custom_data_0 = ExtResource("19_2stt8")
+7:5/size_in_atlas = Vector2i(2, 1)
+7:5/0 = 0
+7:5/0/custom_data_0 = ExtResource("20_cwggt")
+3:7/size_in_atlas = Vector2i(3, 2)
+3:7/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kavyn"]
 texture = ExtResource("9_crqq5")

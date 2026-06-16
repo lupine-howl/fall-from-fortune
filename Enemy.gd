@@ -43,10 +43,14 @@ const TURN_COOLDOWN := 0.5
 func _ready() -> void:
 	current_hp = max_hp
 	current_mode = starting_mode
+	
+	# Fallback logic for sprite frames
 	if sprite_frames:
 		sprite.sprite_frames = sprite_frames
-		if sprite.sprite_frames.has_animation(default_animation):
-			sprite.play(default_animation)
+	
+	# Only attempt to play if the assigned (or default) sprite_frames is valid
+	if sprite.sprite_frames and sprite.sprite_frames.has_animation(default_animation):
+		sprite.play(default_animation)
 	
 	hurtbox.body_entered.connect(_on_hurtbox_body_entered)
 	

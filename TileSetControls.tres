@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://f5s2ukms017q" path="res://EnvironmentalTriggers/TriggerLeftWait.tscn" id="7_2fwhy"]
 [ext_resource type="PackedScene" uid="uid://bf48nkj0qsmvc" path="res://EnvironmentalTriggers/TriggerFalling.tscn" id="7_gs5wd"]
 [ext_resource type="PackedScene" uid="uid://c7plsp5tpnpgx" path="res://EnvironmentalTriggers/TriggerUpWait.tscn" id="8_kt1yk"]
+[ext_resource type="PackedScene" uid="uid://d1gbshs2veint" path="res://EnvironmentalTriggers/TriggerUpSlow.tscn" id="9_67d38"]
 [ext_resource type="Texture2D" uid="uid://dfl2ok0ljw0mh" path="res://Assets/Tilesets/tileset-environmental-triggers.png" id="9_xu8b1"]
+[ext_resource type="PackedScene" uid="uid://bs4ij6nn8k4dc" path="res://EnvironmentalTriggers/TriggerDownSlow.tscn" id="11_t7mco"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3se3r"]
 texture = ExtResource("9_xu8b1")
@@ -25,7 +27,9 @@ texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 1:1/0/custom_data_0 = ExtResource("6_o8jm0")
 2:1/0 = 0
+2:1/0/custom_data_0 = ExtResource("9_67d38")
 3:1/0 = 0
+3:1/0/custom_data_0 = ExtResource("11_t7mco")
 0:2/0 = 0
 0:2/0/custom_data_0 = ExtResource("3_7xkjc")
 1:2/0 = 0

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bs4ij6nn8k4dc"]
+
+[ext_resource type="Script" uid="uid://bwt2fjnea1fqp" path="res://DirectionArrow.gd" id="1_tr7ay"]
+[ext_resource type="Texture2D" uid="uid://dfl2ok0ljw0mh" path="res://Assets/Tilesets/tileset-environmental-triggers.png" id="2_j4rbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb8bj"]
+size = Vector2(32, 32)
+
+[node name="TriggerLeftSlow" type="Area2D" unique_id=819326269]
+script = ExtResource("1_tr7ay")
+override_speed = 50.0
+arrow_direction = "Down"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1377556317]
+shape = SubResource("RectangleShape2D_pb8bj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736120016]
+texture = ExtResource("2_j4rbm")
+hframes = 4
+vframes = 4
+frame = 7

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://rmp6slcsubl5"]
+
+[ext_resource type="Script" uid="uid://ca50r6xk6mbbp" path="res://SteerableAnimatableBody2D.gd" id="1_rmmxq"]
+[ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="2_rxe68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5obx"]
+size = Vector2(62, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umpyj"]
+size = Vector2(72, 14.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v42y"]
+size = Vector2(62, 7)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1876641123]
+script = ExtResource("1_rmmxq")
+speed = 50.0
+metadata/_edit_group_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=313712204]
+modulate = Color(1, 1, 1, 0.5254902)
+position = Vector2(-8.999999, -6)
+scale = Vector2(0.333, 0.333)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 10, 0, 12, 0, 12, 0, 0, 0)
+tile_set = ExtResource("2_rxe68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1642035033]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_o5obx")
+one_way_collision = true
+
+[node name="NavigationDetector" type="Area2D" parent="." unique_id=1277356510]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationDetector" unique_id=2016851860]
+position = Vector2(0, -2.75)
+shape = SubResource("RectangleShape2D_umpyj")
+
+[node name="PassengerDetector" type="Area2D" parent="." unique_id=426577205]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PassengerDetector" unique_id=1094624595]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_3v42y")

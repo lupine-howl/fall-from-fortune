@@ -1,0 +1,43 @@
+[gd_scene format=4 uid="uid://d0lkj5g77jqgd"]
+
+[ext_resource type="Script" uid="uid://ca50r6xk6mbbp" path="res://SteerableAnimatableBody2D.gd" id="1_a0av2"]
+[ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="2_agygt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5obx"]
+size = Vector2(100, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umpyj"]
+size = Vector2(107, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v42y"]
+size = Vector2(108, 15)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1876641123]
+script = ExtResource("1_a0av2")
+speed = 50.0
+current_direction = Vector2(0, -1)
+metadata/_edit_group_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1166315230]
+modulate = Color(1, 1, 1, 0.5137255)
+position = Vector2(0, -20)
+scale = Vector2(0.333, 0.333)
+tile_map_data = PackedByteArray("AAD9//7/CgAAAAwAAAD9////CgAAAA0AAAD9/wAACgAAAA4AAAD+//7/CgABAAwAAAD+////CgABAA0AAAD+/wAACgABAA4AAAD///7/CgACAAwAAAD/////CgACAA0AAAD//wAACgACAA4AAAAAAP7/CgADAAwAAAAAAP//CgADAA0AAAAAAAAACgADAA4AAAABAP7/CgAEAAwAAAABAP//CgAEAA0AAAABAAAACgAEAA4AAAACAP7/CgALAAwAAAACAP//CgALAA0AAAACAAAACgALAA4AAAD9/wEACgAAAA8AAAD9/wIACgAAABAAAAD+/wEACgABAA8AAAD+/wIACgABABAAAAD//wEACgACAA8AAAD//wIACgACABAAAAAAAAEACgADAA8AAAAAAAIACgADABAAAAABAAEACgAEAA8AAAABAAIACgAEABAAAAACAAEACgALAA8AAAACAAIACgALABAAAAD9/wMACgAAABcAAAD+/wMACgABABcAAAD//wMACgACABcAAAAAAAMACgADABcAAAABAAMACgAEABcAAAACAAMACgALABcAAAA=")
+tile_set = ExtResource("2_agygt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1642035033]
+position = Vector2(-1, 3)
+shape = SubResource("RectangleShape2D_o5obx")
+one_way_collision = true
+
+[node name="NavigationDetector" type="Area2D" parent="." unique_id=1277356510]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="NavigationDetector" unique_id=2016851860]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_umpyj")
+
+[node name="PassengerDetector" type="Area2D" parent="." unique_id=426577205]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PassengerDetector" unique_id=1094624595]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3v42y")

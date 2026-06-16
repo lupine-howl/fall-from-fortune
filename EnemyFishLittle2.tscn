@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ccoondx68g1ak"]
+
+[ext_resource type="Script" uid="uid://cr28irpvcophc" path="res://Enemy.gd" id="1_3dxtd"]
+[ext_resource type="Texture2D" uid="uid://h66gv43daw6y" path="res://Assets/Enemies/fish.png" id="2_xs7wu"]
+[ext_resource type="PackedScene" uid="uid://bjiloil24uy5x" path="res://ProjectileLauncher.tscn" id="3_dj23c"]
+[ext_resource type="PackedScene" uid="uid://drnpe03i7el81" path="res://Projectile.tscn" id="4_kajew"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dxtd"]
+atlas = ExtResource("2_xs7wu")
+region = Rect2(704, 72, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs7wu"]
+atlas = ExtResource("2_xs7wu")
+region = Rect2(704, 72, 64, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_76xmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dxtd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs7wu")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6d7gu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlhvs"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlpyj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n0vj3"]
+radius = 128.0
+
+[node name="EnemyFish" type="CharacterBody2D" unique_id=2119525411]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_3dxtd")
+speed = 10.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1400791390]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_76xmr")
+animation = &"flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=842966326]
+shape = SubResource("CircleShape2D_6d7gu")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=563072602]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2103472399]
+shape = SubResource("CircleShape2D_qlhvs")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=597334883]
+target_position = Vector2(-15, 20)
+
+[node name="NavigationDetector" type="Area2D" parent="." unique_id=1789571665]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationDetector" unique_id=1652224010]
+shape = SubResource("CircleShape2D_xlpyj")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=273485376]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=746887702]
+shape = SubResource("CircleShape2D_n0vj3")
+
+[node name="ProjectileLauncher" parent="." unique_id=121258302 instance=ExtResource("3_dj23c")]
+projectile_scene = ExtResource("4_kajew")
