@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ckokasb2disne" path="res://EnemyBadBunny.tscn" id="5_5x82b"]
 [ext_resource type="PackedScene" uid="uid://tu7hakxo1ots" path="res://SpikesUp.tscn" id="5_8mv3k"]
 [ext_resource type="PackedScene" uid="uid://csnd8jaickqr" path="res://MovingCloudPlatform.tscn" id="6_8mv3k"]
+[ext_resource type="PackedScene" uid="uid://t674jygnwdpc" path="res://Checkpoint.tscn" id="7_0jxv2"]
 [ext_resource type="PackedScene" uid="uid://bo414g5ihaugi" path="res://MovingCloudPlatform3.tscn" id="7_cwggt"]
 [ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="7_f68be"]
 [ext_resource type="PackedScene" uid="uid://be4lx4exnj0um" path="res://EnemyFish.tscn" id="7_m6sam"]
@@ -127,6 +128,10 @@ texture = ExtResource("8_db75o")
 16:13/size_in_atlas = Vector2i(4, 1)
 16:13/0 = 0
 16:13/0/custom_data_0 = ExtResource("12_lr5dg")
+11:0/size_in_atlas = Vector2i(2, 4)
+11:0/0 = 0
+11:0/0/texture_origin = Vector2i(0, -2)
+11:0/0/custom_data_0 = ExtResource("7_0jxv2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kavyn"]
 texture = ExtResource("9_crqq5")

@@ -1,96 +1,15 @@
 [gd_scene format=4 uid="uid://cbudvli070qxg"]
 
 [ext_resource type="Texture2D" uid="uid://wb30ewj3ytb6" path="res://Assets/Backgrounds/Sky.jpg" id="1_6mqqc"]
-[ext_resource type="PackedScene" uid="uid://cu4bj76bmtklo" path="res://key.tscn" id="4_x60te"]
-[ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="5_6d7gu"]
-[ext_resource type="PackedScene" uid="uid://dup1cuh7n5fso" path="res://MovingPropellerPlatform.tscn" id="5_6mqqc"]
-[ext_resource type="Texture2D" uid="uid://c76baw8gokklq" path="res://Assets/Enemies/EnemiesTileset.png" id="5_8e3y1"]
-[ext_resource type="PackedScene" uid="uid://csnd8jaickqr" path="res://MovingCloudPlatform.tscn" id="5_umpyj"]
+[ext_resource type="TileSet" uid="uid://ctaya6hy7kn72" path="res://TileSetEnemies.tres" id="5_s55c7"]
 [ext_resource type="PackedScene" uid="uid://sae4qp6v0k0l" path="res://exit.tscn" id="6_am72q"]
-[ext_resource type="PackedScene" uid="uid://bo414g5ihaugi" path="res://MovingCloudPlatform3.tscn" id="7_qil6m"]
-[ext_resource type="PackedScene" uid="uid://rmp6slcsubl5" path="res://MovingCloudPlatform2.tscn" id="8_3yl74"]
-[ext_resource type="PackedScene" uid="uid://d0lkj5g77jqgd" path="res://MovingCloudPlatform4.tscn" id="9_bbanm"]
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="10_tuh8u"]
-[ext_resource type="PackedScene" uid="uid://bmn2n6uxcbgad" path="res://Enemy.tscn" id="11_8e3y1"]
-[ext_resource type="Texture2D" uid="uid://csig3m4aar2hl" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="11_kavyn"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="11_o5obx"]
 [ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="13_6d7gu"]
 [ext_resource type="TileSet" uid="uid://cqi34h10fqer3" path="res://TileSetControls.tres" id="18_6mqqc"]
 [ext_resource type="Script" uid="uid://b44q0qb8fvvli" path="res://Wind.gd" id="19_3yl74"]
 [ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="19_76xmr"]
 [ext_resource type="Texture2D" uid="uid://dd4tpdini5k44" path="res://Assets/Backgrounds/foreground-clouds.png" id="19_qil6m"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d7gu"]
-texture = ExtResource("5_8e3y1")
-0:1/size_in_atlas = Vector2i(2, 2)
-0:1/0 = 0
-0:1/0/texture_origin = Vector2i(0, 8)
-0:1/0/custom_data_0 = ExtResource("11_8e3y1")
-2:0/size_in_atlas = Vector2i(2, 3)
-2:0/0 = 0
-0:3/size_in_atlas = Vector2i(2, 2)
-0:3/0 = 0
-0:3/0/texture_origin = Vector2i(0, 8)
-2:3/size_in_atlas = Vector2i(2, 2)
-2:3/0 = 0
-4:3/size_in_atlas = Vector2i(2, 2)
-4:3/0 = 0
-4:3/0/texture_origin = Vector2i(0, 8)
-6:3/size_in_atlas = Vector2i(2, 2)
-6:3/0 = 0
-6:3/0/texture_origin = Vector2i(0, 8)
-8:3/size_in_atlas = Vector2i(1, 2)
-8:3/0 = 0
-8:3/0/texture_origin = Vector2i(0, 8)
-9:3/0 = 0
-10:3/0 = 0
-10:4/0 = 0
-10:4/0/custom_data_0 = ExtResource("4_x60te")
-9:4/0 = 0
-9:4/0/custom_data_0 = ExtResource("5_6d7gu")
-0:5/size_in_atlas = Vector2i(3, 2)
-0:5/0 = 0
-0:5/0/texture_origin = Vector2i(0, 8)
-0:13/size_in_atlas = Vector2i(12, 2)
-0:13/0 = 0
-0:13/0/texture_origin = Vector2i(0, 5)
-13:0/size_in_atlas = Vector2i(2, 4)
-13:0/0 = 0
-13:0/0/texture_origin = Vector2i(0, 3)
-15:0/size_in_atlas = Vector2i(2, 2)
-15:0/0 = 0
-15:2/size_in_atlas = Vector2i(2, 2)
-15:2/0 = 0
-15:2/0/texture_origin = Vector2i(0, 4)
-18:0/size_in_atlas = Vector2i(2, 1)
-18:0/0 = 0
-18:0/0/custom_data_0 = ExtResource("5_6mqqc")
-0:0/size_in_atlas = Vector2i(2, 1)
-0:0/0 = 0
-4:2/size_in_atlas = Vector2i(3, 1)
-4:2/0 = 0
-4:2/0/custom_data_0 = ExtResource("5_umpyj")
-12:13/size_in_atlas = Vector2i(4, 2)
-12:13/0 = 0
-12:13/0/custom_data_0 = ExtResource("8_3yl74")
-11:10/size_in_atlas = Vector2i(9, 3)
-11:10/0 = 0
-11:10/0/custom_data_0 = ExtResource("7_qil6m")
-15:4/size_in_atlas = Vector2i(6, 6)
-15:4/0 = 0
-15:4/0/custom_data_0 = ExtResource("9_bbanm")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kavyn"]
-texture = ExtResource("11_kavyn")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/custom_data_0 = ExtResource("11_8e3y1")
-
-[sub_resource type="TileSet" id="TileSet_8e3y1"]
-custom_data_layer_0/name = "spawn_scene"
-custom_data_layer_0/type = 24
-sources/4 = SubResource("TileSetAtlasSource_kavyn")
-sources/2 = SubResource("TileSetAtlasSource_6d7gu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yl74"]
 size = Vector2(347.9999, 1071)
@@ -125,8 +44,8 @@ keys_needed = 5
 position = Vector2(-326, 261)
 
 [node name="Hazards" type="TileMapLayer" parent="." unique_id=412435757]
-tile_map_data = PackedByteArray("AAABABcAAgAEAAIAAAAGABcAAgAEAAIAAAA5AA4AAgAPAAQAAABEAA4AAgAPAAQAAAAnABIAAgAMAA0AAABUABcAAgAMAA0AAABYABUAAgAMAA0AAABbABkAAgAMAA0AAABfABcAAgAMAA0AAABiABUAAgAMAA0AAABlABgAAgAMAA0AAABpABUAAgAMAA0AAABuABgAAgAMAA0AAABxABoAAgAMAA0AAAB1ABcAAgAMAA0AAAB5ABkAAgAMAA0AAAB9ABYAAgAMAA0AAACBABgAAgAMAA0AAAA4AAcAAgALAAoAAAApAAgAAgALAAoAAAAPAAcAAgALAAoAAAANAAwAAgALAAoAAAACABkAAgAMAA0AAAD+/xgAAgAMAA0AAAD5/xcAAgAMAA0AAAD2/xUAAgAMAA0AAAD5/xMAAgAMAA0AAABOAAgAAgAAAAEAAAAkAAwAAgAAAAEAAAAhAAcAAgAAAAEAAABPAAQAAgAAAAEAAABWAAwAAgAAAAEAAAAhABYAAgALAAoAAAAtABAAAgAPAAQAAADr/xEAAgAMAA0AAAA=")
-tile_set = SubResource("TileSet_8e3y1")
+tile_map_data = PackedByteArray("AAABABcAAgAEAAIAAAAGABcAAgAEAAIAAAA5AA4AAgAPAAQAAABEAA4AAgAPAAQAAAAnABIAAgAMAA0AAABUABcAAgAMAA0AAABYABUAAgAMAA0AAABbABkAAgAMAA0AAABfABcAAgAMAA0AAABiABUAAgAMAA0AAABlABgAAgAMAA0AAABpABUAAgAMAA0AAABuABgAAgAMAA0AAABxABoAAgAMAA0AAAB1ABcAAgAMAA0AAAB5ABkAAgAMAA0AAAB9ABYAAgAMAA0AAACBABgAAgAMAA0AAAA4AAcAAgALAAoAAAApAAgAAgALAAoAAAAPAAcAAgALAAoAAAANAAwAAgALAAoAAAACABkAAgAMAA0AAAD+/xgAAgAMAA0AAAD5/xcAAgAMAA0AAAD2/xUAAgAMAA0AAAD5/xMAAgAMAA0AAABOAAgAAgAAAAEAAAAkAAwAAgAAAAEAAAAhAAcAAgAAAAEAAABPAAQAAgAAAAEAAABWAAwAAgAAAAEAAAAhABYAAgALAAoAAAAtABAAAgAPAAQAAADr/xEAAgAMAA0AAAASAA4AAgALAAAAAABhAA8AAgALAAAAAAA=")
+tile_set = ExtResource("5_s55c7")
 script = ExtResource("13_6d7gu")
 
 [node name="Enemies" type="Node" parent="." unique_id=1844082353]
