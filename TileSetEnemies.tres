@@ -11,13 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://ckokasb2disne" path="res://EnemyBadBunny.tscn" id="5_5x82b"]
 [ext_resource type="PackedScene" uid="uid://tu7hakxo1ots" path="res://SpikesUp.tscn" id="5_8mv3k"]
 [ext_resource type="PackedScene" uid="uid://csnd8jaickqr" path="res://MovingCloudPlatform.tscn" id="6_8mv3k"]
+[ext_resource type="PackedScene" uid="uid://bo414g5ihaugi" path="res://MovingCloudPlatform3.tscn" id="7_cwggt"]
 [ext_resource type="PackedScene" uid="uid://csdgkxmkn26ey" path="res://coin.tscn" id="7_f68be"]
 [ext_resource type="PackedScene" uid="uid://be4lx4exnj0um" path="res://EnemyFish.tscn" id="7_m6sam"]
+[ext_resource type="PackedScene" uid="uid://rmp6slcsubl5" path="res://MovingCloudPlatform2.tscn" id="8_0jxv2"]
 [ext_resource type="Texture2D" uid="uid://c76baw8gokklq" path="res://Assets/Enemies/EnemiesTileset.png" id="8_db75o"]
+[ext_resource type="PackedScene" uid="uid://d0lkj5g77jqgd" path="res://MovingCloudPlatform4.tscn" id="9_bst0o"]
 [ext_resource type="Texture2D" uid="uid://csig3m4aar2hl" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="9_crqq5"]
 [ext_resource type="PackedScene" uid="uid://c08h7yr4561l4" path="res://EnemyBat.tscn" id="10_crqq5"]
 [ext_resource type="PackedScene" uid="uid://r0sxmvy02aif" path="res://EnemyFishAngler1.tscn" id="10_f68be"]
 [ext_resource type="PackedScene" uid="uid://bm80s0nhrugrm" path="res://EnemyFishLittle.tscn" id="12_db75o"]
+[ext_resource type="PackedScene" uid="uid://db72uph7kp8q8" path="res://MovingPlatformHidden.tscn" id="12_lr5dg"]
 [ext_resource type="PackedScene" uid="uid://dkxrooqsrhpsw" path="res://EnemyAngryShooterPig.tscn" id="13_2stt8"]
 [ext_resource type="PackedScene" uid="uid://b4womgen7tg3" path="res://EnemyBee.tscn" id="15_bst0o"]
 [ext_resource type="PackedScene" uid="uid://bvs10a6q88xe6" path="res://EnemyChicken.tscn" id="16_v2eao"]
@@ -111,6 +115,18 @@ texture = ExtResource("8_db75o")
 7:5/0/custom_data_0 = ExtResource("20_cwggt")
 3:7/size_in_atlas = Vector2i(3, 2)
 3:7/0 = 0
+15:4/size_in_atlas = Vector2i(6, 6)
+15:4/0 = 0
+15:4/0/custom_data_0 = ExtResource("9_bst0o")
+11:10/size_in_atlas = Vector2i(9, 3)
+11:10/0 = 0
+11:10/0/custom_data_0 = ExtResource("7_cwggt")
+12:13/size_in_atlas = Vector2i(4, 2)
+12:13/0 = 0
+12:13/0/custom_data_0 = ExtResource("8_0jxv2")
+16:13/size_in_atlas = Vector2i(4, 1)
+16:13/0 = 0
+16:13/0/custom_data_0 = ExtResource("12_lr5dg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kavyn"]
 texture = ExtResource("9_crqq5")

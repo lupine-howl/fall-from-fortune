@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="13_6d7gu"]
 [ext_resource type="Texture2D" uid="uid://bdcql3fs7mupk" path="res://up-arrow-pixel-art-isolated-on-a-white-background-8-bit-illustration-vector.jpg" id="17_umpyj"]
 [ext_resource type="TileSet" uid="uid://cqi34h10fqer3" path="res://TileSetControls.tres" id="18_6mqqc"]
+[ext_resource type="Script" uid="uid://b44q0qb8fvvli" path="res://Wind.gd" id="19_3yl74"]
 [ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="19_76xmr"]
 [ext_resource type="Texture2D" uid="uid://dd4tpdini5k44" path="res://Assets/Backgrounds/foreground-clouds.png" id="19_qil6m"]
 
@@ -128,7 +129,7 @@ keys_needed = 5
 position = Vector2(-326, 261)
 
 [node name="Hazards" type="TileMapLayer" parent="." unique_id=412435757]
-tile_map_data = PackedByteArray("AAABABcAAgAEAAIAAAAGABcAAgAEAAIAAAAIABIAAgASAAAAAAA5AA4AAgAPAAQAAABEAA4AAgAPAAQAAAAnABIAAgAMAA0AAABUABcAAgAMAA0AAABYABUAAgAMAA0AAABbABkAAgAMAA0AAABfABcAAgAMAA0AAABiABUAAgAMAA0AAABlABgAAgAMAA0AAABpABUAAgAMAA0AAABuABgAAgAMAA0AAABxABoAAgAMAA0AAAB1ABcAAgAMAA0AAAB5ABkAAgAMAA0AAAB9ABYAAgAMAA0AAACBABgAAgAMAA0AAAA4AAcAAgALAAoAAAApAAgAAgALAAoAAAAPAAcAAgALAAoAAAANAAwAAgALAAoAAAACABkAAgAMAA0AAAD+/xgAAgAMAA0AAAD5/xcAAgAMAA0AAAD2/xUAAgAMAA0AAAD5/xMAAgAMAA0AAABOAAgAAgAAAAEAAAAkAAwAAgAAAAEAAAAhAAcAAgAAAAEAAABPAAQAAgAAAAEAAABWAAwAAgAAAAEAAAAhABYAAgALAAoAAAAtABAAAgAPAAQAAADr/xEAAgAMAA0AAAA=")
+tile_map_data = PackedByteArray("AAABABcAAgAEAAIAAAAGABcAAgAEAAIAAAA5AA4AAgAPAAQAAABEAA4AAgAPAAQAAAAnABIAAgAMAA0AAABUABcAAgAMAA0AAABYABUAAgAMAA0AAABbABkAAgAMAA0AAABfABcAAgAMAA0AAABiABUAAgAMAA0AAABlABgAAgAMAA0AAABpABUAAgAMAA0AAABuABgAAgAMAA0AAABxABoAAgAMAA0AAAB1ABcAAgAMAA0AAAB5ABkAAgAMAA0AAAB9ABYAAgAMAA0AAACBABgAAgAMAA0AAAA4AAcAAgALAAoAAAApAAgAAgALAAoAAAAPAAcAAgALAAoAAAANAAwAAgALAAoAAAACABkAAgAMAA0AAAD+/xgAAgAMAA0AAAD5/xcAAgAMAA0AAAD2/xUAAgAMAA0AAAD5/xMAAgAMAA0AAABOAAgAAgAAAAEAAAAkAAwAAgAAAAEAAAAhAAcAAgAAAAEAAABPAAQAAgAAAAEAAABWAAwAAgAAAAEAAAAhABYAAgALAAoAAAAtABAAAgAPAAQAAADr/xEAAgAMAA0AAAA=")
 tile_set = SubResource("TileSet_8e3y1")
 script = ExtResource("13_6d7gu")
 
@@ -158,36 +159,34 @@ tile_set = ExtResource("18_6mqqc")
 script = ExtResource("13_6d7gu")
 
 [node name="Winds" type="Node2D" parent="." unique_id=1007537306]
-visible = false
 
-[node name="ForceArrow27" type="Area2D" parent="Winds" unique_id=885857922]
+[node name="Wind" type="Area2D" parent="Winds" unique_id=885857922]
 position = Vector2(1752, 356)
 gravity_space_override = 1
-gravity_point_center = Vector2(1, -0.25)
-gravity_direction = Vector2(1, -0.25)
+gravity_point_center = Vector2(1, 0)
+gravity_direction = Vector2(1, 0)
 gravity = 300.0
+script = ExtResource("19_3yl74")
+swing_speed = 1.0
+time_powered_off = 3.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Winds/ForceArrow27" unique_id=453907825]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Winds/Wind" unique_id=453907825]
 position = Vector2(-1278, -85.99997)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_3yl74")
 
-[node name="UpArrowPixelArtIsolatedOnAWhiteBackground8BitIllustrationVector" type="Sprite2D" parent="Winds/ForceArrow27" unique_id=1240766974]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("17_umpyj")
-
-[node name="ForceArrow28" type="Area2D" parent="Winds" unique_id=659224863]
+[node name="Wind2" type="Area2D" parent="Winds" unique_id=659224863]
 position = Vector2(1752, 356)
 gravity_space_override = 1
 gravity_point_center = Vector2(-1, -0.25)
 gravity_direction = Vector2(-1, -0.25)
 gravity = 300.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Winds/ForceArrow28" unique_id=186436639]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Winds/Wind2" unique_id=186436639]
 position = Vector2(-614.25, -86)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_qil6m")
 
-[node name="UpArrowPixelArtIsolatedOnAWhiteBackground8BitIllustrationVector" type="Sprite2D" parent="Winds/ForceArrow28" unique_id=1549616899]
+[node name="UpArrowPixelArtIsolatedOnAWhiteBackground8BitIllustrationVector" type="Sprite2D" parent="Winds/Wind2" unique_id=1549616899]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("17_umpyj")
