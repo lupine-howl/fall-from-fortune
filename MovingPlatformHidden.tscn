@@ -37,4 +37,3 @@ shape = SubResource("RectangleShape2D_3v42y")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=224694052]
 position = Vector2(6, 7)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 2, 0, 16, 0, 13, 0, 0, 0)
-tile_set = ExtResource("2_7wk56")

@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://t674jygnwdpc"]
+
+[ext_resource type="Script" uid="uid://ckh12y83ckul8" path="res://Checkpoint.gd" id="1_yt2a0"]
+[ext_resource type="Texture2D" uid="uid://6kbt45tc6nul" path="res://Assets/Items/Flags/6-Flag.png" id="2_j5qqt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6gyp"]
+atlas = ExtResource("2_j5qqt")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrtbj"]
+atlas = ExtResource("2_j5qqt")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h2d7"]
+atlas = ExtResource("2_j5qqt")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88cbg"]
+atlas = ExtResource("2_j5qqt")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ie6u5"]
+atlas = ExtResource("2_j5qqt")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kbmt"]
+atlas = ExtResource("2_j5qqt")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxtnq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6gyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrtbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h2d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88cbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie6u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kbmt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6gyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrtbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h2d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88cbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ie6u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kbmt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i78er"]
+size = Vector2(21, 63)
+
+[node name="Checkpoint" type="Area2D" unique_id=1424005292]
+script = ExtResource("1_yt2a0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1930204079]
+sprite_frames = SubResource("SpriteFrames_wxtnq")
+animation = &"idle"
+frame_progress = 0.29481417
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=803534060]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_i78er")

@@ -14,6 +14,7 @@
 [ext_resource type="TileSet" uid="uid://ctaya6hy7kn72" path="res://TileSetEnemies.tres" id="13_au5s1"]
 [ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="14_gawt5"]
 [ext_resource type="Texture2D" uid="uid://doxpsx2cc4t4m" path="res://village-objects-sheet.png" id="15_q01gh"]
+[ext_resource type="PackedScene" uid="uid://t674jygnwdpc" path="res://Checkpoint.tscn" id="16_m1c7u"]
 [ext_resource type="TileSet" uid="uid://cqi34h10fqer3" path="res://TileSetControls.tres" id="16_mvwmb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xr0qo"]
@@ -976,13 +977,11 @@ collision_enabled = false
 [node name="Exit" parent="." unique_id=1922568324 instance=ExtResource("5_cl8ql")]
 position = Vector2(458, 349)
 rotation = 0.34208453
-target_level = ExtResource("6_sbepc")
 keys_needed = 5
 metadata/_edit_group_ = true
 
 [node name="Exit2" parent="." unique_id=783523946 instance=ExtResource("5_cl8ql")]
 position = Vector2(5288, 374)
-target_level = ExtResource("6_sbepc")
 keys_needed = 4
 metadata/_edit_group_ = true
 
@@ -1027,3 +1026,9 @@ modulate = Color(1, 1, 1, 0.6431373)
 tile_map_data = PackedByteArray("AADs/wcAAAAAAAEAAADx/wcAAAABAAEAAADZ/wsAAAAAAAAAAADZ/woAAAAAAAAAAADi/wsAAAABAAEAAADj/woAAAABAAEAAAAIAAEAAAABAAEAAADz/wEAAAAAAAEAAADx/wMAAAAAAAEAAAD9/wMAAAABAAEAAADs/wEAAAACAAIAAADs//L/AAAAAAMAAAAaAP7/AAAAAAIAAAAtAP7/AAAAAAAAAAAiAP7/AAAAAAAAAAA3AP7/AAAAAAAAAABCAP7/AAAAAAAAAABMAP7/AAAAAAAAAABTAP7/AAAAAAAAAABYAP7/AAABAAMAAABBAPz/AAAAAAEAAABJAPz/AAAAAAEAAABIAPz/AAABAAEAAABVAPz/AAABAAEAAABAAPz/AAABAAEAAAAfAPz/AAAAAAEAAAAsAAwAAAAAAAAAAACnAAwAAAABAAAAAACfAAwAAAAAAAAAAACPAAwAAAABAAAAAAByAAwAAAAAAAAAAABcAAwAAAAAAAAAAABlAAwAAAABAAAAAAA4AAwAAAABAAAAAAAYAP7/AAABAAAAAAA=")
 tile_set = ExtResource("16_mvwmb")
 script = ExtResource("14_gawt5")
+
+[node name="Checkpoint" parent="." unique_id=1424005292 instance=ExtResource("16_m1c7u")]
+position = Vector2(-715, 226)
+
+[node name="Checkpoint2" parent="." unique_id=2113002477 instance=ExtResource("16_m1c7u")]
+position = Vector2(705, -71)

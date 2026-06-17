@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bly6jwe7hmnto" path="res://ui.tscn" id="1_myr0h"]
 [ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="2_vaddr"]
-[ext_resource type="PackedScene" uid="uid://b6f3kk3x4muia" path="res://Levels/07_Evil-Lab.tscn" id="3_cmbj6"]
+[ext_resource type="PackedScene" uid="uid://b6f3kk3x4muia" path="res://Levels/04_Evil-Lab.tscn" id="3_cmbj6"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="3_xnwlk"]
 [ext_resource type="TileSet" uid="uid://ctaya6hy7kn72" path="res://TileSetEnemies.tres" id="4_u8ki1"]
 [ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="5_g01jq"]
@@ -96,6 +96,16 @@ texture = ExtResource("11_w5t6e")
 70:24/0 = 0
 66:20/size_in_atlas = Vector2i(5, 4)
 66:20/0 = 0
+46:0/size_in_atlas = Vector2i(5, 5)
+46:0/0 = 0
+46:6/size_in_atlas = Vector2i(5, 6)
+46:6/0 = 0
+40:20/size_in_atlas = Vector2i(5, 5)
+40:20/0 = 0
+40:0/size_in_atlas = Vector2i(5, 9)
+40:0/0 = 0
+60:20/size_in_atlas = Vector2i(6, 4)
+60:20/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7cbku"]
 sources/2 = SubResource("TileSetAtlasSource_t8vbo")
@@ -152,7 +162,6 @@ scroll_scale = Vector2(0.9, 0.9)
 
 [node name="Exit2" parent="." unique_id=783523946 instance=ExtResource("7_uu0i8")]
 position = Vector2(2838, -1900)
-target_level = ExtResource("3_cmbj6")
 
 [node name="DeepBackTerrain" type="TileMapLayer" parent="." unique_id=1449213976]
 modulate = Color(0.15686275, 0.15686275, 0.15686275, 1)
@@ -231,7 +240,8 @@ script = ExtResource("5_g01jq")
 
 [node name="Enemies" type="Node" parent="." unique_id=1686802203]
 
-[node name="Player" parent="." unique_id=1696343506 instance=ExtResource("3_xnwlk")]
+[node name="Player" parent="." unique_id=1696343506 groups=["player"] instance=ExtResource("3_xnwlk")]
+position = Vector2(1, 0)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1886045602]
 scale = Vector2(0.333, 0.333)
@@ -247,7 +257,7 @@ tile_set = ExtResource("2_vaddr")
 
 [node name="Scenery" type="TileMapLayer" parent="." unique_id=552936336]
 scale = Vector2(0.333, 0.333)
-tile_map_data = PackedByteArray("AADD/y//AgA4AAgAAADk/yn/AgA4AAgAAADq/yn/AgA4AAgAAAAEACr/AgA4AAgAAACaADD/AgBAABgAAACmADH/AgBAABgAAACfADL/AgBOAAwAAAAPADD/AgBSAAgAAAAOADb/AgA8AAgAAAD+/zr/AgA8AAgAAABaAEL/AgA8AAgAAAAaAEr/AgBOAAwAAAAIAC3/AgBOAAwAAADw/yn/AgBOAAwAAADV/zH/AgBGABgAAACzADH/AgBGABgAAABoAC3/AgA4ABAAAAB9AC3/AgA4ABAAAACPAC3/AgA4ABAAAACKAC//AgA8AAgAAAB5AC//AgA8AAgAAACVAC7/AgBKAAQAAABfADL/AgBKAAQAAABdADj/AgBKAAQAAAATADr/AgBKAAQAAAAEACz/AgA4ABAAAAAHACz/AgA4ABAAAADj/yv/AgA4ABAAAADl/yr/AgA4ABAAAADx/y//AgA4ABAAAAA=")
+tile_map_data = PackedByteArray("AADq/yn/AgA4AAgAAAAEACr/AgA4AAgAAACaADD/AgBAABgAAACmADH/AgBAABgAAACfADL/AgBOAAwAAAAPADD/AgBSAAgAAAAOADb/AgA8AAgAAAD+/zr/AgA8AAgAAABaAEL/AgA8AAgAAAAaAEr/AgBOAAwAAACzADH/AgBGABgAAABoAC3/AgA4ABAAAAB9AC3/AgA4ABAAAACPAC3/AgA4ABAAAACKAC//AgA8AAgAAAB5AC//AgA8AAgAAACVAC7/AgBKAAQAAABfADL/AgBKAAQAAABdADj/AgBKAAQAAAATADr/AgBKAAQAAAAEACz/AgA4ABAAAADj/yv/AgA4ABAAAADl/yr/AgA4ABAAAADx/y//AgA4ABAAAABs/y3/AgA4ABAAAACW/yT/AgBSAAgAAACE/xz/AgBSAAgAAABx/xL/AgBSAAgAAAB4/zD/AgBEAAQAAABa/y//AgBEAAQAAAB0/pj+AgAoAAAAAAB2/rT+AgAoAAAAAACH/rL+AgAoAAAAAACd/r7+AgAoAAAAAAC3/s3+AgAuAAAAAACt/sT+AgAuAAAAAACU/q7+AgAuAAAAAACI/qj+AgAuAAAAAAC+/tj+AgBEAAQAAACS/sr+AgBEAAQAAACW/rr+AgBEAAQAAACe/rf+AgBEAAQAAACi/rv+AgAoABQAAACm/r/+AgAoABQAAADL/uL+AgAoABQAAAC8/+z+AgAoABQAAADH/+3+AgAoABQAAADQ/+z+AgAoABQAAADa/+z+AgAoABQAAADA/+/+AgAoAAAAAABvAOr+AgA8AAgAAACAAO7+AgA8AAgAAAByAPT+AgA8AAgAAABgAAX/AgA8AAgAAACtAO/+AgA8AAgAAADbAN7+AgA8AAgAAADKANb+AgA8AAgAAADKANX+AgA8AAgAAAAMAaD+AgA8AAgAAAAzAZ/+AgA8AAgAAABuAaD+AgA8AAgAAACcAaT+AgA8AAgAAACnAaL+AgA8AAgAAADHAaD+AgA8AAgAAADOAaj+AgBEAAQAAAB6AaD+AgA8ABQAAADeAaH+AgA8ABQAAAAAAqL+AgA8ABQAAAAeAqH+AgA8ABQAAAAgAqb+AgA8ABQAAAAKAqj+AgA8ABQAAAApAqP+AgA8ABQAAABMAqL+AgA8ABQAAAAYAED/AgA4ABAAAAAbAEP/AgA4ABAAAAAeAEr/AgA4ABAAAAAfAEv/AgA4ABAAAAAjAFD/AgA4ABAAAABJAE//AgA4ABAAAABDAFD/AgA4ABAAAABOAEj/AgA4ABAAAABeAEv/AgA4ABAAAABTAE7/AgA4ABAAAABRAFT/AgA4ABAAAADx/z//AgA4ABAAAADv/zv/AgA4ABAAAADl/zf/AgA4ABAAAADk/zb/AgA4ABAAAADV/zP/AgA4ABAAAADP/zf/AgA4ABAAAADO/zf/AgA4ABAAAADK/zr/AgA4ABAAAAA=")
 tile_set = SubResource("TileSet_7cbku")
 
 [node name="Scenery2" type="TileMapLayer" parent="." unique_id=162534871]
@@ -271,6 +281,7 @@ collision_enabled = false
 script = ExtResource("13_xnwlk")
 
 [node name="Currents" type="Node2D" parent="." unique_id=1097128948]
+visible = false
 
 [node name="ForceArrow3" type="Area2D" parent="Currents" unique_id=296403356]
 position = Vector2(299, -270)

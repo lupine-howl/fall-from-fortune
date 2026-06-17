@@ -71,6 +71,9 @@ func take_damage(knockback_dir: Vector2, force: float):
 	tween.tween_property(self, "modulate", Color(10, 10, 10), 0.1)
 	tween.tween_property(self, "modulate", original_modulate, 0.1)
 	
+	
+	if not is_inside_tree(): 
+		return
 	# Invincibility frames
 	await get_tree().create_timer(0.5).timeout
 	is_invincible = false
@@ -287,16 +290,16 @@ func die() -> void:
 	_set_state("dead", true)
 	velocity = Vector2.ZERO
 
+	# Let the animation play out for 1.2 seconds
 	await get_tree().create_timer(1.2).timeout
 	
+	# Clean up local player states right before repositioning
 	is_dead = false
 	_reset_animation_states()
-	
-	global_position = spawn_point
 	state = MoveState.GROUNDED
 	
-	GameManager.reset_health()
-	get_tree().reload_current_scene()
-
+	# Tell the GameManager the animation is done and we are ready to respawn
+	GameManager.trigger_player_respawn()
+	
 func _on_hp_changed(new_hp: float) -> void:
 	if new_hp <= 0 and not is_dead: die()

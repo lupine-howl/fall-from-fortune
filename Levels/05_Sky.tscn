@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://csig3m4aar2hl" path="res://Assets/Enemies/BlueBird/Flying (32x32).png" id="11_kavyn"]
 [ext_resource type="PackedScene" uid="uid://dan4h02iujee1" path="res://player/player.tscn" id="11_o5obx"]
 [ext_resource type="Script" uid="uid://d2pv7rca1l01i" path="res://hazards.gd" id="13_6d7gu"]
-[ext_resource type="Texture2D" uid="uid://bdcql3fs7mupk" path="res://up-arrow-pixel-art-isolated-on-a-white-background-8-bit-illustration-vector.jpg" id="17_umpyj"]
 [ext_resource type="TileSet" uid="uid://cqi34h10fqer3" path="res://TileSetControls.tres" id="18_6mqqc"]
 [ext_resource type="Script" uid="uid://b44q0qb8fvvli" path="res://Wind.gd" id="19_3yl74"]
 [ext_resource type="TileSet" uid="uid://b0etgrb5l3mkt" path="res://TileSetTerrain.tres" id="19_76xmr"]
@@ -94,10 +93,7 @@ sources/4 = SubResource("TileSetAtlasSource_kavyn")
 sources/2 = SubResource("TileSetAtlasSource_6d7gu")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3yl74"]
-size = Vector2(347.9999, 590)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qil6m"]
-size = Vector2(347.9999, 734.5)
+size = Vector2(347.9999, 1071)
 
 [node name="Game" type="Node" unique_id=1519557901]
 
@@ -171,22 +167,6 @@ swing_speed = 1.0
 time_powered_off = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Winds/Wind" unique_id=453907825]
-position = Vector2(-1278, -85.99997)
+position = Vector2(-1037.5, -85.99997)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_3yl74")
-
-[node name="Wind2" type="Area2D" parent="Winds" unique_id=659224863]
-position = Vector2(1752, 356)
-gravity_space_override = 1
-gravity_point_center = Vector2(-1, -0.25)
-gravity_direction = Vector2(-1, -0.25)
-gravity = 300.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Winds/Wind2" unique_id=186436639]
-position = Vector2(-614.25, -86)
-rotation = -1.5707964
-shape = SubResource("RectangleShape2D_qil6m")
-
-[node name="UpArrowPixelArtIsolatedOnAWhiteBackground8BitIllustrationVector" type="Sprite2D" parent="Winds/Wind2" unique_id=1549616899]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("17_umpyj")
