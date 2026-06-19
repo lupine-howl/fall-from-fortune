@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cnfvj3fnc4lwr" path="res://EnemyGhost.tscn" id="17_rs5p3"]
 [ext_resource type="PackedScene" uid="uid://h0ch21fdxgct" path="res://EnemyShark.tscn" id="19_2stt8"]
 [ext_resource type="PackedScene" uid="uid://ccoondx68g1ak" path="res://EnemyFishLittle2.tscn" id="20_cwggt"]
+[ext_resource type="PackedScene" uid="uid://dw56k6xnrqrte" path="res://Ladder.tscn" id="27_lr5dg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d7gu"]
 texture = ExtResource("8_db75o")
@@ -132,6 +133,10 @@ texture = ExtResource("8_db75o")
 11:0/0 = 0
 11:0/0/texture_origin = Vector2i(0, -2)
 11:0/0/custom_data_0 = ExtResource("7_0jxv2")
+9:0/size_in_atlas = Vector2i(2, 2)
+9:0/0 = 0
+9:0/0/texture_origin = Vector2i(0, 6)
+9:0/0/custom_data_0 = ExtResource("27_lr5dg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kavyn"]
 texture = ExtResource("9_crqq5")

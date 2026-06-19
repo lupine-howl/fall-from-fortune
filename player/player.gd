@@ -4,6 +4,7 @@ extends CharacterBody2D
 # CONSTANTS & EXPORTS
 # ---------------------------------------------------------
 @export var SPEED := 300.0
+@export var LADDER_CLIMB_SPEED := 200.0 # Renamed for clarity
 @export var JUMP_VELOCITY := -800.0
 @export var DOUBLE_JUMP_VELOCITY := -800.0
 @export var ROLL_BOOST := 400.0
@@ -11,24 +12,25 @@ extends CharacterBody2D
 @export var attack_damage := 25.0
 
 @export_category("Water Settings")
-@export var water_gravity_multiplier := 0.35  # 35% of normal gravity for floaty physics
-@export var water_swim_velocity := -350.0     # Upward force applied when swimming/tapping jump
-@export var water_terminal_velocity := 200.0   # Caps how fast the player can sink down
-@export var water_speed_multiplier := 0.60     # Moves at 60% normal speed when wading/swimming
+@export var water_gravity_multiplier := 0.35  
+@export var water_swim_velocity := -350.0     
+@export var water_terminal_velocity := 200.0   
+@export var water_speed_multiplier := 0.60     
 
 @export_category("Environmental Friction")
-@export var grounded_horizontal_current_dampening := 0.25 # Ground friction absorbs 75% of force when still
+@export var grounded_horizontal_current_dampening := 0.25 
 
 # ---------------------------------------------------------
 # STATES
 # ---------------------------------------------------------
+# Renamed CLIMBING to LADDER_CLIMBING to distinguish from future wall mechanics
 enum MoveState {
-	GROUNDED, JUMPING, FALLING, DOUBLE_JUMPING, ROLLING, DASHING, KNOCKBACK
+	GROUNDED, JUMPING, FALLING, DOUBLE_JUMPING, ROLLING, DASHING, KNOCKBACK, LADDER_CLIMBING
 }
 
 var state: MoveState = MoveState.GROUNDED
 var is_dead := false
-var is_invincible := false # Added to prevent rapid-fire damage
+var is_invincible := false 
 var facing := 1 
 var knockback_timer := 0.0
 
@@ -40,7 +42,8 @@ var jump_buffer_timer := 0.0
 var roll_timer := 0.0
 var dash_timer := 0.0
 var spawn_point
-var is_submerged := false # Tracks if the player is currently underwater
+var is_submerged := false 
+var is_on_ladder := false 
 
 const COYOTE_TIME := 0.12
 const JUMP_BUFFER_TIME := 0.12
@@ -52,11 +55,17 @@ const JUMP_BUFFER_TIME := 0.12
 @onready var attack_area := $AttackArea
 
 func _ready() -> void:
-	spawn_point = global_position # Save the starting spot
+	spawn_point = global_position 
 	anim_tree.active = true
 	_reset_animation_states()
 	GameManager.hp_changed.connect(_on_hp_changed)
 	
+func set_on_ladder(value: bool) -> void:
+	is_on_ladder = value
+	_set_state("on_ladder", value)
+	if not is_on_ladder and state == MoveState.LADDER_CLIMBING:
+		state = MoveState.FALLING
+
 func take_damage(knockback_dir: Vector2, force: float):
 	if is_invincible: return
 	
@@ -65,16 +74,13 @@ func take_damage(knockback_dir: Vector2, force: float):
 	velocity = knockback_dir * force
 	is_invincible = true
 	
-	# Flash effect
 	var original_modulate = modulate
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color(10, 10, 10), 0.1)
 	tween.tween_property(self, "modulate", original_modulate, 0.1)
 	
-	
 	if not is_inside_tree(): 
 		return
-	# Invincibility frames
 	await get_tree().create_timer(0.5).timeout
 	is_invincible = false
 
@@ -87,7 +93,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x *= 0.9
 		_move(); return
 
-	# Handle Knockback state
 	if state == MoveState.KNOCKBACK:
 		knockback_timer -= delta
 		if knockback_timer <= 0: state = MoveState.GROUNDED
@@ -96,6 +101,10 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var y_dir := Input.get_axis("ui_up", "ui_down")
+
+	# Check for ladder-specific vertical inputs
+	if is_on_ladder and state != MoveState.LADDER_CLIMBING and y_dir != 0:
+		state = MoveState.LADDER_CLIMBING
 
 	if state != MoveState.ROLLING and state != MoveState.DASHING:
 		if direction != 0:
@@ -116,15 +125,16 @@ func _physics_process(delta: float) -> void:
 		can_double_jump = true
 	else: coyote_timer = max(coyote_timer - delta, 0.0)
 		
-	# Block ground-dashing while swimming through open water
-	if Input.is_action_just_pressed("ui_dash") and not is_submerged:
+	if Input.is_action_just_pressed("ui_dash") and not is_submerged and state != MoveState.LADDER_CLIMBING:
 		state = MoveState.DASHING
 		dash_timer = 0.20
 		velocity.x = facing * DASH_BOOST
 		_set_state("dashing", true)
 
-	# Calculate current movement velocity, scaling limits adaptively based on horizontal gravity
-	if state != MoveState.ROLLING and state != MoveState.DASHING:
+	if state == MoveState.LADDER_CLIMBING:
+		velocity.y = y_dir * LADDER_CLIMB_SPEED
+		velocity.x = direction * (SPEED * 0.5) 
+	elif state != MoveState.ROLLING and state != MoveState.DASHING:
 		var current_target_speed := SPEED
 		if is_submerged:
 			current_target_speed *= water_speed_multiplier
@@ -135,7 +145,6 @@ func _physics_process(delta: float) -> void:
 			var gravity_influence_dir: float = sign(horiz_gravity) * direction
 			var adaptive_target_speed: float = direction * current_target_speed
 			
-			# Running: Receive 100% full gravity impact on top-speed calculations
 			if gravity_influence_dir > 0:
 				adaptive_target_speed += horiz_gravity * 0.25
 			elif gravity_influence_dir < 0:
@@ -143,20 +152,20 @@ func _physics_process(delta: float) -> void:
 				
 			velocity.x = move_toward(velocity.x, adaptive_target_speed, SPEED * 8 * delta)
 		else: 
-			# Grounded & Bracing Still: Apply the friction dampener here to restrict sliding away
 			if is_on_floor():
 				horiz_gravity *= grounded_horizontal_current_dampening
 				
 			var gravity_push_drift := horiz_gravity * 0.5
 			velocity.x = move_toward(velocity.x, gravity_push_drift, current_target_speed * 8 * delta)
 
-	if not is_on_floor() and velocity.y >= 0: state = MoveState.FALLING
+	if not is_on_floor() and velocity.y >= 0 and state != MoveState.LADDER_CLIMBING: 
+		state = MoveState.FALLING
 
 	match state:
 		MoveState.GROUNDED:
+			_set_state("on_ladder", false)
 			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
 			_set_state("crouching", y_dir > 0)
-			# Block rolling underwater
 			if attacking and y_dir > 0 and not is_submerged:
 				state = MoveState.ROLLING; roll_timer = 0.25; velocity.x = facing * ROLL_BOOST; _set_state("rolling", true); return
 			if jump_buffer_timer > 0:
@@ -164,13 +173,42 @@ func _physics_process(delta: float) -> void:
 				velocity.y = water_swim_velocity if is_submerged else JUMP_VELOCITY
 				state = MoveState.JUMPING; _set_state("jumping", true); return
 			_set_state("running", direction != 0)
+		
+		MoveState.LADDER_CLIMBING:
+			_set_state("on_ladder", true)
+			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
+			
+			# Check if the player is pushing any movement buttons
+			var is_moving := (y_dir != 0 or direction != 0)
+			
+			# Target our new TimeScale node smoothly!
+			if is_moving:
+				anim_tree["parameters/ClimbScale/scale"] = 1.0
+			else:
+				anim_tree["parameters/ClimbScale/scale"] = 0.0 # Perfect frame freeze
+			
+			if jump_buffer_timer > 0:
+				jump_buffer_timer = 0
+				velocity.y = JUMP_VELOCITY
+				state = MoveState.JUMPING
+				_set_state("on_ladder", false)
+				anim_tree["parameters/ClimbScale/scale"] = 1.0 # Reset scale
+				_set_state("jumping", true)
+				return
+				
+			if is_on_floor() and y_dir > 0:
+				state = MoveState.GROUNDED
+				anim_tree["parameters/ClimbScale/scale"] = 1.0 # Reset scale
+				return
+												
 		MoveState.JUMPING:
+			_set_state("on_ladder", false)
 			_set_state("falling", true)
 			_set_state("jumping", true)
 			_set_state("falling", false)
 			if velocity.y > 0: state = MoveState.FALLING
 			if jump_buffer_timer > 0:
-				if is_submerged: # Allow continuous swimming inputs
+				if is_submerged:
 					jump_buffer_timer = 0
 					velocity.y = water_swim_velocity
 				elif can_double_jump:
@@ -183,6 +221,7 @@ func _physics_process(delta: float) -> void:
 				velocity.y = water_swim_velocity
 				state = MoveState.JUMPING
 		MoveState.FALLING:
+			_set_state("on_ladder", false)
 			_set_state("falling", true)
 			_set_state("jumping", false)
 			if is_on_floor(): state = MoveState.GROUNDED; return
@@ -204,10 +243,12 @@ func _physics_process(delta: float) -> void:
 	_move()
 
 func _apply_gravity(delta: float) -> void:
+	if state == MoveState.LADDER_CLIMBING:
+		return
+
 	var current_gravity := get_gravity()
 	var default_gravity_y: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 	
-	# 1. Handle horizontal currents/forces
 	if current_gravity.x != 0:
 		var applied_horiz_force = current_gravity.x
 		var direction := Input.get_axis("ui_left", "ui_right")
@@ -216,13 +257,10 @@ func _apply_gravity(delta: float) -> void:
 			
 		velocity.x += applied_horiz_force * delta
 
-	# 2. Handle vertical currents/gravity split
 	var has_vertical_current := current_gravity.y != default_gravity_y
 	
-	# If an Area2D is actively pulling or blasting us UPWARDS, apply it unconditionally!
 	if has_vertical_current and current_gravity.y < 0:
 		velocity.y += current_gravity.y * delta
-	# Otherwise, run normal downward gravity configurations only when airborne
 	elif not is_on_floor():
 		if has_vertical_current:
 			velocity.y += current_gravity.y * delta
@@ -241,6 +279,7 @@ func _set_state(name: String, value: bool) -> void:
 	anim_tree["parameters/UpperState/conditions/" + neg] = !value
 
 func _reset_animation_states() -> void:
+	_set_state("on_ladder", false) 
 	_set_state("jumping", false); _set_state("falling", false); _set_state("double_jumping", false)
 	_set_state("running", false); _set_state("crouching", false); _set_state("attacking", false)
 	_set_state("rolling", false); _set_state("dead", false); _set_state("dashing", false)
@@ -264,9 +303,27 @@ func check_slide_hazards() -> void:
 
 func check_area_hazards() -> void:
 	if hazard_detector:
-		for area in hazard_detector.get_overlapping_areas():
-			if area.is_in_group("hazards"): die(); return
+		var overlapping_areas = hazard_detector.get_overlapping_areas()
+		
+		# 1. Handle Hazards
+		for area in overlapping_areas:
+			if area.is_in_group("hazards"): 
+				die()
+				return
+		
+		# 2. LADDER DETECTION FIXED: Check if overlapping ANY ladder zone
+		var touching_ladder := false
+		for area in overlapping_areas:
+			if area.is_in_group("ladders"):
+				touching_ladder = true
+				break
+		
+		# Update ladder state smoothly without exit/entry stuttering
+		is_on_ladder = touching_ladder
+		if not is_on_ladder and state == MoveState.LADDER_CLIMBING:
+			state = MoveState.FALLING
 			
+		# 3. Handle Water
 		var bodies = hazard_detector.get_overlapping_bodies()
 		var currently_in_water := false
 		
@@ -280,7 +337,7 @@ func check_area_hazards() -> void:
 				velocity.y *= 0.2
 				
 		is_submerged = currently_in_water
-
+		
 func die() -> void:
 	if is_dead: return
 
@@ -290,15 +347,12 @@ func die() -> void:
 	_set_state("dead", true)
 	velocity = Vector2.ZERO
 
-	# Let the animation play out for 1.2 seconds
 	await get_tree().create_timer(1.2).timeout
 	
-	# Clean up local player states right before repositioning
 	is_dead = false
 	_reset_animation_states()
 	state = MoveState.GROUNDED
 	
-	# Tell the GameManager the animation is done and we are ready to respawn
 	GameManager.trigger_player_respawn()
 	
 func _on_hp_changed(new_hp: float) -> void:
