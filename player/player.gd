@@ -3,10 +3,11 @@ extends CharacterBody2D
 # ---------------------------------------------------------
 # CONSTANTS & EXPORTS
 # ---------------------------------------------------------
-@export var SPEED := 300.0
-@export var LADDER_CLIMB_SPEED := 200.0 # Renamed for clarity
-@export var JUMP_VELOCITY := -800.0
-@export var DOUBLE_JUMP_VELOCITY := -800.0
+@export var SPEED := 180.0
+@export var LADDER_CLIMB_SPEED := 100.0 
+@export var WALL_CLIMB_SPEED := 100.0   
+@export var JUMP_VELOCITY := -600.0
+@export var DOUBLE_JUMP_VELOCITY := -600.0
 @export var ROLL_BOOST := 400.0
 @export var DASH_BOOST := 400.0
 @export var attack_damage := 25.0
@@ -23,9 +24,9 @@ extends CharacterBody2D
 # ---------------------------------------------------------
 # STATES
 # ---------------------------------------------------------
-# Renamed CLIMBING to LADDER_CLIMBING to distinguish from future wall mechanics
+# LEDGE MODIFICATION: Added LEDGE_CLIMBING state
 enum MoveState {
-	GROUNDED, JUMPING, FALLING, DOUBLE_JUMPING, ROLLING, DASHING, KNOCKBACK, LADDER_CLIMBING
+	GROUNDED, JUMPING, FALLING, DOUBLE_JUMPING, ROLLING, DASHING, KNOCKBACK, LADDER_CLIMBING, WALL_CLIMBING, LEDGE_CLIMBING
 }
 
 var state: MoveState = MoveState.GROUNDED
@@ -47,24 +48,20 @@ var is_on_ladder := false
 
 const COYOTE_TIME := 0.12
 const JUMP_BUFFER_TIME := 0.12
-
-@onready var hazard_detector := $HazardDetector
+@onready var sprite_pivot := $SpritePivot
 @onready var anim_tree := $AnimationTree
-@onready var sprite_upper := $SpriteUpper
-@onready var sprite_lower := $SpriteLower
-@onready var attack_area := $AttackArea
+@onready var hazard_detector := $SpritePivot/HazardDetector
+@onready var sprite_upper := $SpritePivot/SpriteContainer/SpriteUpper
+@onready var sprite_lower := $SpritePivot/SpriteContainer/SpriteLower
+@onready var attack_area := $SpritePivot/AttackArea
+@onready var wall_detector := $SpritePivot/WallDetector 
+@onready var ledge_detector := $SpritePivot/LedgeDetector # LEDGE MODIFICATION
 
 func _ready() -> void:
 	spawn_point = global_position 
 	anim_tree.active = true
 	_reset_animation_states()
 	GameManager.hp_changed.connect(_on_hp_changed)
-	
-func set_on_ladder(value: bool) -> void:
-	is_on_ladder = value
-	_set_state("on_ladder", value)
-	if not is_on_ladder and state == MoveState.LADDER_CLIMBING:
-		state = MoveState.FALLING
 
 func take_damage(knockback_dir: Vector2, force: float):
 	if is_invincible: return
@@ -102,15 +99,28 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	var y_dir := Input.get_axis("ui_up", "ui_down")
 
-	# Check for ladder-specific vertical inputs
+	# LEDGE MODIFICATION: Evaluate Ledge Grab Conditions
+	var pressing_into_wall: bool = (direction != 0 and sign(direction) == facing)
+	var touching_wall: bool = wall_detector and wall_detector.is_colliding()
+	var over_ledge: bool = ledge_detector and not ledge_detector.is_colliding()
+	
+	# Can trigger from jumping/falling near an edge, or climbing up a wall to the top
+	if state != MoveState.LEDGE_CLIMBING and touching_wall and over_ledge and not is_on_floor():
+		if pressing_into_wall or state == MoveState.WALL_CLIMBING:
+			start_ledge_climb()
+
+	var can_wall_climb: bool = wall_detector and wall_detector.is_colliding() and not is_on_floor()
+	if can_wall_climb and state != MoveState.WALL_CLIMBING and state != MoveState.LEDGE_CLIMBING and pressing_into_wall:
+		state = MoveState.WALL_CLIMBING
+
 	if is_on_ladder and state != MoveState.LADDER_CLIMBING and y_dir != 0:
 		state = MoveState.LADDER_CLIMBING
 
-	if state != MoveState.ROLLING and state != MoveState.DASHING:
+	# Lock directional facing while climbing walls, ladders, or ledges
+	if state != MoveState.ROLLING and state != MoveState.DASHING and state != MoveState.WALL_CLIMBING and state != MoveState.LADDER_CLIMBING and state != MoveState.LEDGE_CLIMBING:
 		if direction != 0:
 			facing = -1 if direction < 0 else 1
-			sprite_upper.scale.x = facing
-			sprite_lower.scale.x = facing
+			sprite_pivot.scale.x = facing
 
 	if Input.is_action_just_pressed("ui_jump"): jump_buffer_timer = JUMP_BUFFER_TIME
 	if jump_buffer_timer > 0: jump_buffer_timer -= delta
@@ -125,15 +135,22 @@ func _physics_process(delta: float) -> void:
 		can_double_jump = true
 	else: coyote_timer = max(coyote_timer - delta, 0.0)
 		
-	if Input.is_action_just_pressed("ui_dash") and not is_submerged and state != MoveState.LADDER_CLIMBING:
+	if Input.is_action_just_pressed("ui_dash") and not is_submerged and state != MoveState.LADDER_CLIMBING and state != MoveState.WALL_CLIMBING and state != MoveState.LEDGE_CLIMBING:
 		state = MoveState.DASHING
 		dash_timer = 0.20
 		velocity.x = facing * DASH_BOOST
 		_set_state("dashing", true)
 
+	# Movement Calculations per State
 	if state == MoveState.LADDER_CLIMBING:
 		velocity.y = y_dir * LADDER_CLIMB_SPEED
 		velocity.x = direction * (SPEED * 0.5) 
+	elif state == MoveState.WALL_CLIMBING:
+		velocity.y = y_dir * WALL_CLIMB_SPEED
+		velocity.x = 0 
+	elif state == MoveState.LEDGE_CLIMBING:
+		# LEDGE MODIFICATION: Velocity is managed completely by our Hoisting Tween sequence
+		velocity = Vector2.ZERO
 	elif state != MoveState.ROLLING and state != MoveState.DASHING:
 		var current_target_speed := SPEED
 		if is_submerged:
@@ -158,12 +175,14 @@ func _physics_process(delta: float) -> void:
 			var gravity_push_drift := horiz_gravity * 0.5
 			velocity.x = move_toward(velocity.x, gravity_push_drift, current_target_speed * 8 * delta)
 
-	if not is_on_floor() and velocity.y >= 0 and state != MoveState.LADDER_CLIMBING: 
+	if not is_on_floor() and velocity.y >= 0 and state != MoveState.LADDER_CLIMBING and state != MoveState.WALL_CLIMBING and state != MoveState.LEDGE_CLIMBING: 
 		state = MoveState.FALLING
 
 	match state:
 		MoveState.GROUNDED:
 			_set_state("on_ladder", false)
+			_set_state("on_wall", false) 
+			_set_state("on_ledge", false) # LEDGE MODIFICATION
 			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
 			_set_state("crouching", y_dir > 0)
 			if attacking and y_dir > 0 and not is_submerged:
@@ -178,32 +197,65 @@ func _physics_process(delta: float) -> void:
 			_set_state("on_ladder", true)
 			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
 			
-			# Check if the player is pushing any movement buttons
 			var is_moving := (y_dir != 0 or direction != 0)
-			
-			# Target our new TimeScale node smoothly!
-			if is_moving:
-				anim_tree["parameters/ClimbScale/scale"] = 1.0
-			else:
-				anim_tree["parameters/ClimbScale/scale"] = 0.0 # Perfect frame freeze
+			if is_moving: anim_tree["parameters/ClimbScale/scale"] = 1.0
+			else: anim_tree["parameters/ClimbScale/scale"] = 0.0
 			
 			if jump_buffer_timer > 0:
 				jump_buffer_timer = 0
 				velocity.y = JUMP_VELOCITY
 				state = MoveState.JUMPING
 				_set_state("on_ladder", false)
-				anim_tree["parameters/ClimbScale/scale"] = 1.0 # Reset scale
+				anim_tree["parameters/ClimbScale/scale"] = 1.0
 				_set_state("jumping", true)
 				return
 				
 			if is_on_floor() and y_dir > 0:
 				state = MoveState.GROUNDED
-				anim_tree["parameters/ClimbScale/scale"] = 1.0 # Reset scale
+				anim_tree["parameters/ClimbScale/scale"] = 1.0
 				return
-												
+
+		MoveState.WALL_CLIMBING:
+			_set_state("on_wall", true)
+			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
+			
+			if y_dir != 0: anim_tree["parameters/ClimbScale/scale"] = 1.0
+			else: anim_tree["parameters/ClimbScale/scale"] = 0.0
+			
+			var pulling_away: bool = (direction != 0 and sign(direction) != facing)
+			if not wall_detector.is_colliding() or pulling_away:
+				state = MoveState.FALLING
+				anim_tree["parameters/ClimbScale/scale"] = 1.0
+				_set_state("on_wall", false)
+				return
+				
+			if jump_buffer_timer > 0:
+				jump_buffer_timer = 0
+				velocity.y = JUMP_VELOCITY * 0.85
+				velocity.x = -facing * SPEED * 2.0 
+				facing = -facing
+				sprite_pivot.scale.x = facing 
+				
+				state = MoveState.JUMPING
+				anim_tree["parameters/ClimbScale/scale"] = 1.0
+				_set_state("on_wall", false)
+				_set_state("jumping", true)
+				return
+				
+			if is_on_floor():
+				state = MoveState.GROUNDED
+				anim_tree["parameters/ClimbScale/scale"] = 1.0
+				return
+
+		MoveState.LEDGE_CLIMBING:
+			# LEDGE MODIFICATION: Simply keep animation conditions active while tween operates
+			_set_state("on_ledge", true)
+			_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
+
 		MoveState.JUMPING:
 			_set_state("on_ladder", false)
-			_set_state("falling", true)
+			_set_state("on_wall", false) 
+			_set_state("on_ledge", false) # LEDGE MODIFICATION
 			_set_state("jumping", true)
 			_set_state("falling", false)
 			if velocity.y > 0: state = MoveState.FALLING
@@ -222,6 +274,8 @@ func _physics_process(delta: float) -> void:
 				state = MoveState.JUMPING
 		MoveState.FALLING:
 			_set_state("on_ladder", false)
+			_set_state("on_wall", false) 
+			_set_state("on_ledge", false) # LEDGE MODIFICATION
 			_set_state("falling", true)
 			_set_state("jumping", false)
 			if is_on_floor(): state = MoveState.GROUNDED; return
@@ -242,8 +296,47 @@ func _physics_process(delta: float) -> void:
 	_apply_gravity(delta)
 	_move()
 
+# MODIFIED: Snaps the player into place and lets the AnimationPlayer take over visuals
+func start_ledge_climb() -> void:
+	state = MoveState.LEDGE_CLIMBING
+	velocity = Vector2.ZERO
+	
+	# Get the exact intersection corner point of the wall
+	var wall_intersection_pt: Vector2 = wall_detector.get_collision_point()
+	
+	# Lock the physics body to the exact starting anchor point relative to the ledge.
+	# Tune these two numbers so the character's hands perfectly grip the corner on frame 1.
+	global_position.x = wall_intersection_pt.x - (facing * 1.0)
+	global_position.y = wall_intersection_pt.y + 12.0 
+	
+	# Trigger the animation tree state
+	_set_state("on_ledge", true)
+	_set_state("falling", false); _set_state("jumping", false); _set_state("double_jumping", false)
+
+
+# NEW: Call this function from the VERY LAST FRAME of your AnimationPlayer track
+func finalize_ledge_climb() -> void:
+	# 1. Figure out where the visuals ended up relative to the physics anchor
+	# Adjust these values to match where your animation visually landed the player on the platform
+	var horizontal_vault_distance := 16.0 * facing
+	var vertical_vault_distance := -40.0
+	
+	# 2. Teleport the actual physics collider safely onto the top of the platform
+	global_position.x += horizontal_vault_distance
+	global_position.y += vertical_vault_distance
+	
+	# 3. Reset visual sprite offsets back to local Vector2.ZERO instantly 
+	# (so they align perfectly with the new physics body position)
+	sprite_upper.position = Vector2.ZERO
+	sprite_lower.position = Vector2.ZERO
+	
+	# 4. Return control back to regular physics processing
+	state = MoveState.GROUNDED
+	_reset_animation_states()
+	
 func _apply_gravity(delta: float) -> void:
-	if state == MoveState.LADDER_CLIMBING:
+	# Keep gravity disabled during your custom ledge vaulting tween sequence
+	if state == MoveState.LADDER_CLIMBING or state == MoveState.WALL_CLIMBING or state == MoveState.LEDGE_CLIMBING:
 		return
 
 	var current_gravity := get_gravity()
@@ -279,7 +372,12 @@ func _set_state(name: String, value: bool) -> void:
 	anim_tree["parameters/UpperState/conditions/" + neg] = !value
 
 func _reset_animation_states() -> void:
+	if anim_tree and "parameters/ClimbScale/scale" in anim_tree:
+		anim_tree["parameters/ClimbScale/scale"] = 1.0
+		
 	_set_state("on_ladder", false) 
+	_set_state("on_wall", false) 
+	_set_state("on_ledge", false) # LEDGE MODIFICATION
 	_set_state("jumping", false); _set_state("falling", false); _set_state("double_jumping", false)
 	_set_state("running", false); _set_state("crouching", false); _set_state("attacking", false)
 	_set_state("rolling", false); _set_state("dead", false); _set_state("dashing", false)
@@ -305,25 +403,21 @@ func check_area_hazards() -> void:
 	if hazard_detector:
 		var overlapping_areas = hazard_detector.get_overlapping_areas()
 		
-		# 1. Handle Hazards
 		for area in overlapping_areas:
 			if area.is_in_group("hazards"): 
 				die()
 				return
 		
-		# 2. LADDER DETECTION FIXED: Check if overlapping ANY ladder zone
 		var touching_ladder := false
 		for area in overlapping_areas:
 			if area.is_in_group("ladders"):
 				touching_ladder = true
 				break
 		
-		# Update ladder state smoothly without exit/entry stuttering
 		is_on_ladder = touching_ladder
 		if not is_on_ladder and state == MoveState.LADDER_CLIMBING:
 			state = MoveState.FALLING
 			
-		# 3. Handle Water
 		var bodies = hazard_detector.get_overlapping_bodies()
 		var currently_in_water := false
 		

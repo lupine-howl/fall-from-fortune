@@ -20,9 +20,16 @@
 [ext_resource type="Texture2D" uid="uid://crxufk4yp1jct" path="res://player/assets/player_jump_upper.png" id="11_32hag"]
 [ext_resource type="Texture2D" uid="uid://cc0vw6voaccu1" path="res://player/assets/player_climb_back.png" id="11_s7qer"]
 [ext_resource type="Texture2D" uid="uid://ca2qqre3tokq4" path="res://player/assets/player_dash.png" id="11_x7c3f"]
+[ext_resource type="Texture2D" uid="uid://1onuk18lhp4t" path="res://player/assets/player_climb_side.png" id="12_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://cx5p17jiya4m4" path="res://player/assets/player_roll.png" id="14_x7c3f"]
 [ext_resource type="Texture2D" uid="uid://ccbgd6prvn8x" path="res://player/assets/player_walk_upper.png" id="16_c35mf"]
+[ext_resource type="Texture2D" uid="uid://dv84llji04mbp" path="res://player/assets/player_ledge_climb.png" id="19_knn7v"]
 [ext_resource type="Texture2D" uid="uid://b1govaot86lmk" path="res://light-mask.png" id="24_g4c7l"]
+[ext_resource type="Texture2D" uid="uid://b2iycdpu87a6n" path="res://player/assets/player_wall_land.png" id="26_7pqkx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whnp6"]
+radius = 6.0
+height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8t03j"]
 atlas = ExtResource("2_hg6s5")
@@ -391,6 +398,22 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("11_s7qer")
 region = Rect2(144, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgxvu"]
+atlas = ExtResource("12_g4c7l")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdnyr"]
+atlas = ExtResource("12_g4c7l")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26ehw"]
+atlas = ExtResource("12_g4c7l")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vegf"]
+atlas = ExtResource("12_g4c7l")
+region = Rect2(144, 0, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxclr"]
 atlas = ExtResource("8_e7oew")
 region = Rect2(0, 0, 48, 48)
@@ -647,6 +670,26 @@ region = Rect2(560, 0, 80, 64)
 atlas = ExtResource("5_ebec5")
 region = Rect2(640, 0, 80, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvnmh"]
+atlas = ExtResource("19_knn7v")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v6lc"]
+atlas = ExtResource("19_knn7v")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ws1b"]
+atlas = ExtResource("19_knn7v")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua2f6"]
+atlas = ExtResource("19_knn7v")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mikk3"]
+atlas = ExtResource("19_knn7v")
+region = Rect2(192, 0, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0toqm"]
 atlas = ExtResource("14_x7c3f")
 region = Rect2(0, 0, 48, 48)
@@ -835,6 +878,30 @@ region = Rect2(288, 0, 48, 48)
 atlas = ExtResource("16_c35mf")
 region = Rect2(336, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_glkag"]
+atlas = ExtResource("26_7pqkx")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgwk2"]
+atlas = ExtResource("26_7pqkx")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8h4n"]
+atlas = ExtResource("26_7pqkx")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvxeb"]
+atlas = ExtResource("26_7pqkx")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ub"]
+atlas = ExtResource("26_7pqkx")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3gkr"]
+atlas = ExtResource("26_7pqkx")
+region = Rect2(240, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_jd2rm"]
 animations = [{
 "frames": [{
@@ -875,6 +942,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"climb_back",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgxvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdnyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26ehw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vegf")
+}],
+"loop": true,
+"name": &"climb_side",
 "speed": 7.0
 }, {
 "frames": [{
@@ -1106,6 +1190,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rvnmh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v6lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ws1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua2f6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mikk3")
+}],
+"loop": true,
+"name": &"ledge_grab_climb",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0toqm")
 }, {
 "duration": 1.0,
@@ -1274,11 +1378,33 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glkag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgwk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8h4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvxeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_487ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3gkr")
+}],
+"loop": false,
+"name": &"wall_land",
+"speed": 15.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_whnp6"]
-radius = 6.0
-height = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7qer"]
+size = Vector2(37, 20)
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8t03j"]
 
@@ -1294,6 +1420,12 @@ animation = &"lower_blank"
 animation = &"lower_blank"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b8hi5"]
+animation = &"lower_blank"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2uvqg"]
+animation = &"lower_blank"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_glkag"]
 animation = &"lower_blank"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8t03j"]
@@ -1470,6 +1602,26 @@ advance_condition = &"is_not_on_ladder"
 advance_mode = 2
 advance_condition = &"is_on_ladder"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_48p26"]
+advance_mode = 2
+advance_condition = &"is_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qavcc"]
+advance_mode = 2
+advance_condition = &"is_not_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gci7n"]
+advance_mode = 2
+advance_condition = &"is_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pgwk2"]
+advance_mode = 2
+advance_condition = &"is_on_ledge"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k8h4n"]
+advance_mode = 2
+advance_condition = &"is_not_on_ledge"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ge24q"]
 states/End/position = Vector2(755.2, 12)
 states/Start/position = Vector2(-188.4, 204.6)
@@ -1483,6 +1635,10 @@ states/lower_blank/position = Vector2(608.6, -43.6)
 "states/lower_blank 4/position" = Vector2(-176.64113, -84.27783)
 "states/lower_blank 5/node" = SubResource("AnimationNodeAnimation_b8hi5")
 "states/lower_blank 5/position" = Vector2(-267.3727, 22.035461)
+"states/lower_blank 6/node" = SubResource("AnimationNodeAnimation_2uvqg")
+"states/lower_blank 6/position" = Vector2(-358.3727, -86.96454)
+"states/lower_blank 7/node" = SubResource("AnimationNodeAnimation_glkag")
+"states/lower_blank 7/position" = Vector2(-358.3727, -183.96454)
 states/lower_crouch_idle/node = SubResource("AnimationNodeAnimation_wsa1w")
 states/lower_crouch_idle/position = Vector2(-109.728165, -167.983)
 states/lower_idle/node = SubResource("AnimationNodeAnimation_ebec5")
@@ -1499,7 +1655,7 @@ states/lower_standing_attack/position = Vector2(303.8, 344.4)
 "states/lower_standing_attack 2/position" = Vector2(13, 253.16476)
 states/lower_walk/node = SubResource("AnimationNodeAnimation_g4c7l")
 states/lower_walk/position = Vector2(-109.920166, 46.90023)
-transitions = ["Start", "lower_idle", SubResource("AnimationNodeStateMachineTransition_tqiix"), "lower_idle", "lower_run", SubResource("AnimationNodeStateMachineTransition_e7oew"), "lower_run", "lower_idle", SubResource("AnimationNodeStateMachineTransition_c35mf"), "lower_idle", "lower_standing_attack", SubResource("AnimationNodeStateMachineTransition_pjwc4"), "lower_standing_attack", "lower_idle", SubResource("AnimationNodeStateMachineTransition_or4qq"), "lower_standing_attack", "lower_run", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "lower_idle", "lower_jump", SubResource("AnimationNodeStateMachineTransition_anp34"), "lower_jump", "lower_idle", SubResource("AnimationNodeStateMachineTransition_jdjat"), "lower_run", "lower_jump", SubResource("AnimationNodeStateMachineTransition_j420s"), "lower_standing_attack", "lower_jump", SubResource("AnimationNodeStateMachineTransition_kcq4v"), "lower_idle", "lower_blank", SubResource("AnimationNodeStateMachineTransition_wodsf"), "lower_jump 2", "lower_idle", SubResource("AnimationNodeStateMachineTransition_rptt4"), "lower_standing_attack", "lower_standing_attack 2", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "lower_standing_attack 2", "lower_standing_attack", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "lower_standing_attack 2", "lower_idle", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "lower_standing_attack 2", "lower_run", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "lower_idle", "lower_crouch_idle", SubResource("AnimationNodeStateMachineTransition_2s0vo"), "lower_crouch_idle", "lower_idle", SubResource("AnimationNodeStateMachineTransition_hgm8h"), "lower_standing_attack 2", "lower_jump", SubResource("AnimationNodeStateMachineTransition_q28gw"), "lower_idle", "lower_walk", SubResource("AnimationNodeStateMachineTransition_a2xo5"), "lower_walk", "lower_idle", SubResource("AnimationNodeStateMachineTransition_art4l"), "lower_walk", "lower_standing_attack", SubResource("AnimationNodeStateMachineTransition_j55il"), "lower_jump", "lower_blank 2", SubResource("AnimationNodeStateMachineTransition_mmwog"), "lower_crouch_idle", "lower_jump", SubResource("AnimationNodeStateMachineTransition_vgvch"), "lower_blank 2", "lower_jump", SubResource("AnimationNodeStateMachineTransition_8pxes"), "lower_jump 2", "lower_blank 2", SubResource("AnimationNodeStateMachineTransition_6wior"), "lower_crouch_idle", "lower_blank 3", SubResource("AnimationNodeStateMachineTransition_fmu53"), "lower_blank 3", "lower_crouch_idle", SubResource("AnimationNodeStateMachineTransition_w7j2h"), "lower_blank 4", "lower_idle", SubResource("AnimationNodeStateMachineTransition_p5tca"), "lower_idle", "lower_blank 4", SubResource("AnimationNodeStateMachineTransition_wpyo2"), "lower_idle", "lower_jump 2", SubResource("AnimationNodeStateMachineTransition_s7qer"), "lower_run", "lower_jump 2", SubResource("AnimationNodeStateMachineTransition_jbx34"), "lower_blank", "lower_idle", SubResource("AnimationNodeStateMachineTransition_hggc2"), "lower_idle", "lower_blank 5", SubResource("AnimationNodeStateMachineTransition_7l6ig"), "lower_blank 5", "lower_idle", SubResource("AnimationNodeStateMachineTransition_j3r50"), "lower_run", "lower_blank 5", SubResource("AnimationNodeStateMachineTransition_2h6tc")]
+transitions = ["Start", "lower_idle", SubResource("AnimationNodeStateMachineTransition_tqiix"), "lower_idle", "lower_run", SubResource("AnimationNodeStateMachineTransition_e7oew"), "lower_run", "lower_idle", SubResource("AnimationNodeStateMachineTransition_c35mf"), "lower_idle", "lower_standing_attack", SubResource("AnimationNodeStateMachineTransition_pjwc4"), "lower_standing_attack", "lower_idle", SubResource("AnimationNodeStateMachineTransition_or4qq"), "lower_standing_attack", "lower_run", SubResource("AnimationNodeStateMachineTransition_x7c3f"), "lower_idle", "lower_jump", SubResource("AnimationNodeStateMachineTransition_anp34"), "lower_jump", "lower_idle", SubResource("AnimationNodeStateMachineTransition_jdjat"), "lower_run", "lower_jump", SubResource("AnimationNodeStateMachineTransition_j420s"), "lower_standing_attack", "lower_jump", SubResource("AnimationNodeStateMachineTransition_kcq4v"), "lower_idle", "lower_blank", SubResource("AnimationNodeStateMachineTransition_wodsf"), "lower_jump 2", "lower_idle", SubResource("AnimationNodeStateMachineTransition_rptt4"), "lower_standing_attack", "lower_standing_attack 2", SubResource("AnimationNodeStateMachineTransition_r7pn3"), "lower_standing_attack 2", "lower_standing_attack", SubResource("AnimationNodeStateMachineTransition_1s1yo"), "lower_standing_attack 2", "lower_idle", SubResource("AnimationNodeStateMachineTransition_5ejfk"), "lower_standing_attack 2", "lower_run", SubResource("AnimationNodeStateMachineTransition_jd2rm"), "lower_idle", "lower_crouch_idle", SubResource("AnimationNodeStateMachineTransition_2s0vo"), "lower_crouch_idle", "lower_idle", SubResource("AnimationNodeStateMachineTransition_hgm8h"), "lower_standing_attack 2", "lower_jump", SubResource("AnimationNodeStateMachineTransition_q28gw"), "lower_idle", "lower_walk", SubResource("AnimationNodeStateMachineTransition_a2xo5"), "lower_walk", "lower_idle", SubResource("AnimationNodeStateMachineTransition_art4l"), "lower_walk", "lower_standing_attack", SubResource("AnimationNodeStateMachineTransition_j55il"), "lower_jump", "lower_blank 2", SubResource("AnimationNodeStateMachineTransition_mmwog"), "lower_crouch_idle", "lower_jump", SubResource("AnimationNodeStateMachineTransition_vgvch"), "lower_blank 2", "lower_jump", SubResource("AnimationNodeStateMachineTransition_8pxes"), "lower_jump 2", "lower_blank 2", SubResource("AnimationNodeStateMachineTransition_6wior"), "lower_crouch_idle", "lower_blank 3", SubResource("AnimationNodeStateMachineTransition_fmu53"), "lower_blank 3", "lower_crouch_idle", SubResource("AnimationNodeStateMachineTransition_w7j2h"), "lower_blank 4", "lower_idle", SubResource("AnimationNodeStateMachineTransition_p5tca"), "lower_idle", "lower_blank 4", SubResource("AnimationNodeStateMachineTransition_wpyo2"), "lower_idle", "lower_jump 2", SubResource("AnimationNodeStateMachineTransition_s7qer"), "lower_run", "lower_jump 2", SubResource("AnimationNodeStateMachineTransition_jbx34"), "lower_blank", "lower_idle", SubResource("AnimationNodeStateMachineTransition_hggc2"), "lower_idle", "lower_blank 5", SubResource("AnimationNodeStateMachineTransition_7l6ig"), "lower_blank 5", "lower_idle", SubResource("AnimationNodeStateMachineTransition_j3r50"), "lower_run", "lower_blank 5", SubResource("AnimationNodeStateMachineTransition_2h6tc"), "lower_idle", "lower_blank 6", SubResource("AnimationNodeStateMachineTransition_48p26"), "lower_blank 6", "lower_idle", SubResource("AnimationNodeStateMachineTransition_qavcc"), "lower_run", "lower_blank 6", SubResource("AnimationNodeStateMachineTransition_gci7n"), "lower_blank 6", "lower_blank 7", SubResource("AnimationNodeStateMachineTransition_pgwk2"), "lower_blank 7", "lower_blank 6", SubResource("AnimationNodeStateMachineTransition_k8h4n")]
 graph_offset = Vector2(-403.3727, -211.96454)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w7j2h"]
@@ -1514,14 +1670,23 @@ animation = &"upper_jump"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_utr5e"]
 animation = &"full_climb_back"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rvnmh"]
+animation = &"full_climb_side"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s7qer"]
 animation = &"full_death"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kb6p2"]
 animation = &"full_death"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qvxeb"]
+animation = &"full_ledge_grab_climb"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_65viv"]
 animation = &"full_walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ebdw7"]
+animation = &"full_wall_land"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ig2t1"]
 animation = &"upper_crouch_idle"
@@ -1736,6 +1901,43 @@ advance_condition = &"is_not_on_ladder"
 advance_mode = 2
 advance_condition = &"is_on_ladder"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8v6lc"]
+advance_mode = 2
+advance_condition = &"is_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6ws1b"]
+advance_mode = 2
+advance_condition = &"is_not_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ua2f6"]
+advance_mode = 2
+advance_condition = &"is_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_487ub"]
+advance_mode = 2
+advance_condition = &"is_on_ledge"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v3gkr"]
+advance_mode = 2
+advance_condition = &"is_not_on_ledge"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_20bc7"]
+advance_mode = 2
+advance_condition = &"is_on_ledge"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tcwf7"]
+advance_mode = 2
+advance_condition = &"is_on_ledge"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jfgxe"]
+advance_mode = 2
+advance_condition = &"is_on_wall"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yg0n1"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_55jnj"]
 states/air_spin/node = SubResource("AnimationNodeAnimation_w7j2h")
 states/air_spin/position = Vector2(331.11096, 555.83356)
@@ -1745,12 +1947,18 @@ states/falling/node = SubResource("AnimationNodeAnimation_r7pn3")
 states/falling/position = Vector2(38.599976, 587.2104)
 states/full_climb_back/node = SubResource("AnimationNodeAnimation_utr5e")
 states/full_climb_back/position = Vector2(-244.38934, 26.878265)
+states/full_climb_side/node = SubResource("AnimationNodeAnimation_rvnmh")
+states/full_climb_side/position = Vector2(-316.38934, 149.87827)
 states/full_death/node = SubResource("AnimationNodeAnimation_kb6p2")
 states/full_death/position = Vector2(969, 460)
 "states/full_death 2/node" = SubResource("AnimationNodeAnimation_s7qer")
 "states/full_death 2/position" = Vector2(661, 247.81038)
+states/full_ledge_grab_climb/node = SubResource("AnimationNodeAnimation_qvxeb")
+states/full_ledge_grab_climb/position = Vector2(-565.38934, 501.87827)
 states/full_walk/node = SubResource("AnimationNodeAnimation_65viv")
 states/full_walk/position = Vector2(798, 205)
+states/full_wall_land/node = SubResource("AnimationNodeAnimation_ebdw7")
+states/full_wall_land/position = Vector2(-556.38934, 342.87827)
 states/upper_crouch_idle/node = SubResource("AnimationNodeAnimation_ig2t1")
 states/upper_crouch_idle/position = Vector2(-103, 188.1221)
 states/upper_crouch_walk/node = SubResource("AnimationNodeAnimation_e7oew")
@@ -1758,7 +1966,7 @@ states/upper_crouch_walk/position = Vector2(58, 59.207817)
 states/upper_idle/node = SubResource("AnimationNodeAnimation_yllr7")
 states/upper_idle/position = Vector2(107.6, 287)
 states/upper_jump/node = SubResource("AnimationNodeAnimation_qavcc")
-states/upper_jump/position = Vector2(214, 426)
+states/upper_jump/position = Vector2(-216, 648)
 "states/upper_jump 2/node" = SubResource("AnimationNodeAnimation_rptt4")
 "states/upper_jump 2/position" = Vector2(484.21063, 509.87827)
 states/upper_katana_attack_end/node = SubResource("AnimationNodeAnimation_x7c3f")
@@ -1771,11 +1979,11 @@ states/upper_run/node = SubResource("AnimationNodeAnimation_c35mf")
 states/upper_run/position = Vector2(-258, 334)
 states/upper_walk/node = SubResource("AnimationNodeAnimation_fjxoa")
 states/upper_walk/position = Vector2(-74, 366.20782)
-transitions = ["upper_katana_attack_start", "upper_katana_attack_end", SubResource("AnimationNodeStateMachineTransition_knn7v"), "upper_run", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Start", "upper_idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "upper_idle", "upper_run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "upper_idle", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_32hag"), "upper_run", "upper_idle", SubResource("AnimationNodeStateMachineTransition_65viv"), "upper_run", "upper_jump", SubResource("AnimationNodeStateMachineTransition_bd26m"), "upper_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_lufic"), "upper_jump", "upper_idle", SubResource("AnimationNodeStateMachineTransition_nxclr"), "upper_jump", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_onxu2"), "upper_idle", "full_death 2", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "upper_jump", "falling", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "falling", "upper_idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "upper_katana_attack_end", "upper_idle", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "upper_katana_attack_end", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_uw77l"), "upper_idle", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_7xdiq"), "upper_crouch_idle", "upper_idle", SubResource("AnimationNodeStateMachineTransition_d0gtc"), "upper_crouch_idle", "upper_crouch_walk", SubResource("AnimationNodeStateMachineTransition_ge24q"), "upper_crouch_walk", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "upper_crouch_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "upper_katana_attack_start", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_55jnj"), "upper_katana_attack_end", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_dx5ib"), "upper_idle", "upper_walk", SubResource("AnimationNodeStateMachineTransition_gswnw"), "upper_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xcnuv"), "upper_walk", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_fjxoa"), "upper_crouch_walk", "upper_roll", SubResource("AnimationNodeStateMachineTransition_dbpvf"), "upper_crouch_idle", "upper_roll", SubResource("AnimationNodeStateMachineTransition_68g1w"), "upper_roll", "upper_idle", SubResource("AnimationNodeStateMachineTransition_hjies"), "upper_jump", "air_spin", SubResource("AnimationNodeStateMachineTransition_n0b8q"), "air_spin", "falling", SubResource("AnimationNodeStateMachineTransition_jfgyi"), "air_spin", "upper_jump", SubResource("AnimationNodeStateMachineTransition_237xx"), "falling", "air_spin", SubResource("AnimationNodeStateMachineTransition_7crtr"), "upper_crouch_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_a1u5o"), "upper_crouch_walk", "upper_jump", SubResource("AnimationNodeStateMachineTransition_3dxkp"), "upper_idle", "dash", SubResource("AnimationNodeStateMachineTransition_vvji8"), "dash", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xgxvu"), "upper_run", "dash", SubResource("AnimationNodeStateMachineTransition_pdnyr"), "upper_katana_attack_start", "air_spin", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "upper_run", "falling", SubResource("AnimationNodeStateMachineTransition_s3g0c"), "upper_idle", "falling", SubResource("AnimationNodeStateMachineTransition_35wys"), "falling", "upper_jump", SubResource("AnimationNodeStateMachineTransition_utr5e"), "full_death 2", "upper_idle", SubResource("AnimationNodeStateMachineTransition_b2j0d"), "upper_idle", "full_climb_back", SubResource("AnimationNodeStateMachineTransition_kewli"), "full_climb_back", "upper_idle", SubResource("AnimationNodeStateMachineTransition_do7qw"), "upper_run", "full_climb_back", SubResource("AnimationNodeStateMachineTransition_8rogd")]
-graph_offset = Vector2(-384.38934, -23.121735)
+transitions = ["upper_katana_attack_start", "upper_katana_attack_end", SubResource("AnimationNodeStateMachineTransition_knn7v"), "upper_run", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_2ieo8"), "Start", "upper_idle", SubResource("AnimationNodeStateMachineTransition_kb6p2"), "upper_idle", "upper_run", SubResource("AnimationNodeStateMachineTransition_yllr7"), "upper_idle", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_32hag"), "upper_run", "upper_idle", SubResource("AnimationNodeStateMachineTransition_65viv"), "upper_run", "upper_jump", SubResource("AnimationNodeStateMachineTransition_bd26m"), "upper_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_lufic"), "upper_jump", "upper_idle", SubResource("AnimationNodeStateMachineTransition_nxclr"), "upper_jump", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_onxu2"), "upper_idle", "full_death 2", SubResource("AnimationNodeStateMachineTransition_g4c7l"), "upper_jump", "falling", SubResource("AnimationNodeStateMachineTransition_b8hi5"), "falling", "upper_idle", SubResource("AnimationNodeStateMachineTransition_2uvqg"), "upper_katana_attack_end", "upper_idle", SubResource("AnimationNodeStateMachineTransition_7pqkx"), "upper_katana_attack_end", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_uw77l"), "upper_idle", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_7xdiq"), "upper_crouch_idle", "upper_idle", SubResource("AnimationNodeStateMachineTransition_d0gtc"), "upper_crouch_idle", "upper_crouch_walk", SubResource("AnimationNodeStateMachineTransition_ge24q"), "upper_crouch_walk", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_pnw6m"), "upper_crouch_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_1so5t"), "upper_katana_attack_start", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_55jnj"), "upper_katana_attack_end", "upper_crouch_idle", SubResource("AnimationNodeStateMachineTransition_dx5ib"), "upper_idle", "upper_walk", SubResource("AnimationNodeStateMachineTransition_gswnw"), "upper_walk", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xcnuv"), "upper_walk", "upper_katana_attack_start", SubResource("AnimationNodeStateMachineTransition_fjxoa"), "upper_crouch_walk", "upper_roll", SubResource("AnimationNodeStateMachineTransition_dbpvf"), "upper_crouch_idle", "upper_roll", SubResource("AnimationNodeStateMachineTransition_68g1w"), "upper_roll", "upper_idle", SubResource("AnimationNodeStateMachineTransition_hjies"), "upper_jump", "air_spin", SubResource("AnimationNodeStateMachineTransition_n0b8q"), "air_spin", "falling", SubResource("AnimationNodeStateMachineTransition_jfgyi"), "air_spin", "upper_jump", SubResource("AnimationNodeStateMachineTransition_237xx"), "falling", "air_spin", SubResource("AnimationNodeStateMachineTransition_7crtr"), "upper_crouch_idle", "upper_jump", SubResource("AnimationNodeStateMachineTransition_a1u5o"), "upper_crouch_walk", "upper_jump", SubResource("AnimationNodeStateMachineTransition_3dxkp"), "upper_idle", "dash", SubResource("AnimationNodeStateMachineTransition_vvji8"), "dash", "upper_idle", SubResource("AnimationNodeStateMachineTransition_xgxvu"), "upper_run", "dash", SubResource("AnimationNodeStateMachineTransition_pdnyr"), "upper_katana_attack_start", "air_spin", SubResource("AnimationNodeStateMachineTransition_bjvpn"), "upper_run", "falling", SubResource("AnimationNodeStateMachineTransition_s3g0c"), "upper_idle", "falling", SubResource("AnimationNodeStateMachineTransition_35wys"), "falling", "upper_jump", SubResource("AnimationNodeStateMachineTransition_utr5e"), "full_death 2", "upper_idle", SubResource("AnimationNodeStateMachineTransition_b2j0d"), "upper_idle", "full_climb_back", SubResource("AnimationNodeStateMachineTransition_kewli"), "full_climb_back", "upper_idle", SubResource("AnimationNodeStateMachineTransition_do7qw"), "upper_run", "full_climb_back", SubResource("AnimationNodeStateMachineTransition_8rogd"), "upper_idle", "full_climb_side", SubResource("AnimationNodeStateMachineTransition_8v6lc"), "full_climb_side", "upper_idle", SubResource("AnimationNodeStateMachineTransition_6ws1b"), "upper_run", "full_climb_side", SubResource("AnimationNodeStateMachineTransition_ua2f6"), "full_climb_side", "full_ledge_grab_climb", SubResource("AnimationNodeStateMachineTransition_487ub"), "full_ledge_grab_climb", "full_climb_side", SubResource("AnimationNodeStateMachineTransition_v3gkr"), "upper_idle", "full_ledge_grab_climb", SubResource("AnimationNodeStateMachineTransition_20bc7"), "upper_jump", "full_ledge_grab_climb", SubResource("AnimationNodeStateMachineTransition_tcwf7"), "upper_jump", "full_wall_land", SubResource("AnimationNodeStateMachineTransition_jfgxe"), "full_wall_land", "full_climb_side", SubResource("AnimationNodeStateMachineTransition_yg0n1")]
+graph_offset = Vector2(-904.38934, 160.87827)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dx5ib"]
-graph_offset = Vector2(-659.5265, 308.93738)
+graph_offset = Vector2(-657.3379, 626.8522)
 nodes/output/position = Vector2(656, 192)
 nodes/UpperState/node = SubResource("AnimationNodeStateMachine_55jnj")
 nodes/UpperState/position = Vector2(-620, 240)
@@ -1792,7 +2000,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:frame")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1804,7 +2012,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:animation")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1816,7 +2024,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteLower:frame")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1828,7 +2036,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteLower:animation")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1836,6 +2044,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"run"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpritePivot/SpriteContainer:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpritePivot/SpriteContainer:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_65viv"]
@@ -1845,7 +2077,7 @@ step = 0.0667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1857,7 +2089,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1874,7 +2106,7 @@ step = 0.0667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1886,7 +2118,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1903,7 +2135,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1915,7 +2147,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1932,7 +2164,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1944,11 +2176,40 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_mikk3"]
+resource_name = "full_climb_side"
+length = 0.26666668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"climb_side"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -1959,7 +2220,7 @@ resource_name = "full_death"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1971,7 +2232,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1983,7 +2244,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1995,7 +2256,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2012,7 +2273,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2024,7 +2285,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2036,7 +2297,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2048,7 +2309,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2064,7 +2325,7 @@ length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2076,7 +2337,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2088,7 +2349,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2100,7 +2361,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2110,13 +2371,80 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_ebdw7"]
+resource_name = "full_ledge_grab_climb"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"ledge_grab_climb"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finalize_ledge_climb"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpritePivot/SpriteContainer:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 8.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpritePivot/SpriteContainer:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0029552877, 0.10295529, 0.20295529, 0.3029553, 0.4029553, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.0, -6.0, -20.0, -26.0, 0.0]
+}
+
 [sub_resource type="Animation" id="Animation_j55il"]
 resource_name = "full_standing_katana_attack"
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2128,7 +2456,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2140,7 +2468,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2152,7 +2480,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2168,7 +2496,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2180,7 +2508,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2192,7 +2520,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2204,7 +2532,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2214,13 +2542,42 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_mteo0"]
+resource_name = "full_wall_land"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"wall_land"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="Animation" id="Animation_ge24q"]
 resource_name = "lower_blank"
 length = 0.2667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2232,7 +2589,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2249,7 +2606,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2261,7 +2618,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2278,7 +2635,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2290,7 +2647,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2306,7 +2663,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2318,7 +2675,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2335,7 +2692,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2347,7 +2704,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2364,7 +2721,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2376,7 +2733,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2393,7 +2750,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2405,7 +2762,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2422,7 +2779,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2434,7 +2791,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2451,7 +2808,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2463,7 +2820,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2480,7 +2837,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2492,7 +2849,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2508,7 +2865,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2520,7 +2877,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2537,7 +2894,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2549,7 +2906,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2561,7 +2918,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2573,7 +2930,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2604,7 +2961,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLower:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2616,7 +2973,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteLower:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteLower:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2628,7 +2985,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteUpper:animation")
+tracks/2/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -2640,7 +2997,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteUpper:frame")
+tracks/3/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -2671,7 +3028,7 @@ step = 0.0667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2683,7 +3040,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2700,7 +3057,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2712,7 +3069,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2729,7 +3086,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteUpper:animation")
+tracks/0/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:animation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -2741,7 +3098,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteUpper:frame")
+tracks/1/path = NodePath("SpritePivot/SpriteContainer/SpriteUpper:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -2758,11 +3115,14 @@ _data = {
 &"dash": SubResource("Animation_26ehw"),
 &"full_climb_back": SubResource("Animation_xgxvu"),
 &"full_climb_back_idle": SubResource("Animation_s7qer"),
+&"full_climb_side": SubResource("Animation_mikk3"),
 &"full_death": SubResource("Animation_gswnw"),
 &"full_idle": SubResource("Animation_art4l"),
 &"full_jump": SubResource("Animation_hjies"),
+&"full_ledge_grab_climb": SubResource("Animation_ebdw7"),
 &"full_standing_katana_attack": SubResource("Animation_j55il"),
 &"full_walk": SubResource("Animation_xcnuv"),
+&"full_wall_land": SubResource("Animation_mteo0"),
 &"lower_blank": SubResource("Animation_ge24q"),
 &"lower_crouch_idle": SubResource("Animation_5ntu2"),
 &"lower_idle": SubResource("Animation_ebec5"),
@@ -2781,52 +3141,70 @@ _data = {
 &"upper_walk": SubResource("Animation_fmu53")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7qer"]
-size = Vector2(37, 20)
-
 [node name="Player" type="Node2D" unique_id=1696343506]
 
 [node name="PlayerBody" type="CharacterBody2D" parent="." unique_id=411922790 groups=["player"]]
 modulate = Color(0.19607843, 0.19607843, 0.9529412, 1)
+position = Vector2(5, 3)
 collision_layer = 7
 collision_mask = 3
 floor_snap_length = 8.0
 script = ExtResource("1_rgyib")
-SPEED = 180.0
-JUMP_VELOCITY = -640.0
-DOUBLE_JUMP_VELOCITY = -640.0
-ROLL_BOOST = 240.0
-DASH_BOOST = 240.0
 metadata/_edit_group_ = true
-
-[node name="Lantern" type="PointLight2D" parent="PlayerBody" unique_id=1230084726]
-energy = 0.5
-texture = ExtResource("24_g4c7l")
-texture_scale = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody" unique_id=158208042]
 offset = Vector2(0, -90)
 zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+position_smoothing_speed = 20.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 20.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 script = ExtResource("6_knn7v")
 
-[node name="SpriteLower" type="AnimatedSprite2D" parent="PlayerBody" unique_id=165991947]
+[node name="SpritePivot" type="Node2D" parent="PlayerBody" unique_id=786688240]
+
+[node name="HazardDetector" type="Area2D" parent="PlayerBody/SpritePivot" unique_id=187329462]
+visible = false
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/SpritePivot/HazardDetector" unique_id=2047063787]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_whnp6")
+
+[node name="WallDetector" type="RayCast2D" parent="PlayerBody/SpritePivot" unique_id=1727189102]
+target_position = Vector2(7, 0)
+
+[node name="LedgeDetector" type="RayCast2D" parent="PlayerBody/SpritePivot" unique_id=1512534956]
+position = Vector2(0, -2)
+target_position = Vector2(7, 0)
+
+[node name="Lantern" type="PointLight2D" parent="PlayerBody/SpritePivot" unique_id=1230084726]
+energy = 0.5
+texture = ExtResource("24_g4c7l")
+texture_scale = 0.5
+
+[node name="SpriteContainer" type="Node2D" parent="PlayerBody/SpritePivot" unique_id=1631799623]
+
+[node name="SpriteLower" type="AnimatedSprite2D" parent="PlayerBody/SpritePivot/SpriteContainer" unique_id=165991947]
 sprite_frames = SubResource("SpriteFrames_r7pn3")
 animation = &"run"
 frame = 3
 
-[node name="SpriteUpper" type="AnimatedSprite2D" parent="PlayerBody" unique_id=977583352]
+[node name="SpriteUpper" type="AnimatedSprite2D" parent="PlayerBody/SpritePivot/SpriteContainer" unique_id=977583352]
 sprite_frames = SubResource("SpriteFrames_jd2rm")
 animation = &"idle"
 
+[node name="AttackArea" type="Area2D" parent="PlayerBody/SpritePivot" unique_id=1801243557]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/SpritePivot/AttackArea" unique_id=2060684666]
+position = Vector2(15.5, 0)
+shape = SubResource("RectangleShape2D_s7qer")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody" unique_id=49677294]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_whnp6")
-
-[node name="HazardDetector" type="Area2D" parent="PlayerBody" unique_id=187329462]
-visible = false
-collision_mask = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/HazardDetector" unique_id=2047063787]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_whnp6")
 
@@ -2848,10 +3226,14 @@ parameters/UpperState/conditions/is_not_double_jumping = false
 parameters/UpperState/conditions/is_not_falling = false
 parameters/UpperState/conditions/is_not_jumping = false
 parameters/UpperState/conditions/is_not_on_ladder = false
+parameters/UpperState/conditions/is_not_on_ledge = false
+parameters/UpperState/conditions/is_not_on_wall = false
 parameters/UpperState/conditions/is_not_rolling = false
 parameters/UpperState/conditions/is_not_running = false
 parameters/UpperState/conditions/is_not_walking = false
 parameters/UpperState/conditions/is_on_ladder = false
+parameters/UpperState/conditions/is_on_ledge = false
+parameters/UpperState/conditions/is_on_wall = false
 parameters/UpperState/conditions/is_rolling = false
 parameters/UpperState/conditions/is_running = false
 parameters/UpperState/conditions/is_walking = false
@@ -2870,10 +3252,14 @@ parameters/LowerState/conditions/is_not_double_jumping = false
 parameters/LowerState/conditions/is_not_falling = false
 parameters/LowerState/conditions/is_not_jumping = false
 parameters/LowerState/conditions/is_not_on_ladder = false
+parameters/LowerState/conditions/is_not_on_ledge = false
+parameters/LowerState/conditions/is_not_on_wall = false
 parameters/LowerState/conditions/is_not_rolling = false
 parameters/LowerState/conditions/is_not_running = false
 parameters/LowerState/conditions/is_not_walking = false
 parameters/LowerState/conditions/is_on_ladder = false
+parameters/LowerState/conditions/is_on_ledge = false
+parameters/LowerState/conditions/is_on_wall = false
 parameters/LowerState/conditions/is_rolling = false
 parameters/LowerState/conditions/is_running = false
 parameters/LowerState/conditions/is_walking = false
@@ -2882,14 +3268,7 @@ parameters/ClimbScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerBody" unique_id=234749464]
 libraries/ = SubResource("AnimationLibrary_fmu53")
-
-[node name="AttackArea" type="Area2D" parent="PlayerBody" unique_id=1801243557]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/AttackArea" unique_id=2060684666]
-position = Vector2(15.5, 0)
-shape = SubResource("RectangleShape2D_s7qer")
+speed_scale = 0.317
 
 [node name="Victory" type="Sprite2D" parent="." unique_id=699303484]
 visible = false
